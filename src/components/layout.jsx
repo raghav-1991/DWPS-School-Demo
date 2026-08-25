@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { NAV, FOOTER_COLS, ENQUIRY_URL, SOCIAL } from "../data/site.js";
 import { useReveal } from "./ui.jsx";
@@ -56,19 +57,22 @@ function EnquiryModal({ open, onClose }) {
   if (!open) return null;
   return (
     <div className="modal" role="dialog" aria-modal="true" aria-label="Enquire Now" onClick={onClose}>
-      <div className="modal__panel formcard" onClick={(e) => e.stopPropagation()}>
-        <button className="modal__close iconbtn" aria-label="Close" onClick={onClose}>
+      <form
+        className="modal__panel formcard"
+        onClick={(e) => e.stopPropagation()}
+        onSubmit={(e) => { e.preventDefault(); window.open(ENQUIRY_URL, "_blank", "noopener,noreferrer"); }}
+      >
+        <button type="button" className="modal__close iconbtn" aria-label="Close" onClick={onClose}>
           <svg width="18" height="18" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/></svg>
         </button>
         <h3 className="modal__title">Start your enquiry</h3>
         <p className="modal__sub">Fill in a few details and our Admissions Office will get back to you.</p>
-        <div className="fld"><label>Student's name</label><input placeholder="Full name" /></div>
-        <div className="fld"><label>Grade applying for</label><input placeholder="e.g. Grade I" /></div>
-        <div className="fld"><label>Parent's phone</label><input placeholder="Mobile number" /></div>
-        <div className="fld"><label>Message</label><textarea placeholder="Anything you'd like us to know" /></div>
-        <a href={ENQUIRY_URL} target="_blank" rel="noopener noreferrer" className="btn btn--green btn--lg" style={{ width: "100%" }}>Submit Enquiry →</a>
+        <div className="fld"><label>Student's name</label><input required placeholder="Full name" /></div>
+        <div className="fld"><label>Grade applying for</label><input required placeholder="e.g. Grade I" /></div>
+        <div className="fld"><label>Parent's phone</label><input required placeholder="Mobile number" /></div>
+        <button type="submit" className="btn btn--green btn--lg" style={{ width: "100%" }}>Submit Enquiry →</button>
         <p className="band__note band__note--dark" style={{ marginTop: ".7rem" }}>This form links to our official enquiry portal.</p>
-      </div>
+      </form>
     </div>
   );
 }
@@ -77,6 +81,7 @@ function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(null);
   const [mobile, setMobile] = useState(false);
+  const [mobileSub, setMobileSub] = useState(null);
   const [enquireOpen, setEnquireOpen] = useState(false);
   const loc = useLocation();
   useEffect(() => {
@@ -84,7 +89,7 @@ function Header() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-  useEffect(() => { setMobile(false); setOpen(null); }, [loc.pathname]);
+  useEffect(() => { setMobile(false); setOpen(null); setMobileSub(null); }, [loc.pathname]);
 
   return (
     <header className={cx("hdr", scrolled && "hdr--compact")}>
@@ -124,24 +129,42 @@ function Header() {
         </div>
       </div>
 
-      <EnquiryModal open={enquireOpen} onClose={() => setEnquireOpen(false)} />
+      {createPortal(<EnquiryModal open={enquireOpen} onClose={() => setEnquireOpen(false)} />, document.body)}
 
-      {mobile && (
-        <div className="msheet" role="dialog" aria-modal="true">
-          <div className="msheet__top">
-            <Logo />
-            <button className="iconbtn" aria-label="Close" onClick={() => setMobile(false)}>
-              <svg width="22" height="22" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/></svg>
-            </button>
+      {mobile && createPortal(
+        <div className="msheet-backdrop" onClick={() => setMobile(false)}>
+          <div className="msheet" role="dialog" aria-modal="true" onClick={(e) => e.stopPropagation()}>
+            <div className="msheet__top">
+              <Logo />
+              <button className="iconbtn" aria-label="Close" onClick={() => setMobile(false)}>
+                <svg width="22" height="22" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/></svg>
+              </button>
+            </div>
+            <nav className="msheet__nav">
+              {NAV.map((n) => n.menu ? (
+                <div key={n.label} className={cx("msheet__group", mobileSub === n.label && "is-open")}>
+                  <button className="msheet__link msheet__toggle" onClick={() => setMobileSub(mobileSub === n.label ? null : n.label)}>
+                    {n.label}<i className="msheet__chev" />
+                  </button>
+                  <div className="msheet__sub">
+                    <div className="msheet__sub-inner">
+                      {n.menu.flatMap((col) => col.items).map(([label, to]) => (
+                        <Link key={label} to={to} className="msheet__sublink">{label}</Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <Link key={n.label} to={n.to} className="msheet__link">{n.label}</Link>
+              ))}
+            </nav>
+            <div className="msheet__cta">
+              <Link to="/admissions" className="btn btn--green">Admissions 2027–28</Link>
+              <a href={ENQUIRY_URL} target="_blank" rel="noopener noreferrer" className="btn btn--outline-green">Enquire Now</a>
+            </div>
           </div>
-          <nav className="msheet__nav">
-            {NAV.map((n) => <Link key={n.label} to={n.to} className="msheet__link">{n.label}</Link>)}
-          </nav>
-          <div className="msheet__cta">
-            <Link to="/admissions" className="btn btn--green">Admissions 2027–28</Link>
-            <a href={ENQUIRY_URL} target="_blank" rel="noopener noreferrer" className="btn btn--outline-green">Enquire Now</a>
-          </div>
-        </div>
+        </div>,
+        document.body
       )}
     </header>
   );

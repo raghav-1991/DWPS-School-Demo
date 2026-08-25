@@ -284,14 +284,14 @@ function Enquiry() {
         <p>Submit the form and our Admissions Office will get in touch. Prefer to talk? Call {PHONES[0]} or {PHONES[1]}.</p>
         <a href={ENQUIRY_URL} target="_blank" rel="noopener noreferrer" className="btn btn--gold btn--lg">Open Enquiry Form</a>
       </div>
-      <div className="formcard">
-        <div className="fld"><label>Student's name</label><input placeholder="Full name" /></div>
-        <div className="fld"><label>Grade applying for</label><input placeholder="e.g. Grade I" /></div>
-        <div className="fld"><label>Parent's phone</label><input placeholder="Mobile number" /></div>
+      <form className="formcard" onSubmit={(e) => { e.preventDefault(); window.open(ENQUIRY_URL, "_blank", "noopener,noreferrer"); }}>
+        <div className="fld"><label>Student's name</label><input required placeholder="Full name" /></div>
+        <div className="fld"><label>Grade applying for</label><input required placeholder="e.g. Grade I" /></div>
+        <div className="fld"><label>Parent's phone</label><input required placeholder="Mobile number" /></div>
         <div className="fld"><label>Message</label><textarea placeholder="Anything you'd like us to know" /></div>
-        <a href={ENQUIRY_URL} target="_blank" rel="noopener noreferrer" className="btn btn--green btn--lg" style={{ width: "100%" }}>Submit Enquiry →</a>
+        <button type="submit" className="btn btn--green btn--lg" style={{ width: "100%" }}>Submit Enquiry →</button>
         <p className="band__note band__note--dark" style={{ marginTop: ".8rem" }}>This form links to the official enquiry portal.</p>
-      </div>
+      </form>
     </div>
   );
 }
@@ -314,16 +314,16 @@ function Contact() {
             loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
         </div>
       </div>
-      <div className="formcard">
+      <form className="formcard" onSubmit={(e) => { e.preventDefault(); window.open(ENQUIRY_URL, "_blank", "noopener,noreferrer"); }}>
         <h3 style={{ marginTop: 0 }}>Send us a message</h3>
-        <div className="fld"><label>Full name</label><input placeholder="Your name" /></div>
-        <div className="fld"><label>Email address</label><input type="email" placeholder="you@example.com" /></div>
-        <div className="fld"><label>Phone number</label><input placeholder="Mobile number" /></div>
+        <div className="fld"><label>Full name</label><input required placeholder="Your name" /></div>
+        <div className="fld"><label>Email address</label><input required type="email" placeholder="you@example.com" /></div>
+        <div className="fld"><label>Phone number</label><input required placeholder="Mobile number" /></div>
         <div className="fld"><label>Subject</label><input placeholder="What is this regarding?" /></div>
         <div className="fld"><label>Message</label><textarea placeholder="Tell us how we can help" /></div>
-        <a href={ENQUIRY_URL} target="_blank" rel="noopener noreferrer" className="btn btn--green btn--lg" style={{ width: "100%" }}>Submit Enquiry →</a>
+        <button type="submit" className="btn btn--green btn--lg" style={{ width: "100%" }}>Submit Enquiry →</button>
         <p className="band__note band__note--dark" style={{ marginTop: ".8rem" }}>This form links to our official enquiry portal.</p>
-      </div>
+      </form>
     </div>
   );
 }
