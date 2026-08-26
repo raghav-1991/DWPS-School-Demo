@@ -21,16 +21,6 @@ export const NAV = [
   ]},
   { label: "Campus", to: "/campus" },
   { label: "Mandatory Disclosure", to: "/mandatory-disclosure" },
-  { label: "Discover Us", to: "/admissions", menu: [
-    { h: "Explore", items: [
-      ["Admissions", "/admissions"],
-      ["Student Life", "/student-life"],
-      ["Co-Curricular Activities", "/co-curricular"],
-      ["Kindergarten", "/kindergarten"],
-      ["Achievements", "/achievements"],
-      ["Events & News", "/events-news"],
-    ]},
-  ]},
   { label: "Careers", to: "/careers" },
   { label: "Contact", to: "/contact-us" },
 ];

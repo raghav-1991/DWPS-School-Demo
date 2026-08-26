@@ -130,3 +130,40 @@ export const CTASection = ({ title, sub }) => (
     </div>
   </section>
 );
+
+/* Auto-advancing testimonial card — pauses on hover, respects reduced-motion. */
+export function Testimonials({ items }) {
+  const [ti, setTi] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const t = items[ti];
+
+  useEffect(() => {
+    if (paused) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const id = setInterval(() => setTi((p) => (p + 1) % items.length), 5500);
+    return () => clearInterval(id);
+  }, [paused, items.length]);
+
+  return (
+    <div className="testi__inner">
+      <Eyebrow>In Their Words</Eyebrow>
+      <div className="testi__card" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
+        <span className="testi__mark" aria-hidden="true">“</span>
+        <blockquote className="testi__quote">{t.text}</blockquote>
+        <div className="testi__foot">
+          <div className="testi__who"><strong>{t.name}</strong><span>{t.rel}</span></div>
+          <div className="testi__nav">
+            <button className="iconbtn" aria-label="Previous" onClick={() => setTi((ti - 1 + items.length) % items.length)}><svg width="20" height="20" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" stroke="currentColor" strokeWidth="1.7" fill="none" strokeLinecap="round"/></svg></button>
+            <button className="iconbtn" aria-label="Next" onClick={() => setTi((ti + 1) % items.length)}><svg width="20" height="20" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="1.7" fill="none" strokeLinecap="round"/></svg></button>
+          </div>
+        </div>
+      </div>
+      <div className="testi__dots">
+        {items.map((_, idx) => (
+          <button key={idx} className={"testi__dot" + (idx === ti ? " is-on" : "")} aria-label={"Testimonial " + (idx + 1)} onClick={() => setTi(idx)} />
+        ))}
+      </div>
+      <p className="band__note band__note--dark">Placeholders shown — testimonials are CMS-driven and must be authentic.</p>
+    </div>
+  );
+}

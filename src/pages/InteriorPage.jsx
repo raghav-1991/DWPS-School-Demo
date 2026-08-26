@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Band, SectionHead, Eyebrow, Arrow, Media, PageHero, CTASection } from "../components/ui.jsx";
+import { Band, SectionHead, Eyebrow, Arrow, Media, PageHero, CTASection, Testimonials } from "../components/ui.jsx";
 import { Breadcrumbs } from "../components/layout.jsx";
 import { CONTENT } from "../data/content.js";
+import { TESTIMONIALS } from "../data/home.js";
 import { img, slug } from "../lib/assets.js";
 import { ENQUIRY_URL, PHONES } from "../data/site.js";
 
@@ -331,19 +332,23 @@ function Contact() {
 /* ---- band tone rotation so long pages don't feel flat ---- */
 const TONES = ["paper", "paper2", "cream"];
 
+const TestimonialsBlock = () => <Testimonials items={TESTIMONIALS} />;
+
 function Block({ b, tone }) {
   const map = {
     prose: Prose, prose_media: ProseMedia, cards: Cards, features: Features, facilities: Facilities, steps: Steps, stages: Stages,
     faqs: Faqs, downloads: Downloads, downloads_like: DownloadsLike, news: News,
     achstats: AchStats, leaders: Leaders, jobs: Jobs, gallery: Gallery, note: Note,
     enquiry: Enquiry, contact: Contact, career: CareerForm, members: Members,
+    testimonials: TestimonialsBlock,
   };
   if (b.type === "cta") return <CTASection />;
   const Cmp = map[b.type];
   if (!Cmp) return null;
   const dark = b.type === "leaders";
-  const cls = b.type === "prose_media" ? "split" : undefined;
-  return <Band tone={dark ? "dark" : tone} className={cls}><Cmp b={b} /></Band>;
+  const cls = b.type === "prose_media" ? "split" : b.type === "testimonials" ? "testi" : undefined;
+  const forcedTone = b.type === "testimonials" ? "cream" : tone;
+  return <Band tone={dark ? "dark" : forcedTone} className={cls}><Cmp b={b} /></Band>;
 }
 
 export default function InteriorPage({ slug: key }) {

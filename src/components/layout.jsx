@@ -40,7 +40,7 @@ function AnnouncementBar() {
   const text = "ADMISSIONS OPEN 2027–28  ·  Admissions are now open for the Academic Year 2027–28. Submit the enquiry form or contact our Admissions Office: 9611360631 | 9611457761  ·  ";
   return (
     <div className="ann">
-      <span className="ann__badge">Admissions 2027–28</span>
+      <span className="ann__badge">Announcement</span>
       <div className="ann__viewport"><div className="ann__track">{[0, 1].map((i) => <span key={i} className="ann__item">{text}</span>)}</div></div>
     </div>
   );
@@ -90,6 +90,12 @@ function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
   useEffect(() => { setMobile(false); setOpen(null); setMobileSub(null); }, [loc.pathname]);
+  useEffect(() => {
+    // Only auto-show on initial entry via the home page — not on every navigation to "/".
+    if (loc.pathname !== "/") return;
+    const id = setTimeout(() => setEnquireOpen(true), 1500);
+    return () => clearTimeout(id);
+  }, []);
 
   return (
     <header className={cx("hdr", scrolled && "hdr--compact")}>
@@ -180,8 +186,13 @@ function Footer() {
             <div className="ftlogo__text"><strong>Delhi World Public School</strong><span>Under the aegis of Delhi World Foundation · CBSE 831712</span></div>
           </div>
           <p className="ft__tag">A future-ready school where education, character, technology, creativity and excellence come together.</p>
-          <a href={ENQUIRY_URL} target="_blank" rel="noopener noreferrer" className="btn btn--gold">Admissions 2027–28</a>
-          <div className="ft__social">{SOCIAL.map((s) => <a key={s.name} href={s.url} target="_blank" rel="noopener noreferrer" className="ft__soc">{s.name}</a>)}</div>
+          <div className="ft__social">
+            {SOCIAL.map((s) => (
+              <a key={s.name} href={s.url} target="_blank" rel="noopener noreferrer" className="ft__soc" aria-label={s.name}>
+                <SocialIcon name={s.name} />
+              </a>
+            ))}
+          </div>
         </div>
         {FOOTER_COLS.map((c) => (
           <div key={c.h} className="ft__col">

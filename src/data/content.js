@@ -27,35 +27,33 @@ export const CONTENT = {
     "items": [
      {
       "name": "Our Story",
-      "note": "DWPS began with a simple conviction: that a school should feel like a community long before it feels like an institution. Over the years, that idea has shaped everything from our classrooms to our culture, growing into the future-ready school families recognise today.",
+      "note": "Delhi World Public School is part of the prestigious Delhi World Foundation, an initiative led by distinguished alumni of Delhi Public Schools. That lineage shaped a school built on the idea that education should be modern and rigorous, yet still rooted in Indian values.",
       "to": "/about-us/our-story"
      },
      {
-      "name": "Vision & Mission",
-      "note": "Our vision is to nurture confident, capable young people who are ready for a changing world — academically strong, personally grounded and genuinely curious. Our mission translates that vision into daily practice: a CBSE curriculum taught with care, and character built alongside knowledge.",
+      "name": "Vision",
+      "note": "Our vision is to provide modern, high-quality education rooted in Indian values and enriched with a global outlook — developing confident young minds who become responsible citizens contributing meaningfully to society, at every stage from Kindergarten to Secondary.",
       "to": "/about-us/vision-mission"
      },
      {
-      "name": "Management",
-      "note": "DWPS is guided by a management team that brings together years of experience in education, governance and institution-building. They set the direction for the school's growth while staying closely involved in the decisions that shape everyday student life, from academics to campus development.",
-      "to": "/about-us/management"
+      "name": "Mission",
+      "note": "Our mission is to spark curiosity and encourage children to explore, question and discover. Learning extends beyond classrooms into labs, libraries and activity spaces, fostering independent thinking, strong values and genuine readiness for life.",
+      "to": "/about-us/vision-mission"
      },
      {
-      "name": "Academics",
-      "note": "Our academic programme follows the CBSE curriculum but goes beyond it, pairing structured learning with understanding-first teaching methods. From Pre-Primary through Secondary, assessment is designed to track real growth — not just marks — so every stage builds on the one before it.",
-      "to": "/about-us/academics"
+      "name": "Core Values",
+      "note": "Academic excellence, Indian values with a global outlook, learning by doing, and compassion for community — the four commitments that shape how DWPS teaches, not just what it teaches, in every classroom and every stage.",
+      "to": "/about-us/vision-mission"
      },
      {
-      "name": "Life Trustee",
-      "note": "The Life Trustee provides long-term stewardship for the school's mission, ensuring that DWPS stays true to its founding values even as it grows and evolves. This role anchors the institution's governance, offering continuity across generations of students and staff.",
-      "to": "/about-us/life-trustee"
-     },
-     {
-      "name": "Advisory Council",
-      "note": "Our Advisory Council brings outside perspective to the school's decisions, offering guidance on academics, infrastructure and long-term planning. Drawing on experience across education and other fields, the Council helps DWPS make thoughtful, well-informed choices for its future.",
-      "to": "/about-us/advisory-council"
+      "name": "School Philosophy",
+      "note": "DWPS is committed to shaping young minds through a balanced blend of academics, co-curricular engagement and character building — with concept clarity, communication skills, creative exploration, sport and value-based learning at the centre of every classroom.",
+      "to": "/about-us/vision-mission"
      }
     ]
+   },
+   {
+    "type": "testimonials"
    },
    {
     "type": "cta"
@@ -143,6 +141,13 @@ export const CONTENT = {
       "note": "Holistic development through sports, arts and a strong teacher-student bond.",
       "icon": "4"
      }
+    ]
+   },
+   {
+    "type": "prose",
+    "heading": "School Philosophy",
+    "paras": [
+     "DWPS is committed to shaping young minds through a balanced blend of academics, co-curricular engagement and character building. Our approach centres on concept clarity and academic discipline, the development of speaking and communication skills, creative and artistic exploration, physical education and sports participation, and value-based learning — so every child grows in the classroom and well beyond it."
     ]
    },
    {

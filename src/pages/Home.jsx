@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { Band, SectionHead, Eyebrow, Arrow, Media, CountUp, CTASection } from "../components/ui.jsx";
+import { Band, SectionHead, Eyebrow, Arrow, Media, CountUp, CTASection, Testimonials } from "../components/ui.jsx";
 import { img, slug } from "../lib/assets.js";
 import {
-  HERO_SLIDES, STATS, EXPLORE, STAGES,
-  EVENTS, LEADERS, GALLERY, TESTIMONIALS,
+  HERO_SLIDES, STATS, EXPLORE,
+  GALLERY, TESTIMONIALS,
 } from "../data/home.js";
 
 // Hero background plays only this segment of the source video, then loops back.
@@ -60,9 +60,6 @@ function Hero() {
 }
 
 export default function Home() {
-  const [ti, setTi] = useState(0);
-  const [testiPaused, setTestiPaused] = useState(false);
-  const t = TESTIMONIALS[ti];
   const exploreRail = useRef(null);
   const scrollExplore = (dir) => {
     const el = exploreRail.current;
@@ -71,13 +68,6 @@ export default function Home() {
     const step = (card ? card.getBoundingClientRect().width : 240) + 18;
     el.scrollBy({ left: dir * step, behavior: "smooth" });
   };
-
-  useEffect(() => {
-    if (testiPaused) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const id = setInterval(() => setTi((p) => (p + 1) % TESTIMONIALS.length), 5500);
-    return () => clearInterval(id);
-  }, [testiPaused]);
 
   return (
     <>
@@ -138,59 +128,9 @@ export default function Home() {
         </div>
       </Band>
 
-      {/* Academics */}
-      <Band tone="paper2" className="acad">
-        <SectionHead eyebrow="Academics" title={<>Learning that<br/>builds tomorrow.</>}
-          aside="A CBSE curriculum delivered through understanding, not memorisation — with assessment that tracks growth, not just grades." />
-        <div className="grid grid--4">
-          {STAGES.map((st) => (
-            <div key={st.n} className="stage">
-              <span className="stage__n">{st.n}</span>
-              <Media src={img("academics-" + slug(st.name) + ".jpg")} alt={st.name} ratio="1 / 1" className="stage__media" />
-              <h3 className="stage__name">{st.name}</h3>
-              <p className="stage__note">{st.note}</p>
-            </div>
-          ))}
-        </div>
-        <div className="acad__foot">
-          <div className="pills"><span className="pill">CBSE Curriculum</span><span className="pill">Teaching Methodology</span><span className="pill">Assessment System</span></div>
-          <Link to="/about-us/academics" className="link">Explore Academics <Arrow /></Link>
-        </div>
-      </Band>
-
-      {/* Events */}
-      <Band tone="paper">
-        <SectionHead eyebrow="Events & News" title={<>Life at DWPS,<br/>as it happens.</>}
-          action={{ to: "/events-news", label: "View all news" }} />
-        <div className="grid grid--3">
-          {EVENTS.map((e) => (
-            <Link key={e.cat} to="/events-news" className="ncard">
-              <Media src={img("event-" + slug(e.cat) + ".jpg")} alt={e.cat + " — DWPS photograph"} ratio="4 / 3" className="card__media" />
-              <div className="ncard__meta"><span className="ncard__cat">{e.cat}</span><span className="ncard__date">{e.date}</span></div>
-              <p className="ncard__title">{e.title}</p>
-              <span className="card__more">Read story <Arrow /></span>
-            </Link>
-          ))}
-        </div>
-      </Band>
-
-      {/* Leadership */}
-      <Band tone="dark" className="lead">
-        <SectionHead dark eyebrow="Leadership" title={<>Guided by people<br/>who mean it.</>} />
-        <div className="grid grid--3">
-          {LEADERS.map((l) => (
-            <figure key={l.role} className="lcard">
-              <Media src={img("leader-" + slug(l.role) + ".jpg")} alt={l.role + " — portrait"} ratio="1 / 1" className="lcard__media" />
-              <blockquote className="lcard__quote">“{l.quote}”</blockquote>
-              <figcaption className="lcard__cap"><strong>{l.name}</strong><span>{l.role}'s Message</span></figcaption>
-            </figure>
-          ))}
-        </div>
-      </Band>
-
       {/* Gallery */}
-      <Band tone="paper">
-        <SectionHead eyebrow="Gallery" title="Experience DWPS through images."
+      <Band tone="paper" className="gallery-band">
+        <SectionHead dark eyebrow="Gallery" title="Experience DWPS through images."
           action={{ to: "/gallery", label: "Open full gallery" }} />
         <div className="masonry">
           {GALLERY.map((g, i) => (
@@ -203,26 +143,7 @@ export default function Home() {
 
       {/* Testimonials */}
       <Band tone="cream" className="testi">
-        <div className="testi__inner">
-          <Eyebrow>In Their Words</Eyebrow>
-          <div className="testi__card" onMouseEnter={() => setTestiPaused(true)} onMouseLeave={() => setTestiPaused(false)}>
-            <span className="testi__mark" aria-hidden="true">“</span>
-            <blockquote className="testi__quote">{t.text}</blockquote>
-            <div className="testi__foot">
-              <div className="testi__who"><strong>{t.name}</strong><span>{t.rel}</span></div>
-              <div className="testi__nav">
-                <button className="iconbtn" aria-label="Previous" onClick={() => setTi((ti - 1 + TESTIMONIALS.length) % TESTIMONIALS.length)}><svg width="20" height="20" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" stroke="currentColor" strokeWidth="1.7" fill="none" strokeLinecap="round"/></svg></button>
-                <button className="iconbtn" aria-label="Next" onClick={() => setTi((ti + 1) % TESTIMONIALS.length)}><svg width="20" height="20" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="1.7" fill="none" strokeLinecap="round"/></svg></button>
-              </div>
-            </div>
-          </div>
-          <div className="testi__dots">
-            {TESTIMONIALS.map((_, idx) => (
-              <button key={idx} className={"testi__dot" + (idx === ti ? " is-on" : "")} aria-label={"Testimonial " + (idx + 1)} onClick={() => setTi(idx)} />
-            ))}
-          </div>
-          <p className="band__note band__note--dark">Placeholders shown — testimonials are CMS-driven and must be authentic.</p>
-        </div>
+        <Testimonials items={TESTIMONIALS} />
       </Band>
 
       <CTASection />
