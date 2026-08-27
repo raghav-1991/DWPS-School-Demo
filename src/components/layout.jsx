@@ -36,10 +36,10 @@ const Logo = ({ compact }) => (
   </Link>
 );
 
-function AnnouncementBar() {
+function AnnouncementBar({ inner }) {
   const text = "ADMISSIONS OPEN 2027–28  ·  Admissions are now open for the Academic Year 2027–28. Submit the enquiry form or contact our Admissions Office: 9611360631 | 9611457761  ·  ";
   return (
-    <div className="ann">
+    <div className={cx("ann", inner && "ann--inner")}>
       <span className="ann__badge">Announcement</span>
       <div className="ann__viewport"><div className="ann__track">{[0, 1].map((i) => <span key={i} className="ann__item">{text}</span>)}</div></div>
     </div>
@@ -260,7 +260,7 @@ export default function Layout() {
   return (
     <div className="dwps">
       <Header />
-      <AnnouncementBar />
+      <AnnouncementBar inner={loc.pathname !== "/"} />
       <main><Outlet /></main>
       <Footer />
       <MobileStickyCTA />

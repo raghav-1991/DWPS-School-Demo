@@ -130,6 +130,7 @@ body{margin:0;}
 
 /* ---- announcement ---- */
 .ann{display:flex;align-items:stretch;background:var(--green-deep);color:var(--paper);border-bottom:1px solid rgba(255,255,255,.08);font-size:14px;position:relative;z-index:60;}
+.ann--inner{background:#343131;}
 .ann__badge{background:var(--gold);color:#251603;font-weight:800;font-family:'Inter',sans-serif;padding:.55rem 1.1rem;display:flex;align-items:center;font-size:14px;white-space:nowrap;}
 .ann__viewport{flex:1;overflow:hidden;display:flex;align-items:center;}
 .ann__track{display:flex;white-space:nowrap;animation:marquee 34s linear infinite;}
@@ -229,6 +230,7 @@ body{margin:0;}
 .fac__inner{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:2.6rem;padding:3rem 80px;}
 .fac:nth-child(even) .fac__inner{flex-direction:row-reverse;}
 .fac__mediawrap{position:relative;flex:0 0 42%;}
+.fac__mediawrap .card__media{border-radius:20px !important;}
 .fac__badge{position:absolute;top:14px;left:14px;z-index:6;font-family:'Inter',sans-serif;font-weight:800;font-size:.7rem;letter-spacing:.08em;color:rgba(245,243,236,.92);background:rgba(4,36,26,.55);backdrop-filter:blur(6px);padding:.32rem .7rem;border-radius:20px;}
 .fac__badge em{font-style:normal;opacity:.82;font-weight:600;text-transform:uppercase;}
 .fac__body{display:flex;flex-direction:column;flex:1;}
@@ -336,7 +338,7 @@ body{margin:0;}
    INTERIOR PAGES
    =========================================================================== */
 .phero{position:relative;background:var(--green-deep);color:var(--paper);overflow:hidden;padding:78px var(--pad-x) 54px;}
-.phero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.34;filter:brightness(1.3);}
+.phero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.6;filter:brightness(1.4);}
 .phero__scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,36,26,.7),rgba(4,36,26,.92));}
 .phero__grid{position:absolute;inset:0;opacity:.4;background-image:linear-gradient(rgba(111,227,168,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(111,227,168,.06) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(120% 90% at 80% 0%,#000,transparent 72%);}
 .phero__inner{position:relative;max-width:var(--maxw);margin:0 auto;}
