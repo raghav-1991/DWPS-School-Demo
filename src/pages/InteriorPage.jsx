@@ -50,25 +50,56 @@ const Cards = ({ b }) => (
   </>
 );
 
+/* One relevant icon per Explore topic. */
+const xIconProps = { width: 24, height: 24, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.6, strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": true };
+const StoryIcon = () => (<svg {...xIconProps}><path d="M12 6.5c-1.8-1.3-4-2-7-2v13c3 0 5.2.7 7 2 1.8-1.3 4-2 7-2V4.5c-3 0-5.2.7-7 2Z" /><path d="M12 6.5v13" /></svg>);
+const VisionIcon = () => (<svg {...xIconProps}><path d="M2 12s3.5-6.5 10-6.5S22 12 22 12s-3.5 6.5-10 6.5S2 12 2 12Z" /><circle cx="12" cy="12" r="3" /></svg>);
+const MissionIcon = () => (<svg {...xIconProps}><circle cx="12" cy="12" r="8.5" /><circle cx="12" cy="12" r="4.5" /><circle cx="12" cy="12" r=".6" fill="currentColor" stroke="none" /></svg>);
+const ValuesIcon = () => (<svg {...xIconProps}><path d="M20.8 6.6a5.5 5.5 0 0 0-7.8 0L12 7.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 23l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8Z" /></svg>);
+const PhilosophyIcon = () => (<svg {...xIconProps}><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.4 1 .9 1.1 1.6l.1.5h4.6l.1-.5c.1-.7.5-1.2 1.1-1.6A6 6 0 0 0 12 3Z" /><path d="M9.8 18.5h4.4M10.6 21h2.8" /></svg>);
+const XBOX_ICONS = { "Our Story": StoryIcon, "Vision": VisionIcon, "Mission": MissionIcon, "Core Values": ValuesIcon, "School Philosophy": PhilosophyIcon };
+
+/* 5 white, shadowed cards on a grey band — used for the About Us "Explore" section (no inner links). */
+const ExploreSplit = ({ b }) => (
+  <>
+    {b.title && <SectionHead eyebrow="Explore" title={b.title} aside={b.aside} />}
+    <div className="xboxes">
+      {b.items.map((c) => {
+        const Icon = XBOX_ICONS[c.name] || StoryIcon;
+        return (
+          <div key={c.name} className="xbox">
+            <span className="xbox__icon"><Icon /></span>
+            <h3 className="xbox__name">{c.name}</h3>
+            <p className="xbox__note">{c.note}</p>
+          </div>
+        );
+      })}
+    </div>
+  </>
+);
+
 const Facilities = ({ b }) => (
   <>
     {b.title && <SectionHead eyebrow={b.eyebrow || "Explore"} title={b.title} />}
     <div className="facilities">
       {b.items.map((f) => (
         <Link key={f.n} to={f.to} className="fac">
-          <span className="fac__n">{f.n}</span>
-          <div className="fac__body">
-            {f.cat && <span className="fac__cat">{f.cat}</span>}
-            <h3 className="fac__name">{f.name}</h3>
-            <p className="fac__note">{f.note}</p>
-            {f.bullets && (
-              <ul className="fac__bullets">
-                {f.bullets.map((bl, i) => <li key={i}>{bl}</li>)}
-              </ul>
-            )}
-            <span className="card__more">Read more <Arrow /></span>
+          <div className="fac__inner">
+            <div className="fac__mediawrap">
+              <Media src={img("campus-" + slug(f.name) + ".jpg")} alt={f.name + " — DWPS photograph"} ratio="4 / 3" className="card__media" />
+              <span className="fac__badge">{f.n}{f.cat && <em> · {f.cat}</em>}</span>
+            </div>
+            <div className="fac__body">
+              <h3 className="fac__name">{f.name}</h3>
+              <p className="fac__note">{f.note}</p>
+              {f.bullets && (
+                <ul className="fac__bullets">
+                  {f.bullets.map((bl, i) => <li key={i}>{bl}</li>)}
+                </ul>
+              )}
+              <span className="card__more">Read more <Arrow /></span>
+            </div>
           </div>
-          <Media src={img("campus-" + slug(f.name) + ".jpg")} alt={f.name + " — DWPS photograph"} ratio="4 / 3" className="fac__media" />
         </Link>
       ))}
     </div>
@@ -144,31 +175,41 @@ const DownloadsLike = ({ b }) => (
   </>
 );
 
-const PdfIcon = () => (
-  <svg width="40" height="40" viewBox="0 0 24 24" aria-hidden="true">
-    <path d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" fill="#E5484D" />
-    <path d="M15 2v5h5" fill="#fff" opacity=".35" />
-    <rect x="7" y="12" width="10" height="1.6" rx=".8" fill="#fff" />
-    <rect x="7" y="15" width="10" height="1.6" rx=".8" fill="#fff" />
-    <rect x="7" y="18" width="6" height="1.6" rx=".8" fill="#fff" />
-  </svg>
-);
+/* Category icons — a relevant glyph per document type, instead of one generic PDF icon. */
+const iconProps = { width: 21, height: 21, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.6, strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": true };
+const CertificateIcon = () => (<svg {...iconProps}><circle cx="12" cy="8" r="5" /><path d="M9 12.5 7 21l5-2.5L17 21l-2-8.5" /></svg>);
+const ScaleIcon = () => (<svg {...iconProps}><path d="M12 3v17M5 20h14M12 6 4 8m8-2 8 2" /><path d="M4 8l-2.5 5a3 3 0 0 0 5 0L4 8Z" /><path d="M20 8l-2.5 5a3 3 0 0 0 5 0L20 8Z" /></svg>);
+const UsersIcon = () => (<svg {...iconProps}><circle cx="9" cy="8" r="3" /><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6" /><circle cx="17.5" cy="7" r="2.4" /><path d="M15.7 13.3c2.6.4 4.5 2.6 4.5 5.7" /></svg>);
+const IdCardIcon = () => (<svg {...iconProps}><rect x="2.5" y="5" width="19" height="14" rx="2" /><circle cx="8.5" cy="11" r="2" /><path d="M5.5 16c0-1.8 1.3-3 3-3s3 1.2 3 3" /><path d="M14.5 9.5h5M14.5 13h5M14.5 16h3" /></svg>);
+const RupeeIcon = () => (<svg {...iconProps}><path d="M7 4h10M7 8h10M7 4c4 0 6 1.4 6 4s-2 4-6 4h7M7 12l7 8" /></svg>);
+const BookIcon = () => (<svg {...iconProps}><path d="M12 6.5c-1.8-1.3-4-2-7-2v13c3 0 5.2.7 7 2 1.8-1.3 4-2 7-2V4.5c-3 0-5.2.7-7 2Z" /><path d="M12 6.5v13" /></svg>);
+const ChartIcon = () => (<svg {...iconProps}><path d="M4 20V11M10 20V4M16 20v-6" /><path d="M2 20h20" /></svg>);
+const DocIcon = () => (<svg {...iconProps}><path d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Z" /><path d="M15 2v5h5" /><path d="M8 13h8M8 16.5h8M8 9.5h3" /></svg>);
+const DownloadIcon = () => (<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-4-4m4 4 4-4" /><path d="M4 19h16" /></svg>);
+
+const CAT_ICONS = {
+  Affiliation: CertificateIcon, Legal: ScaleIcon, Governance: UsersIcon,
+  Staff: IdCardIcon, Fees: RupeeIcon, Academics: BookIcon, Reports: ChartIcon,
+};
 
 const Downloads = ({ b }) => (
   <>
     {b.title && <SectionHead eyebrow="Downloads" title={b.title} />}
     <div className="dlgrid">
       {b.items.map((d, i) => {
-        const inner = (
-          <>
-            <span className="dlcard__icon"><PdfIcon /></span>
-            <span className="dlcard__title">{d.title}</span>
+        const CatIcon = CAT_ICONS[d.cat] || DocIcon;
+        return (
+          <article key={i} className={"dlcard" + (d.file ? "" : " dlcard--disabled")}>
+            <div className="dlcard__head">
+              <span className="dlcard__icon"><CatIcon /></span>
+              <span className="dlcard__title">{d.title}</span>
+            </div>
             {d.cat && <span className="dlcard__cat">{d.cat}</span>}
-          </>
+            {d.file
+              ? <a className="dlcard__btn" href={d.file} download>Download <DownloadIcon /></a>
+              : <span className="dlcard__btn">Coming soon</span>}
+          </article>
         );
-        return d.file
-          ? <a key={i} className="dlcard" href={d.file} target="_blank" rel="noopener noreferrer">{inner}</a>
-          : <span key={i} className="dlcard dlcard--disabled">{inner}</span>;
       })}
     </div>
   </>
@@ -268,7 +309,7 @@ const Gallery = ({ b }) => (
       const tall = i % 3 === 1;
       return (
         <div key={i} className="mtile">
-          <Media src={img("gallery-" + String((i % 8) + 1).padStart(2, "0") + ".jpg")} alt="DWPS gallery image" ratio={tall ? "3 / 4" : "4 / 3"} className="mtile__media" />
+          <Media src={img("gallery-" + String((i % 43) + 1).padStart(2, "0") + ".jpg")} alt="DWPS gallery image" ratio={tall ? "3 / 4" : "4 / 3"} className="mtile__media" />
         </div>
       );
     })}
@@ -336,7 +377,7 @@ const TestimonialsBlock = () => <Testimonials items={TESTIMONIALS} />;
 
 function Block({ b, tone }) {
   const map = {
-    prose: Prose, prose_media: ProseMedia, cards: Cards, features: Features, facilities: Facilities, steps: Steps, stages: Stages,
+    prose: Prose, prose_media: ProseMedia, cards: Cards, explore_split: ExploreSplit, features: Features, facilities: Facilities, steps: Steps, stages: Stages,
     faqs: Faqs, downloads: Downloads, downloads_like: DownloadsLike, news: News,
     achstats: AchStats, leaders: Leaders, jobs: Jobs, gallery: Gallery, note: Note,
     enquiry: Enquiry, contact: Contact, career: CareerForm, members: Members,

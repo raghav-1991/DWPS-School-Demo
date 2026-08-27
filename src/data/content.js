@@ -21,34 +21,29 @@ export const CONTENT = {
     ]
    },
    {
-    "type": "cards",
+    "type": "explore_split",
     "title": "Explore About Us",
     "aside": null,
     "items": [
      {
       "name": "Our Story",
-      "note": "Delhi World Public School is part of the prestigious Delhi World Foundation, an initiative led by distinguished alumni of Delhi Public Schools. That lineage shaped a school built on the idea that education should be modern and rigorous, yet still rooted in Indian values.",
-      "to": "/about-us/our-story"
+      "note": "Delhi World Public School is part of the prestigious Delhi World Foundation, an initiative led by distinguished alumni of Delhi Public Schools. That lineage shaped a school built on the idea that education should be modern and rigorous, yet still rooted in Indian values."
      },
      {
       "name": "Vision",
-      "note": "Our vision is to provide modern, high-quality education rooted in Indian values and enriched with a global outlook — developing confident young minds who become responsible citizens contributing meaningfully to society, at every stage from Kindergarten to Secondary.",
-      "to": "/about-us/vision-mission"
+      "note": "Our vision is to provide modern, high-quality education rooted in Indian values and enriched with a global outlook — developing confident young minds who become responsible citizens contributing meaningfully to society, at every stage from Kindergarten to Secondary."
      },
      {
       "name": "Mission",
-      "note": "Our mission is to spark curiosity and encourage children to explore, question and discover. Learning extends beyond classrooms into labs, libraries and activity spaces, fostering independent thinking, strong values and genuine readiness for life.",
-      "to": "/about-us/vision-mission"
+      "note": "Our mission is to spark curiosity and encourage children to explore, question and discover. Learning extends beyond classrooms into labs, libraries and activity spaces, fostering independent thinking, strong values and genuine readiness for life."
      },
      {
       "name": "Core Values",
-      "note": "Academic excellence, Indian values with a global outlook, learning by doing, and compassion for community — the four commitments that shape how DWPS teaches, not just what it teaches, in every classroom and every stage.",
-      "to": "/about-us/vision-mission"
+      "note": "Academic excellence, Indian values with a global outlook, learning by doing, and compassion for community — the four commitments that shape how DWPS teaches, not just what it teaches, in every classroom and every stage."
      },
      {
       "name": "School Philosophy",
-      "note": "DWPS is committed to shaping young minds through a balanced blend of academics, co-curricular engagement and character building — with concept clarity, communication skills, creative exploration, sport and value-based learning at the centre of every classroom.",
-      "to": "/about-us/vision-mission"
+      "note": "DWPS is committed to shaping young minds through a balanced blend of academics, co-curricular engagement and character building — with concept clarity, communication skills, creative exploration, sport and value-based learning at the centre of every classroom."
      }
     ]
    },
@@ -1984,10 +1979,6 @@ export const CONTENT = {
     ]
    },
    {
-    "type": "note",
-    "text": "Achievement figures are placeholders — replace with verified school records."
-   },
-   {
     "type": "cta"
    }
   ]
@@ -2005,11 +1996,7 @@ export const CONTENT = {
   "blocks": [
    {
     "type": "gallery",
-    "count": 12
-   },
-   {
-    "type": "note",
-    "text": "Add real photos to /public/images to populate the gallery."
+    "count": 43
    },
    {
     "type": "cta"

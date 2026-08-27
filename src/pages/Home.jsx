@@ -76,8 +76,7 @@ export default function Home() {
       {/* Welcome */}
       <Band tone="paper" className="welcome">
         <div className="welcome__media">
-          <Media src={img("welcome-campus.jpg")} alt="Campus / students — DWPS photograph" ratio="5 / 6" />
-          <div className="welcome__badge"><strong>DWPS</strong><span>A digital campus, grounded in character.</span></div>
+          <Media src={img("home-welcome.jpg")} alt="Campus / students — DWPS photograph" ratio="5 / 6" />
         </div>
         <div className="welcome__copy">
           <Eyebrow>Welcome</Eyebrow>

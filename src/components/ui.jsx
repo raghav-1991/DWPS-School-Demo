@@ -52,8 +52,6 @@ export function Media({ src, alt, ratio = "4 / 3", className = "", children }) {
   return (
     <div className={cx("frame", className)} style={{ aspectRatio: ratio }}>
       <div className="frame__grid" />
-      <span className="frame__tick frame__tick--tl" /><span className="frame__tick frame__tick--tr" />
-      <span className="frame__tick frame__tick--bl" /><span className="frame__tick frame__tick--br" />
       {show && (
         <img src={src} alt={alt} loading="lazy" className="frame__img"
           style={{ opacity: loaded ? 1 : 0 }}
@@ -123,7 +121,7 @@ export const CTASection = ({ title, sub }) => (
       <h2 className="cta__title">{title || <>Your child's next chapter<br/>starts with one enquiry.</>}</h2>
       <p className="cta__sub">{sub || "Speak with our Admissions Office, plan a campus visit, or begin your enquiry online. We'll take it from there."}</p>
       <div className="cta__actions">
-        <a href="https://delhiworldpublicschool.edchemy.com/enquiry.html" target="_blank" rel="noopener noreferrer" className="btn btn--gold btn--lg">Submit Enquiry</a>
+        <a href="https://delhiworldpublicschool.edchemy.com/enquiry.html" target="_blank" rel="noopener noreferrer" className="btn btn--white btn--lg">Submit Enquiry</a>
         <Link to="/contact-us" className="btn btn--outline btn--lg">Plan Your Visit →</Link>
       </div>
       <div className="cta__phones">Admissions Office <a href="tel:9611360631">9611360631</a> <span>·</span> <a href="tel:9611457761">9611457761</a></div>
