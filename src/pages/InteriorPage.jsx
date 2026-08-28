@@ -10,10 +10,13 @@ import { ENQUIRY_URL, PHONES } from "../data/site.js";
 /* ---- individual block renderers ---- */
 
 const Prose = ({ b }) => (
-  <div className="prose">
-    {b.heading && <h3>{b.heading}</h3>}
-    {b.paras.map((p, i) => <p key={i}>{p}</p>)}
-  </div>
+  <>
+    {b.title && <SectionHead eyebrow={b.eyebrow || "About"} title={b.title} />}
+    <div className="prose">
+      {b.heading && <h3>{b.heading}</h3>}
+      {b.paras.map((p, i) => <p key={i}>{p}</p>)}
+    </div>
+  </>
 );
 
 /* Text-left, image-right split — used where a prose block needs an accompanying photo. */
@@ -78,15 +81,38 @@ const ExploreSplit = ({ b }) => (
   </>
 );
 
+/* Alternating full-bleed rows, same treatment as Facilities but for topics with no sub-page (image set explicitly, not clickable). */
+const LifeRows = ({ b }) => (
+  <>
+    {b.title && <SectionHead eyebrow={b.eyebrow || "Explore"} title={b.title} />}
+    <div className="facilities facilities--life">
+      {b.items.map((f) => (
+        <div key={f.n} className="fac">
+          <div className="fac__inner">
+            <div className="fac__mediawrap">
+              <Media src={img(f.image)} alt={f.name + " — DWPS photograph"} ratio="4 / 3" className="card__media" />
+              <span className="fac__badge">{f.n}</span>
+            </div>
+            <div className="fac__body">
+              <h3 className="fac__name">{f.name}</h3>
+              <p className="fac__note">{f.note}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </>
+);
+
 const Facilities = ({ b }) => (
   <>
     {b.title && <SectionHead eyebrow={b.eyebrow || "Explore"} title={b.title} />}
-    <div className="facilities">
+    <div className="facilities facilities--campus">
       {b.items.map((f) => (
         <Link key={f.n} to={f.to} className="fac">
           <div className="fac__inner">
             <div className="fac__mediawrap">
-              <Media src={img("campus-" + slug(f.name) + ".jpg")} alt={f.name + " — DWPS photograph"} ratio="4 / 3" className="card__media" />
+              <Media src={img("campus-" + slug(f.name) + ".jpg")} alt={f.name + " — DWPS photograph"} ratio="4 / 2.55" className="card__media" />
               <span className="fac__badge">{f.n}{f.cat && <em> · {f.cat}</em>}</span>
             </div>
             <div className="fac__body">
@@ -108,7 +134,7 @@ const Facilities = ({ b }) => (
 
 const Features = ({ b }) => (
   <>
-    {b.title && <SectionHead eyebrow="Details" title={b.title} />}
+    {b.title && <SectionHead eyebrow={b.eyebrow || "Details"} title={b.title} />}
     <div className="featurelist">
       {b.items.map((f) => (
         <div key={f.name} className="feature">
@@ -150,14 +176,17 @@ const Stages = ({ b }) => (
 function Faqs({ b }) {
   const [open, setOpen] = useState(0);
   return (
-    <div className="accordion">
-      {b.items.map((f, i) => (
-        <div key={i} className={"acc" + (open === i ? " is-open" : "")}>
-          <button className="acc__q" onClick={() => setOpen(open === i ? -1 : i)}>{f.q}<span>+</span></button>
-          <div className="acc__a"><p>{f.a}</p></div>
-        </div>
-      ))}
-    </div>
+    <>
+      {b.title && <SectionHead eyebrow="Reference" title={b.title} />}
+      <div className="accordion">
+        {b.items.map((f, i) => (
+          <div key={i} className={"acc" + (open === i ? " is-open" : "")}>
+            <button className="acc__q" onClick={() => setOpen(open === i ? -1 : i)}>{f.q}<span>+</span></button>
+            <div className="acc__a"><p>{f.a}</p></div>
+          </div>
+        ))}
+      </div>
+    </>
   );
 }
 
@@ -175,42 +204,32 @@ const DownloadsLike = ({ b }) => (
   </>
 );
 
-/* Category icons — a relevant glyph per document type, instead of one generic PDF icon. */
-const iconProps = { width: 21, height: 21, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.6, strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": true };
-const CertificateIcon = () => (<svg {...iconProps}><circle cx="12" cy="8" r="5" /><path d="M9 12.5 7 21l5-2.5L17 21l-2-8.5" /></svg>);
-const ScaleIcon = () => (<svg {...iconProps}><path d="M12 3v17M5 20h14M12 6 4 8m8-2 8 2" /><path d="M4 8l-2.5 5a3 3 0 0 0 5 0L4 8Z" /><path d="M20 8l-2.5 5a3 3 0 0 0 5 0L20 8Z" /></svg>);
-const UsersIcon = () => (<svg {...iconProps}><circle cx="9" cy="8" r="3" /><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6" /><circle cx="17.5" cy="7" r="2.4" /><path d="M15.7 13.3c2.6.4 4.5 2.6 4.5 5.7" /></svg>);
-const IdCardIcon = () => (<svg {...iconProps}><rect x="2.5" y="5" width="19" height="14" rx="2" /><circle cx="8.5" cy="11" r="2" /><path d="M5.5 16c0-1.8 1.3-3 3-3s3 1.2 3 3" /><path d="M14.5 9.5h5M14.5 13h5M14.5 16h3" /></svg>);
-const RupeeIcon = () => (<svg {...iconProps}><path d="M7 4h10M7 8h10M7 4c4 0 6 1.4 6 4s-2 4-6 4h7M7 12l7 8" /></svg>);
-const BookIcon = () => (<svg {...iconProps}><path d="M12 6.5c-1.8-1.3-4-2-7-2v13c3 0 5.2.7 7 2 1.8-1.3 4-2 7-2V4.5c-3 0-5.2.7-7 2Z" /><path d="M12 6.5v13" /></svg>);
-const ChartIcon = () => (<svg {...iconProps}><path d="M4 20V11M10 20V4M16 20v-6" /><path d="M2 20h20" /></svg>);
-const DocIcon = () => (<svg {...iconProps}><path d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Z" /><path d="M15 2v5h5" /><path d="M8 13h8M8 16.5h8M8 9.5h3" /></svg>);
+/* A single, consistent red PDF file icon for every document card. */
+const PdfIcon = () => (
+  <svg width="57" height="57" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Z" fill="#E5484D" />
+    <path d="M15 2v5h5" fill="#fff" opacity=".35" />
+    <rect x="6.4" y="13.1" width="11.2" height="5.6" rx="1.1" fill="#fff" />
+    <text x="12" y="17.5" textAnchor="middle" fontFamily="Inter, sans-serif" fontWeight="800" fontSize="4" fill="#E5484D">PDF</text>
+  </svg>
+);
 const DownloadIcon = () => (<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-4-4m4 4 4-4" /><path d="M4 19h16" /></svg>);
 
-const CAT_ICONS = {
-  Affiliation: CertificateIcon, Legal: ScaleIcon, Governance: UsersIcon,
-  Staff: IdCardIcon, Fees: RupeeIcon, Academics: BookIcon, Reports: ChartIcon,
-};
-
+/* One flat grid, every document listed one by one — no category sections. */
 const Downloads = ({ b }) => (
   <>
     {b.title && <SectionHead eyebrow="Downloads" title={b.title} />}
     <div className="dlgrid">
-      {b.items.map((d, i) => {
-        const CatIcon = CAT_ICONS[d.cat] || DocIcon;
-        return (
-          <article key={i} className={"dlcard" + (d.file ? "" : " dlcard--disabled")}>
-            <div className="dlcard__head">
-              <span className="dlcard__icon"><CatIcon /></span>
-              <span className="dlcard__title">{d.title}</span>
-            </div>
-            {d.cat && <span className="dlcard__cat">{d.cat}</span>}
-            {d.file
-              ? <a className="dlcard__btn" href={d.file} download>Download <DownloadIcon /></a>
-              : <span className="dlcard__btn">Coming soon</span>}
-          </article>
-        );
-      })}
+      {b.items.map((d, i) => (
+        <article key={i} className={"dlcard" + (d.file ? "" : " dlcard--disabled")}>
+          <span className="dlcard__icon"><PdfIcon /></span>
+          <span className="dlcard__title">{d.title}</span>
+          {d.date && d.date !== "—" && <span className="dlcard__meta"><span className="dlcard__date">{d.date}</span></span>}
+          {d.file
+            ? <a className="dlcard__btn" href={d.file} download>Download <DownloadIcon /></a>
+            : <span className="dlcard__btn">Coming soon</span>}
+        </article>
+      ))}
     </div>
   </>
 );
@@ -377,7 +396,7 @@ const TestimonialsBlock = () => <Testimonials items={TESTIMONIALS} />;
 
 function Block({ b, tone }) {
   const map = {
-    prose: Prose, prose_media: ProseMedia, cards: Cards, explore_split: ExploreSplit, features: Features, facilities: Facilities, steps: Steps, stages: Stages,
+    prose: Prose, prose_media: ProseMedia, cards: Cards, explore_split: ExploreSplit, features: Features, facilities: Facilities, life: LifeRows, steps: Steps, stages: Stages,
     faqs: Faqs, downloads: Downloads, downloads_like: DownloadsLike, news: News,
     achstats: AchStats, leaders: Leaders, jobs: Jobs, gallery: Gallery, note: Note,
     enquiry: Enquiry, contact: Contact, career: CareerForm, members: Members,
@@ -387,7 +406,7 @@ function Block({ b, tone }) {
   const Cmp = map[b.type];
   if (!Cmp) return null;
   const dark = b.type === "leaders";
-  const cls = b.type === "prose_media" ? "split" : b.type === "testimonials" ? "testi" : undefined;
+  const cls = b.type === "prose_media" ? "split" : b.type === "testimonials" ? "testi" : b.type === "explore_split" ? "explore-band" : undefined;
   const forcedTone = b.type === "testimonials" ? "cream" : tone;
   return <Band tone={dark ? "dark" : forcedTone} className={cls}><Cmp b={b} /></Band>;
 }

@@ -218,48 +218,79 @@ export const CONTENT = {
     ]
    },
    {
-    "type": "stages",
+    "type": "life",
+    "eyebrow": "Stages",
+    "title": "Every Stage of Learning",
     "items": [
      {
       "n": "01",
       "name": "Pre-Primary",
-      "note": "Play-led foundations that make school feel like belonging."
+      "note": "Play-led foundations that make school feel like belonging. Our youngest learners have a dedicated Kindergarten Block, with a cycling track and play area designed just for them — ensuring strong foundational learning in the early years that is bright and joyful, never childish, built on the same 'learning by doing' philosophy that shapes every stage at DWPS.",
+      "image": "academics-pre-primary.jpg"
      },
      {
       "n": "02",
       "name": "Primary",
-      "note": "Curiosity structured into confident, independent learning."
+      "note": "Curiosity structured into confident, independent learning. Primary years build strong foundations in literacy and numeracy through a CBSE curriculum that favours conceptual clarity over rote memorisation, connecting lessons to real-life situations rather than isolated facts to be recalled. Assessment stays flexible and integrated with everyday classroom learning, so children keep building confidence and independence rather than working towards a single high-stakes exam.",
+      "image": "academics-primary.jpg"
      },
      {
       "n": "03",
       "name": "Middle School",
-      "note": "Depth, reasoning and voice across every discipline."
+      "note": "Depth, reasoning and voice across every discipline. Middle School sharpens subject excellence and analytical thinking through Olympiad participation, alongside structured Student Development Programs — leadership, communication and personality development — that run beside the classroom, preparing confident, responsible learners who can think differently and creatively, not just recall what's been taught.",
+      "image": "academics-middle-school.jpg"
      },
      {
       "n": "04",
       "name": "Secondary",
-      "note": "Board-ready rigour with character and direction."
+      "note": "Board-ready rigour with character and direction. Senior students take on real responsibility as Student Council and Cabinet Members, entrusted with leadership, integrity and service, while structured CBSE education keeps academic excellence, leadership and character development building together — not one at the expense of the other, right through to board readiness.",
+      "image": "academics-secondary.jpg"
      }
     ]
    },
    {
+    "type": "prose",
+    "eyebrow": "Approach",
+    "title": "Teaching & Learning Methodology",
+    "paras": [
+     "Classroom experiences are carefully planned to help children construct knowledge through understanding rather than memorisation — connecting academic content to real-world contexts and encouraging inquiry and active engagement. Alongside concept clarity and academic discipline, the approach builds communication skills, creative exploration and value-based learning at every stage, with strong conceptual learning, Olympiad participation and subject excellence encouraged across every grade.",
+     "The school provides structured CBSE education with a clear focus on academic excellence, leadership and character development, not one at the expense of the other. Teaching methods are designed to help students think differently and creatively, rather than simply reproduce what has been taught. Alongside traditional academic instruction, a wide range of activities help children develop new skills beyond the syllabus, extending learning well past the textbook."
+    ]
+   },
+   {
     "type": "features",
-    "title": "Our Framework",
+    "eyebrow": "Principles",
+    "title": "Our Guiding Principles",
     "items": [
      {
-      "name": "CBSE Curriculum",
-      "note": "Affiliation No. 831712.",
-      "icon": "C"
+      "name": "Conceptual Clarity",
+      "note": "Teaching and learning shift away from rote methods towards conceptual clarity.",
+      "icon": "1"
      },
      {
-      "name": "Teaching Methodology",
-      "note": "Understanding over memorisation.",
-      "icon": "T"
+      "name": "Beyond Textbooks",
+      "note": "The curriculum is enriched to go beyond textbooks and encourage deeper understanding.",
+      "icon": "2"
      },
      {
-      "name": "Assessment System",
-      "note": "Growth tracked, not just graded.",
-      "icon": "A"
+      "name": "Teach Less, Learn More",
+      "note": "We follow the philosophy of 'Teach Less, Learn More' to promote meaningful learning.",
+      "icon": "3"
+     },
+     {
+      "name": "Real-Life Connections",
+      "note": "Opportunities are created to help children connect classroom knowledge with real-life experiences.",
+      "icon": "4"
+     },
+     {
+      "name": "Flexible Assessment",
+      "note": "Examinations are flexible and integrated with everyday classroom learning.",
+      "icon": "5"
+     },
+     {
+      "name": "Character & Compassion",
+      "note": "Classroom experiences focus on shaping responsible citizens with a sense of equality, empathy and compassion.",
+      "icon": "6"
      }
     ]
    },
@@ -407,127 +438,51 @@ export const CONTENT = {
     "text": "Only steps verified by the school should remain; edit as needed."
    },
    {
-    "type": "cards",
+    "type": "life",
+    "eyebrow": "Explore",
     "title": "Admissions Information",
-    "aside": null,
-    "items": [
-     {
-      "name": "Admission Process",
-      "note": "Step-by-step guidance.",
-      "to": "/admissions/process"
-     },
-     {
-      "name": "Eligibility",
-      "note": "Age and grade criteria.",
-      "to": "/admissions/eligibility"
-     },
-     {
-      "name": "Required Documents",
-      "note": "What to prepare.",
-      "to": "/admissions/documents"
-     },
-     {
-      "name": "Fee Structure",
-      "note": "Fees by grade.",
-      "to": "/admissions/fee-structure"
-     },
-     {
-      "name": "FAQs",
-      "note": "Common questions answered.",
-      "to": "/admissions/faqs"
-     },
-     {
-      "name": "Schedule a Visit",
-      "note": "Plan a campus visit.",
-      "to": "/contact-us"
-     }
-    ]
-   },
-   {
-    "type": "enquiry"
-   },
-   {
-    "type": "cta"
-   }
-  ]
- },
- "admissions/process": {
-  "eyebrow": "Admissions · Process",
-  "title": "Admission Process",
-  "sub": "A clear, welcoming path from enquiry to confirmation.",
-  "trail": [
-   {
-    "label": "Admissions",
-    "to": "/admissions"
-   },
-   {
-    "label": "Process"
-   }
-  ],
-  "image": "/images/explore-admissions.jpg",
-  "blocks": [
-   {
-    "type": "steps",
     "items": [
      {
       "n": "01",
-      "name": "Enquire",
-      "note": "Submit the enquiry form online or contact the Admissions Office."
+      "name": "Admission Process",
+      "note": "A clear, welcoming path from enquiry to confirmation — enquire online, tour the campus, submit your application with the required documents, complete an age-appropriate interaction, and confirm the seat with your offer and fee payment. See the full step-by-step journey above.",
+      "image": "explore-admission-process.jpg"
      },
      {
       "n": "02",
-      "name": "Campus Visit",
-      "note": "Tour facilities and meet faculty."
+      "name": "Eligibility",
+      "note": "Age criteria by grade, as on 31 March 2027: Nursery — minimum 3 years, LKG — minimum 4 years, UKG — minimum 5 years, Grade I — minimum 6 years. See the full table below.",
+      "image": "explore-eligibility.jpg"
      },
      {
       "n": "03",
-      "name": "Application",
-      "note": "Submit the completed form and documents."
+      "name": "Required Documents",
+      "note": "Birth certificate (original and a copy), previous school records such as the report card or transfer certificate, recent passport-size photographs, and address and ID proof of the parent or guardian. See the full checklist below.",
+      "image": "explore-required-documents.jpg"
      },
      {
       "n": "04",
-      "name": "Interaction",
-      "note": "An age-appropriate student/parent interaction."
+      "name": "Fee Structure",
+      "note": "Fees are structured transparently by grade. For the current, verified fee schedule, please contact our Admissions Office directly — figures are not published here until confirmed by the school.",
+      "image": "explore-fee-structure.jpg"
      },
      {
       "n": "05",
-      "name": "Confirmation",
-      "note": "Offer and fee payment to confirm the seat."
+      "name": "FAQs",
+      "note": "Answers to the questions parents ask most often — from when admissions open to what the CBSE curriculum covers. Browse the full list below, or reach out directly if yours isn't covered.",
+      "image": "explore-faqs.jpg"
+     },
+     {
+      "n": "06",
+      "name": "Schedule a Visit",
+      "note": "The best way to understand DWPS is to walk the campus. Plan a visit through our Contact page, or speak with the Admissions Office directly on 9611360631 / 9611457761.",
+      "image": "explore-schedule-a-visit.jpg"
      }
-    ]
-   },
-   {
-    "type": "enquiry"
-   },
-   {
-    "type": "cta"
-   }
-  ]
- },
- "admissions/eligibility": {
-  "eyebrow": "Admissions · Eligibility",
-  "title": "Eligibility",
-  "sub": "Age and grade criteria for admission.",
-  "trail": [
-   {
-    "label": "Admissions",
-    "to": "/admissions"
-   },
-   {
-    "label": "Eligibility"
-   }
-  ],
-  "image": "/images/explore-admissions.jpg",
-  "blocks": [
-   {
-    "type": "prose",
-    "paras": [
-     "Age criteria by grade appear here. Replace the table below with the school's official cut-off ages. (Editable placeholder — replace with verified DWPS content.)"
     ]
    },
    {
     "type": "downloads_like",
-    "title": "Age Criteria (placeholder)",
+    "title": "Eligibility — Age Criteria",
     "head": [
      "Grade",
      "Minimum Age",
@@ -557,34 +512,8 @@ export const CONTENT = {
     ]
    },
    {
-    "type": "cta"
-   }
-  ]
- },
- "admissions/documents": {
-  "eyebrow": "Admissions · Documents",
-  "title": "Required Documents",
-  "sub": "What to prepare for the application.",
-  "trail": [
-   {
-    "label": "Admissions",
-    "to": "/admissions"
-   },
-   {
-    "label": "Required Documents"
-   }
-  ],
-  "image": "/images/explore-admissions.jpg",
-  "blocks": [
-   {
-    "type": "prose",
-    "paras": [
-     "The following documents are typically required. Confirm and edit this list with the school. (Editable placeholder — replace with verified DWPS content.)"
-    ]
-   },
-   {
     "type": "features",
-    "title": "Checklist (placeholder)",
+    "title": "Required Documents — Checklist",
     "items": [
      {
       "name": "Birth Certificate",
@@ -609,86 +538,12 @@ export const CONTENT = {
     ]
    },
    {
-    "type": "cta"
-   }
-  ]
- },
- "admissions/fee-structure": {
-  "eyebrow": "Admissions · Fee Structure",
-  "title": "Fee Structure",
-  "sub": "Transparent fees by grade.",
-  "trail": [
-   {
-    "label": "Admissions",
-    "to": "/admissions"
-   },
-   {
-    "label": "Fee Structure"
-   }
-  ],
-  "image": "/images/explore-admissions.jpg",
-  "blocks": [
-   {
-    "type": "note",
-    "text": "Do not publish fees that are not verified. The table below is a placeholder layout only."
-   },
-   {
-    "type": "downloads_like",
-    "title": "Fees (placeholder)",
-    "head": [
-     "Grade",
-     "Annual Fee",
-     "Notes"
-    ],
-    "rows": [
-     [
-      "Pre-Primary",
-      "—",
-      "To be supplied"
-     ],
-     [
-      "Primary",
-      "—",
-      "To be supplied"
-     ],
-     [
-      "Middle",
-      "—",
-      "To be supplied"
-     ],
-     [
-      "Secondary",
-      "—",
-      "To be supplied"
-     ]
-    ]
-   },
-   {
-    "type": "cta"
-   }
-  ]
- },
- "admissions/faqs": {
-  "eyebrow": "Admissions · FAQs",
-  "title": "Frequently Asked Questions",
-  "sub": "Answers to common admissions questions.",
-  "trail": [
-   {
-    "label": "Admissions",
-    "to": "/admissions"
-   },
-   {
-    "label": "FAQs"
-   }
-  ],
-  "image": "/images/explore-admissions.jpg",
-  "blocks": [
-   {
     "type": "faqs",
+    "title": "Frequently Asked Questions",
     "items": [
      {
       "q": "When do admissions open?",
-      "a": "Admissions for the Academic Year 2027–28 are open. Submit the enquiry form to begin. (Editable placeholder — replace with verified DWPS content.)"
+      "a": "Admissions for the Academic Year 2027–28 are open. Submit the enquiry form to begin."
      },
      {
       "q": "How do I start the process?",
@@ -704,7 +559,7 @@ export const CONTENT = {
      },
      {
       "q": "What documents are needed?",
-      "a": "See the Required Documents page for the checklist. (Editable placeholder — replace with verified DWPS content.)"
+      "a": "See the Required Documents checklist above."
      }
     ]
    },
@@ -730,295 +585,63 @@ export const CONTENT = {
    {
     "type": "prose",
     "paras": [
-     "At DWPS, learning is a balanced blend of academics, co-curricular engagement and character building. Beyond the classroom, sport is treated as an integral part of every child's holistic development — building leadership, teamwork, discipline and perseverance alongside friendship and confidence."
+     "At DWPS, learning is a balanced blend of arts, culture, sports and academic enrichment — encouraging creativity, teamwork and self-expression alongside academics and character building. Structured initiatives in leadership, communication and personality development prepare confident, responsible, future-ready learners, while beyond the classroom, sport is treated as an integral part of every child's holistic development — building leadership, teamwork, discipline and perseverance alongside friendship and confidence."
     ]
    },
    {
-    "type": "cards",
+    "type": "life",
+    "eyebrow": "Explore",
     "title": "Explore Student Life",
-    "aside": null,
     "items": [
      {
+      "n": "01",
       "name": "Clubs",
-      "note": "Student-run communities for every passion.",
-      "to": "/student-life/clubs"
+      "note": "Student-run communities for every passion — from a dedicated Speaking Skills Program, where students prepare and present speeches on a fresh monthly topic to build communication, public-speaking confidence, leadership and critical thinking, to a hands-on arts programme covering handmade paper-making, paper recycling, cotton spinning, weaving and clay art that develops imagination, hand coordination and spatial awareness.",
+      "image": "student-life-clubs.jpg"
      },
      {
+      "n": "02",
       "name": "House System",
-      "note": "Belonging, mentorship and healthy rivalry.",
-      "to": "/student-life/house-system"
+      "note": "Belonging, mentorship and healthy rivalry. Senior students take on real responsibility as Student Council and Cabinet Members, entrusted with leadership, integrity and service — mentoring younger housemates and helping run the traditions, events and friendly competition that give every student a sense of belonging from day one.",
+      "image": "student-life-house-system.jpg"
      },
      {
+      "n": "03",
       "name": "Sports",
-      "note": "From the field to fitness, movement every day.",
-      "to": "/student-life/sports"
+      "note": "Sports are not just games — they are an integral part of a child's holistic development. Through cricket, football, basketball, volleyball, badminton and cycling, students learn leadership, teamwork, discipline and perseverance. The campus is built for it: a running track for endurance, a cricket pitch with nets, a football ground, basketball and volleyball courts and a dedicated cycling track. Professional coaches in cricket, football and badminton work alongside dedicated Physical Education teachers, with a focus on talent-spotting that helps every student discover sports matching their abilities and interests — including a professionally trained football coach who takes classes from Kindergarten right through to the senior school.",
+      "image": "student-life-sports.jpg"
      },
      {
+      "n": "04",
       "name": "Performing Arts",
-      "note": "Stagecraft, theatre and confident expression.",
-      "to": "/student-life/performing-arts"
+      "note": "Stagecraft, theatre and confident expression. Indian and Western Dance, Drama and Debating are all conducted by trained experts in their respective fields, with visiting professionals invited in periodically for specialised training — giving every student a real stage to build presence and self-belief, not just a classroom exercise.",
+      "image": "student-life-performing-arts.jpg"
      },
      {
+      "n": "05",
       "name": "Music & Dance",
-      "note": "Rhythm, voice and classical to contemporary.",
-      "to": "/student-life/music-dance"
+      "note": "Rhythm, voice and classical to contemporary. Students pursuing singing, instrumental music or formal dance — Indian or Western — receive guided mentorship from trained instructors, with regular opportunities to perform at the Annual School Performance and other cultural events across the year.",
+      "image": "student-life-music-dance.jpg"
      },
      {
+      "n": "06",
       "name": "Yoga",
-      "note": "Focus, balance and stillness as a skill.",
-      "to": "/student-life/yoga"
+      "note": "Focus, balance and stillness as a skill. Yoga is taught by trained experts as a core part of co-curricular life, not an afterthought — building the concentration and calm that carry over into the classroom, alongside periodic sessions from visiting specialist instructors.",
+      "image": "student-life-yoga.jpg"
      },
      {
+      "n": "07",
       "name": "Field Trips",
-      "note": "Learning that leaves the classroom behind.",
-      "to": "/student-life/field-trips"
+      "note": "Learning that leaves the classroom behind. Monthly theme weeks — Science Week, Library Week, International Peace Week among them — turn the whole campus over to experiential learning beyond the textbook, alongside excursions that put real places, people and ideas in front of students instead of a page.",
+      "image": "student-life-field-trips.jpg"
      },
      {
+      "n": "08",
       "name": "Community Service",
-      "note": "Character built through giving back.",
-      "to": "/student-life/community-service"
+      "note": "Character built through giving back. DWPS commemorates national events and celebrates festivals across religions and cultures, shaping students who are culturally aware and globally minded, backed by sustainable initiatives and personality-development programmes that build character, confidence and life skills for citizenship beyond school.",
+      "image": "student-life-community-service.jpg"
      }
     ]
-   },
-   {
-    "type": "cta"
-   }
-  ]
- },
- "student-life/clubs": {
-  "eyebrow": "Student Life · Clubs",
-  "title": "Clubs",
-  "sub": "Student-run communities for every passion.",
-  "trail": [
-   {
-    "label": "Student Life",
-    "to": "/student-life"
-   },
-   {
-    "label": "Clubs"
-   }
-  ],
-  "image": "/images/student-life-clubs.jpg",
-  "blocks": [
-   {
-    "type": "prose",
-    "paras": [
-     "Student-run communities for every passion. This page describes the programme in detail. (Editable placeholder — replace with verified DWPS content.)"
-    ]
-   },
-   {
-    "type": "gallery",
-    "count": 6
-   },
-   {
-    "type": "cta"
-   }
-  ]
- },
- "student-life/house-system": {
-  "eyebrow": "Student Life · House System",
-  "title": "House System",
-  "sub": "Belonging, mentorship and healthy rivalry.",
-  "trail": [
-   {
-    "label": "Student Life",
-    "to": "/student-life"
-   },
-   {
-    "label": "House System"
-   }
-  ],
-  "image": "/images/student-life-house-system.jpg",
-  "blocks": [
-   {
-    "type": "prose",
-    "paras": [
-     "Belonging, mentorship and healthy rivalry. This page describes the programme in detail. (Editable placeholder — replace with verified DWPS content.)"
-    ]
-   },
-   {
-    "type": "gallery",
-    "count": 6
-   },
-   {
-    "type": "cta"
-   }
-  ]
- },
- "student-life/sports": {
-  "eyebrow": "Student Life · Sports",
-  "title": "Sports",
-  "sub": "From the field to fitness, movement every day.",
-  "trail": [
-   {
-    "label": "Student Life",
-    "to": "/student-life"
-   },
-   {
-    "label": "Sports"
-   }
-  ],
-  "image": "/images/student-life-sports.jpg",
-  "blocks": [
-   {
-    "type": "prose",
-    "paras": [
-     "Sports are not just games — they are an integral part of a child's holistic development. Through cricket, football, basketball, volleyball, badminton and cycling, students learn leadership, teamwork, discipline and perseverance. Professional coaches in cricket, football and badminton work alongside dedicated Physical Education teachers, with a focus on talent-spotting that helps every student discover sports matching their abilities and interests."
-    ]
-   },
-   {
-    "type": "gallery",
-    "count": 6
-   },
-   {
-    "type": "cta"
-   }
-  ]
- },
- "student-life/performing-arts": {
-  "eyebrow": "Student Life · Performing Arts",
-  "title": "Performing Arts",
-  "sub": "Stagecraft, theatre and confident expression.",
-  "trail": [
-   {
-    "label": "Student Life",
-    "to": "/student-life"
-   },
-   {
-    "label": "Performing Arts"
-   }
-  ],
-  "image": "/images/student-life-performing-arts.jpg",
-  "blocks": [
-   {
-    "type": "prose",
-    "paras": [
-     "Stagecraft, theatre and confident expression. This page describes the programme in detail. (Editable placeholder — replace with verified DWPS content.)"
-    ]
-   },
-   {
-    "type": "gallery",
-    "count": 6
-   },
-   {
-    "type": "cta"
-   }
-  ]
- },
- "student-life/music-dance": {
-  "eyebrow": "Student Life · Music & Dance",
-  "title": "Music & Dance",
-  "sub": "Rhythm, voice and classical to contemporary.",
-  "trail": [
-   {
-    "label": "Student Life",
-    "to": "/student-life"
-   },
-   {
-    "label": "Music & Dance"
-   }
-  ],
-  "image": "/images/student-life-music-dance.jpg",
-  "blocks": [
-   {
-    "type": "prose",
-    "paras": [
-     "Rhythm, voice and classical to contemporary. This page describes the programme in detail. (Editable placeholder — replace with verified DWPS content.)"
-    ]
-   },
-   {
-    "type": "gallery",
-    "count": 6
-   },
-   {
-    "type": "cta"
-   }
-  ]
- },
- "student-life/yoga": {
-  "eyebrow": "Student Life · Yoga",
-  "title": "Yoga",
-  "sub": "Focus, balance and stillness as a skill.",
-  "trail": [
-   {
-    "label": "Student Life",
-    "to": "/student-life"
-   },
-   {
-    "label": "Yoga"
-   }
-  ],
-  "image": "/images/student-life-yoga.jpg",
-  "blocks": [
-   {
-    "type": "prose",
-    "paras": [
-     "Focus, balance and stillness as a skill. This page describes the programme in detail. (Editable placeholder — replace with verified DWPS content.)"
-    ]
-   },
-   {
-    "type": "gallery",
-    "count": 6
-   },
-   {
-    "type": "cta"
-   }
-  ]
- },
- "student-life/field-trips": {
-  "eyebrow": "Student Life · Field Trips",
-  "title": "Field Trips",
-  "sub": "Learning that leaves the classroom behind.",
-  "trail": [
-   {
-    "label": "Student Life",
-    "to": "/student-life"
-   },
-   {
-    "label": "Field Trips"
-   }
-  ],
-  "image": "/images/student-life-field-trips.jpg",
-  "blocks": [
-   {
-    "type": "prose",
-    "paras": [
-     "Learning that leaves the classroom behind. This page describes the programme in detail. (Editable placeholder — replace with verified DWPS content.)"
-    ]
-   },
-   {
-    "type": "gallery",
-    "count": 6
-   },
-   {
-    "type": "cta"
-   }
-  ]
- },
- "student-life/community-service": {
-  "eyebrow": "Student Life · Community Service",
-  "title": "Community Service",
-  "sub": "Character built through giving back.",
-  "trail": [
-   {
-    "label": "Student Life",
-    "to": "/student-life"
-   },
-   {
-    "label": "Community Service"
-   }
-  ],
-  "image": "/images/student-life-community-service.jpg",
-  "blocks": [
-   {
-    "type": "prose",
-    "paras": [
-     "Character built through giving back. This page describes the programme in detail. (Editable placeholder — replace with verified DWPS content.)"
-    ]
-   },
-   {
-    "type": "gallery",
-    "count": 6
    },
    {
     "type": "cta"
@@ -1043,221 +666,47 @@ export const CONTENT = {
     ]
    },
    {
-    "type": "cards",
+    "type": "life",
+    "eyebrow": "Explore",
     "title": "Explore Co-Curricular",
-    "aside": null,
     "items": [
      {
+      "n": "01",
       "name": "STEM",
-      "note": "Hands-on science, technology and engineering.",
-      "to": "/co-curricular/stem"
+      "note": "Hands-on science, technology and engineering, treated as an essential part of holistic education rather than an add-on — building the confidence and capability to reach for the stars through activities that make abstract concepts tangible.",
+      "image": "explore-stem.jpg"
      },
      {
+      "n": "02",
       "name": "Robotics",
-      "note": "Design, build and program working machines.",
-      "to": "/co-curricular/robotics"
+      "note": "Design, build and program working machines. Students move from idea to working model, learning engineering and computational thinking by making something real rather than just reading about it.",
+      "image": "explore-robotics.jpg"
      },
      {
+      "n": "03",
       "name": "Art & Craft",
-      "note": "Making, colour and creative confidence.",
-      "to": "/co-curricular/art-craft"
+      "note": "Beyond drawing and painting, students explore handmade paper-making, paper recycling, cotton spinning, weaving and clay art — cultural craft techniques that build imagination, hand coordination and spatial awareness alongside creative confidence.",
+      "image": "explore-art-craft.jpg"
      },
      {
+      "n": "04",
       "name": "Public Speaking",
-      "note": "Voice, poise and the courage to be heard.",
-      "to": "/co-curricular/public-speaking"
+      "note": "Our Speaking Skills Program gives students a fresh topic to prepare and present each month, strengthening communication skills, public-speaking confidence, leadership ability, critical thinking and stage presence.",
+      "image": "explore-public-speaking.jpg"
      },
      {
+      "n": "05",
       "name": "Olympiads",
-      "note": "Sharpening minds against the best.",
-      "to": "/co-curricular/olympiads"
+      "note": "Sharpening minds against the best. Olympiad participation gives students a competitive academic stage beyond the regular syllabus, testing depth and speed of thinking alongside classroom learning.",
+      "image": "explore-olympiads.jpg"
      },
      {
+      "n": "06",
       "name": "Competitions",
-      "note": "Inter-school arenas to test every talent.",
-      "to": "/co-curricular/competitions"
+      "note": "Inter-school arenas to test every talent — from academics to sport to the arts — giving students real stakes and real audiences to perform in front of, building poise under pressure.",
+      "image": "explore-competitions.jpg"
      }
     ]
-   },
-   {
-    "type": "cta"
-   }
-  ]
- },
- "co-curricular/stem": {
-  "eyebrow": "Co-Curricular · STEM",
-  "title": "STEM",
-  "sub": "Hands-on science, technology and engineering.",
-  "trail": [
-   {
-    "label": "Co-Curricular",
-    "to": "/co-curricular"
-   },
-   {
-    "label": "STEM"
-   }
-  ],
-  "image": "/images/explore-co-curricular.jpg",
-  "blocks": [
-   {
-    "type": "prose",
-    "paras": [
-     "Hands-on science, technology and engineering. This page describes the programme in detail. (Editable placeholder — replace with verified DWPS content.)"
-    ]
-   },
-   {
-    "type": "gallery",
-    "count": 6
-   },
-   {
-    "type": "cta"
-   }
-  ]
- },
- "co-curricular/robotics": {
-  "eyebrow": "Co-Curricular · Robotics",
-  "title": "Robotics",
-  "sub": "Design, build and program working machines.",
-  "trail": [
-   {
-    "label": "Co-Curricular",
-    "to": "/co-curricular"
-   },
-   {
-    "label": "Robotics"
-   }
-  ],
-  "image": "/images/explore-co-curricular.jpg",
-  "blocks": [
-   {
-    "type": "prose",
-    "paras": [
-     "Design, build and program working machines. This page describes the programme in detail. (Editable placeholder — replace with verified DWPS content.)"
-    ]
-   },
-   {
-    "type": "gallery",
-    "count": 6
-   },
-   {
-    "type": "cta"
-   }
-  ]
- },
- "co-curricular/art-craft": {
-  "eyebrow": "Co-Curricular · Art & Craft",
-  "title": "Art & Craft",
-  "sub": "Making, colour and creative confidence.",
-  "trail": [
-   {
-    "label": "Co-Curricular",
-    "to": "/co-curricular"
-   },
-   {
-    "label": "Art & Craft"
-   }
-  ],
-  "image": "/images/explore-co-curricular.jpg",
-  "blocks": [
-   {
-    "type": "prose",
-    "paras": [
-     "Making, colour and creative confidence. This page describes the programme in detail. (Editable placeholder — replace with verified DWPS content.)"
-    ]
-   },
-   {
-    "type": "gallery",
-    "count": 6
-   },
-   {
-    "type": "cta"
-   }
-  ]
- },
- "co-curricular/public-speaking": {
-  "eyebrow": "Co-Curricular · Public Speaking",
-  "title": "Public Speaking",
-  "sub": "Voice, poise and the courage to be heard.",
-  "trail": [
-   {
-    "label": "Co-Curricular",
-    "to": "/co-curricular"
-   },
-   {
-    "label": "Public Speaking"
-   }
-  ],
-  "image": "/images/explore-co-curricular.jpg",
-  "blocks": [
-   {
-    "type": "prose",
-    "paras": [
-     "Voice, poise and the courage to be heard. This page describes the programme in detail. (Editable placeholder — replace with verified DWPS content.)"
-    ]
-   },
-   {
-    "type": "gallery",
-    "count": 6
-   },
-   {
-    "type": "cta"
-   }
-  ]
- },
- "co-curricular/olympiads": {
-  "eyebrow": "Co-Curricular · Olympiads",
-  "title": "Olympiads",
-  "sub": "Sharpening minds against the best.",
-  "trail": [
-   {
-    "label": "Co-Curricular",
-    "to": "/co-curricular"
-   },
-   {
-    "label": "Olympiads"
-   }
-  ],
-  "image": "/images/explore-co-curricular.jpg",
-  "blocks": [
-   {
-    "type": "prose",
-    "paras": [
-     "Sharpening minds against the best. This page describes the programme in detail. (Editable placeholder — replace with verified DWPS content.)"
-    ]
-   },
-   {
-    "type": "gallery",
-    "count": 6
-   },
-   {
-    "type": "cta"
-   }
-  ]
- },
- "co-curricular/competitions": {
-  "eyebrow": "Co-Curricular · Competitions",
-  "title": "Competitions",
-  "sub": "Inter-school arenas to test every talent.",
-  "trail": [
-   {
-    "label": "Co-Curricular",
-    "to": "/co-curricular"
-   },
-   {
-    "label": "Competitions"
-   }
-  ],
-  "image": "/images/explore-co-curricular.jpg",
-  "blocks": [
-   {
-    "type": "prose",
-    "paras": [
-     "Inter-school arenas to test every talent. This page describes the programme in detail. (Editable placeholder — replace with verified DWPS content.)"
-    ]
-   },
-   {
-    "type": "gallery",
-    "count": 6
    },
    {
     "type": "cta"
@@ -1282,29 +731,33 @@ export const CONTENT = {
     ]
    },
    {
-    "type": "cards",
+    "type": "life",
+    "eyebrow": "Explore",
     "title": "Explore Kindergarten",
-    "aside": null,
     "items": [
      {
+      "n": "01",
       "name": "Nursery",
-      "note": "First steps into a warm, guided world.",
-      "to": "/kindergarten/nursery"
+      "note": "First steps into a warm, guided world. The youngest learners settle in through play, gentle routine and a lot of one-to-one attention — building comfort with school before anything academic is asked of them.",
+      "image": "kindergarten-nursery.jpg"
      },
      {
+      "n": "02",
       "name": "LKG",
-      "note": "Play, phonics and joyful discovery.",
-      "to": "/kindergarten/lkg"
+      "note": "Play, phonics and joyful discovery. Early literacy and number sense are introduced through games, stories and hands-on activity, so foundational skills are built without losing the joy of learning.",
+      "image": "kindergarten-lkg.jpg"
      },
      {
+      "n": "03",
       "name": "UKG",
-      "note": "Readiness for the years ahead.",
-      "to": "/kindergarten/ukg"
+      "note": "Readiness for the years ahead. Structure increases gradually — longer focus periods, early writing and reading fluency, and the habits of a classroom — so the move into Grade I feels like a natural next step, not a shock.",
+      "image": "kindergarten-ukg.jpg"
      },
      {
+      "n": "04",
       "name": "Play-Based Learning",
-      "note": "How our youngest learn best.",
-      "to": "/kindergarten/play-based-learning"
+      "note": "How our youngest learn best. Every stage of Kindergarten follows the same 'learning by doing' philosophy that shapes DWPS as a whole — monthly themes, hands-on activity and guided play, in a dedicated Kindergarten Block with its own cycling track and play area.",
+      "image": "explore-play-based-learning.jpg"
      }
     ]
    },
@@ -1333,126 +786,6 @@ export const CONTENT = {
       "icon": "4"
      }
     ]
-   },
-   {
-    "type": "cta"
-   }
-  ]
- },
- "kindergarten/nursery": {
-  "eyebrow": "Kindergarten · Nursery",
-  "title": "Nursery",
-  "sub": "First steps into a warm, guided world.",
-  "trail": [
-   {
-    "label": "Kindergarten",
-    "to": "/kindergarten"
-   },
-   {
-    "label": "Nursery"
-   }
-  ],
-  "image": "/images/kindergarten-nursery.jpg",
-  "blocks": [
-   {
-    "type": "prose",
-    "paras": [
-     "First steps into a warm, guided world. This page describes the programme in detail. (Editable placeholder — replace with verified DWPS content.)"
-    ]
-   },
-   {
-    "type": "gallery",
-    "count": 6
-   },
-   {
-    "type": "cta"
-   }
-  ]
- },
- "kindergarten/lkg": {
-  "eyebrow": "Kindergarten · LKG",
-  "title": "LKG",
-  "sub": "Play, phonics and joyful discovery.",
-  "trail": [
-   {
-    "label": "Kindergarten",
-    "to": "/kindergarten"
-   },
-   {
-    "label": "LKG"
-   }
-  ],
-  "image": "/images/kindergarten-lkg.jpg",
-  "blocks": [
-   {
-    "type": "prose",
-    "paras": [
-     "Play, phonics and joyful discovery. This page describes the programme in detail. (Editable placeholder — replace with verified DWPS content.)"
-    ]
-   },
-   {
-    "type": "gallery",
-    "count": 6
-   },
-   {
-    "type": "cta"
-   }
-  ]
- },
- "kindergarten/ukg": {
-  "eyebrow": "Kindergarten · UKG",
-  "title": "UKG",
-  "sub": "Readiness for the years ahead.",
-  "trail": [
-   {
-    "label": "Kindergarten",
-    "to": "/kindergarten"
-   },
-   {
-    "label": "UKG"
-   }
-  ],
-  "image": "/images/kindergarten-ukg.jpg",
-  "blocks": [
-   {
-    "type": "prose",
-    "paras": [
-     "Readiness for the years ahead. This page describes the programme in detail. (Editable placeholder — replace with verified DWPS content.)"
-    ]
-   },
-   {
-    "type": "gallery",
-    "count": 6
-   },
-   {
-    "type": "cta"
-   }
-  ]
- },
- "kindergarten/play-based-learning": {
-  "eyebrow": "Kindergarten · Play-Based Learning",
-  "title": "Play-Based Learning",
-  "sub": "How our youngest learn best.",
-  "trail": [
-   {
-    "label": "Kindergarten",
-    "to": "/kindergarten"
-   },
-   {
-    "label": "Play-Based Learning"
-   }
-  ],
-  "image": "/images/kindergarten-nursery.jpg",
-  "blocks": [
-   {
-    "type": "prose",
-    "paras": [
-     "How our youngest learn best. This page describes the programme in detail. (Editable placeholder — replace with verified DWPS content.)"
-    ]
-   },
-   {
-    "type": "gallery",
-    "count": 6
    },
    {
     "type": "cta"
@@ -2227,10 +1560,6 @@ export const CONTENT = {
       "file": "/pdf/Annual-Report.pdf"
      }
     ]
-   },
-   {
-    "type": "note",
-    "text": "Dates will be added once each document's issue date is confirmed by the school office."
    },
    {
     "type": "cta"
