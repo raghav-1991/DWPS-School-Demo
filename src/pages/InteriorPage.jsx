@@ -160,6 +160,35 @@ const Steps = ({ b }) => (
   </>
 );
 
+/* Two-column: a photo collage on the left, all 4 stage titles + descriptions listed on the right. */
+const StagesSplit = ({ b }) => (
+  <>
+    {b.title && <SectionHead eyebrow={b.eyebrow || "Stages"} title={b.title} />}
+    <div className="stage-split">
+      <div className="stage-collage">
+        <Media src={img(b.image)} alt="DWPS students — DWPS photograph" ratio="3 / 4" className="stage-collage__a" />
+        <Media src={img(b.image2)} alt="DWPS academics — DWPS photograph" ratio="1 / 1" className="stage-collage__b" />
+        <Media src={img(b.image3)} alt="DWPS campus — DWPS photograph" ratio="4 / 3" className="stage-collage__c" />
+        <div className="stage-collage__badge">
+          <strong>{b.items.length}</strong>
+          <span>Stages of<br />Learning</span>
+        </div>
+      </div>
+      <div className="stage-list">
+        {b.items.map((st) => (
+          <div key={st.n} className="stage-item">
+            <span className="stage-item__ic">{st.n}</span>
+            <div className="stage-item__body">
+              <h3 className="stage-item__name">{st.name}</h3>
+              <p className="stage-item__note">{st.note}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </>
+);
+
 const Stages = ({ b }) => (
   <div className="grid grid--4">
     {b.items.map((st) => (
@@ -226,7 +255,7 @@ const Downloads = ({ b }) => (
           <span className="dlcard__title">{d.title}</span>
           {d.date && d.date !== "—" && <span className="dlcard__meta"><span className="dlcard__date">{d.date}</span></span>}
           {d.file
-            ? <a className="dlcard__btn" href={d.file} download>Download <DownloadIcon /></a>
+            ? <a className="dlcard__btn" href={d.file} target="_blank" rel="noopener noreferrer">Download <DownloadIcon /></a>
             : <span className="dlcard__btn">Coming soon</span>}
         </article>
       ))}
@@ -396,7 +425,7 @@ const TestimonialsBlock = () => <Testimonials items={TESTIMONIALS} />;
 
 function Block({ b, tone }) {
   const map = {
-    prose: Prose, prose_media: ProseMedia, cards: Cards, explore_split: ExploreSplit, features: Features, facilities: Facilities, life: LifeRows, steps: Steps, stages: Stages,
+    prose: Prose, prose_media: ProseMedia, cards: Cards, explore_split: ExploreSplit, features: Features, facilities: Facilities, life: LifeRows, steps: Steps, stages: Stages, stage_split: StagesSplit,
     faqs: Faqs, downloads: Downloads, downloads_like: DownloadsLike, news: News,
     achstats: AchStats, leaders: Leaders, jobs: Jobs, gallery: Gallery, note: Note,
     enquiry: Enquiry, contact: Contact, career: CareerForm, members: Members,

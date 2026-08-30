@@ -218,43 +218,33 @@ export const CONTENT = {
     ]
    },
    {
-    "type": "life",
+    "type": "stage_split",
     "eyebrow": "Stages",
     "title": "Every Stage of Learning",
+    "image": "academics-primary.jpg",
+    "image2": "gallery-30.jpg",
+    "image3": "academics-secondary.jpg",
     "items": [
      {
       "n": "01",
       "name": "Pre-Primary",
-      "note": "Play-led foundations that make school feel like belonging. Our youngest learners have a dedicated Kindergarten Block, with a cycling track and play area designed just for them — ensuring strong foundational learning in the early years that is bright and joyful, never childish, built on the same 'learning by doing' philosophy that shapes every stage at DWPS.",
-      "image": "academics-pre-primary.jpg"
+      "note": "Play-led foundations that make school feel like belonging. Our youngest learners have a dedicated Kindergarten Block, with a cycling track and play area designed just for them — ensuring strong foundational learning in the early years that is bright and joyful, never childish, built on the same 'learning by doing' philosophy that shapes every stage at DWPS."
      },
      {
       "n": "02",
       "name": "Primary",
-      "note": "Curiosity structured into confident, independent learning. Primary years build strong foundations in literacy and numeracy through a CBSE curriculum that favours conceptual clarity over rote memorisation, connecting lessons to real-life situations rather than isolated facts to be recalled. Assessment stays flexible and integrated with everyday classroom learning, so children keep building confidence and independence rather than working towards a single high-stakes exam.",
-      "image": "academics-primary.jpg"
+      "note": "Curiosity structured into confident, independent learning. Primary years build strong foundations in literacy and numeracy through a CBSE curriculum that favours conceptual clarity over rote memorisation, connecting lessons to real-life situations rather than isolated facts to be recalled. Assessment stays flexible and integrated with everyday classroom learning, so children keep building confidence and independence."
      },
      {
       "n": "03",
       "name": "Middle School",
-      "note": "Depth, reasoning and voice across every discipline. Middle School sharpens subject excellence and analytical thinking through Olympiad participation, alongside structured Student Development Programs — leadership, communication and personality development — that run beside the classroom, preparing confident, responsible learners who can think differently and creatively, not just recall what's been taught.",
-      "image": "academics-middle-school.jpg"
+      "note": "Depth, reasoning and voice across every discipline. Middle School sharpens subject excellence and analytical thinking through Olympiad participation, alongside structured Student Development Programs — leadership, communication and personality development — that run beside the classroom."
      },
      {
       "n": "04",
       "name": "Secondary",
-      "note": "Board-ready rigour with character and direction. Senior students take on real responsibility as Student Council and Cabinet Members, entrusted with leadership, integrity and service, while structured CBSE education keeps academic excellence, leadership and character development building together — not one at the expense of the other, right through to board readiness.",
-      "image": "academics-secondary.jpg"
+      "note": "Board-ready rigour with character and direction. Senior students take on real responsibility as Student Council and Cabinet Members, entrusted with leadership, integrity and service, while academic excellence, leadership and character development build together."
      }
-    ]
-   },
-   {
-    "type": "prose",
-    "eyebrow": "Approach",
-    "title": "Teaching & Learning Methodology",
-    "paras": [
-     "Classroom experiences are carefully planned to help children construct knowledge through understanding rather than memorisation — connecting academic content to real-world contexts and encouraging inquiry and active engagement. Alongside concept clarity and academic discipline, the approach builds communication skills, creative exploration and value-based learning at every stage, with strong conceptual learning, Olympiad participation and subject excellence encouraged across every grade.",
-     "The school provides structured CBSE education with a clear focus on academic excellence, leadership and character development, not one at the expense of the other. Teaching methods are designed to help students think differently and creatively, rather than simply reproduce what has been taught. Alongside traditional academic instruction, a wide range of activities help children develop new skills beyond the syllabus, extending learning well past the textbook."
     ]
    },
    {
