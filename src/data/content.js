@@ -218,32 +218,35 @@ export const CONTENT = {
     ]
    },
    {
-    "type": "stage_split",
+    "type": "life",
+    "variant": "fit",
+    "pad30": true,
     "eyebrow": "Stages",
     "title": "Every Stage of Learning",
-    "image": "academics-primary.jpg",
-    "image2": "gallery-30.jpg",
-    "image3": "academics-secondary.jpg",
     "items": [
      {
       "n": "01",
       "name": "Pre-Primary",
-      "note": "Play-led foundations that make school feel like belonging. Our youngest learners have a dedicated Kindergarten Block, with a cycling track and play area designed just for them — ensuring strong foundational learning in the early years that is bright and joyful, never childish, built on the same 'learning by doing' philosophy that shapes every stage at DWPS."
+      "note": "Play-led foundations that make school feel like belonging. Our youngest learners have a dedicated Kindergarten Block, with a cycling track and play area designed just for them — ensuring strong foundational learning in the early years that is bright and joyful, never childish, built on the same 'learning by doing' philosophy that shapes every stage at DWPS.",
+      "image": "academics-pre-primary.jpg"
      },
      {
       "n": "02",
       "name": "Primary",
-      "note": "Curiosity structured into confident, independent learning. Primary years build strong foundations in literacy and numeracy through a CBSE curriculum that favours conceptual clarity over rote memorisation, connecting lessons to real-life situations rather than isolated facts to be recalled. Assessment stays flexible and integrated with everyday classroom learning, so children keep building confidence and independence."
+      "note": "Curiosity structured into confident, independent learning. Primary years build strong foundations in literacy and numeracy through a CBSE curriculum that favours conceptual clarity over rote memorisation, connecting lessons to real-life situations rather than isolated facts to be recalled. Assessment stays flexible and integrated with everyday classroom learning, so children keep building confidence and independence rather than working towards a single high-stakes exam.",
+      "image": "academics-primary.jpg"
      },
      {
       "n": "03",
       "name": "Middle School",
-      "note": "Depth, reasoning and voice across every discipline. Middle School sharpens subject excellence and analytical thinking through Olympiad participation, alongside structured Student Development Programs — leadership, communication and personality development — that run beside the classroom."
+      "note": "Depth, reasoning and voice across every discipline. Middle School sharpens subject excellence and analytical thinking through Olympiad participation, alongside structured Student Development Programs — leadership, communication and personality development — that run beside the classroom, preparing confident, responsible learners who can think differently and creatively, not just recall what's been taught.",
+      "image": "academics-middle-school.jpg"
      },
      {
       "n": "04",
       "name": "Secondary",
-      "note": "Board-ready rigour with character and direction. Senior students take on real responsibility as Student Council and Cabinet Members, entrusted with leadership, integrity and service, while academic excellence, leadership and character development build together."
+      "note": "Board-ready rigour with character and direction. Senior students take on real responsibility as Student Council and Cabinet Members, entrusted with leadership, integrity and service, while structured CBSE education keeps academic excellence, leadership and character development building together — not one at the expense of the other, right through to board readiness.",
+      "image": "academics-secondary.jpg"
      }
     ]
    },
@@ -424,11 +427,9 @@ export const CONTENT = {
     ]
    },
    {
-    "type": "note",
-    "text": "Only steps verified by the school should remain; edit as needed."
-   },
-   {
     "type": "life",
+    "variant": "fit",
+    "pad30": true,
     "eyebrow": "Explore",
     "title": "Admissions Information",
     "items": [
@@ -580,6 +581,7 @@ export const CONTENT = {
    },
    {
     "type": "life",
+    "variant": "fit",
     "eyebrow": "Explore",
     "title": "Explore Student Life",
     "items": [
@@ -657,6 +659,7 @@ export const CONTENT = {
    },
    {
     "type": "life",
+    "variant": "fit",
     "eyebrow": "Explore",
     "title": "Explore Co-Curricular",
     "items": [
@@ -722,6 +725,7 @@ export const CONTENT = {
    },
    {
     "type": "life",
+    "variant": "fit",
     "eyebrow": "Explore",
     "title": "Explore Kindergarten",
     "items": [
@@ -801,6 +805,7 @@ export const CONTENT = {
    },
    {
     "type": "facilities",
+    "variant": "fit",
     "eyebrow": "World-Class Infrastructure",
     "title": "Every Corner Designed for Discovery & Growth",
     "items": [

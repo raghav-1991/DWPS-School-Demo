@@ -4,7 +4,7 @@ import { Band, SectionHead, Eyebrow, Arrow, Media, PageHero, CTASection, Testimo
 import { Breadcrumbs } from "../components/layout.jsx";
 import { CONTENT } from "../data/content.js";
 import { TESTIMONIALS } from "../data/home.js";
-import { img, slug } from "../lib/assets.js";
+import { img, slug, cx } from "../lib/assets.js";
 import { ENQUIRY_URL, PHONES } from "../data/site.js";
 
 /* ---- individual block renderers ---- */
@@ -81,16 +81,19 @@ const ExploreSplit = ({ b }) => (
   </>
 );
 
-/* Alternating full-bleed rows, same treatment as Facilities but for topics with no sub-page (image set explicitly, not clickable). */
+/* Alternating full-bleed rows, same treatment as Facilities but for topics with no sub-page (image set explicitly, not clickable).
+   variant "fit" (Academics Stages, Admissions Information, Student Life, Co-Curricular, Kindergarten) drops the fixed 4/3 image
+   ratio and instead crops the image to match the text column's height. pad30 (Academics Stages, Admissions Information) additionally
+   tightens each row's vertical padding to 30px. */
 const LifeRows = ({ b }) => (
   <>
     {b.title && <SectionHead eyebrow={b.eyebrow || "Explore"} title={b.title} />}
-    <div className="facilities facilities--life">
+    <div className={cx("facilities", "facilities--life", b.variant && `facilities--${b.variant}`, b.pad30 && "facilities--pad30")}>
       {b.items.map((f) => (
         <div key={f.n} className="fac">
           <div className="fac__inner">
             <div className="fac__mediawrap">
-              <Media src={img(f.image)} alt={f.name + " — DWPS photograph"} ratio="4 / 3" className="card__media" />
+              <Media src={img(f.image)} alt={f.name + " — DWPS photograph"} ratio={b.variant === "fit" ? null : "4 / 3"} className="card__media" />
               <span className="fac__badge">{f.n}</span>
             </div>
             <div className="fac__body">
@@ -104,15 +107,16 @@ const LifeRows = ({ b }) => (
   </>
 );
 
+/* Same alternating row layout as LifeRows, but each row links to a sub-page. variant "fit" matches image height to the text column. */
 const Facilities = ({ b }) => (
   <>
     {b.title && <SectionHead eyebrow={b.eyebrow || "Explore"} title={b.title} />}
-    <div className="facilities facilities--campus">
+    <div className={cx("facilities", "facilities--campus", b.variant && `facilities--${b.variant}`)} style={b.variant === "fit" ? { "--fit-ratio": "4 / 2.55" } : undefined}>
       {b.items.map((f) => (
         <Link key={f.n} to={f.to} className="fac">
           <div className="fac__inner">
             <div className="fac__mediawrap">
-              <Media src={img("campus-" + slug(f.name) + ".jpg")} alt={f.name + " — DWPS photograph"} ratio="4 / 2.55" className="card__media" />
+              <Media src={img("campus-" + slug(f.name) + ".jpg")} alt={f.name + " — DWPS photograph"} ratio={b.variant === "fit" ? null : "4 / 2.55"} className="card__media" />
               <span className="fac__badge">{f.n}{f.cat && <em> · {f.cat}</em>}</span>
             </div>
             <div className="fac__body">
@@ -156,35 +160,6 @@ const Steps = ({ b }) => (
           <div><strong className="step__name">{s.name}</strong><p className="step__note">{s.note}</p></div>
         </div>
       ))}
-    </div>
-  </>
-);
-
-/* Two-column: a photo collage on the left, all 4 stage titles + descriptions listed on the right. */
-const StagesSplit = ({ b }) => (
-  <>
-    {b.title && <SectionHead eyebrow={b.eyebrow || "Stages"} title={b.title} />}
-    <div className="stage-split">
-      <div className="stage-collage">
-        <Media src={img(b.image)} alt="DWPS students — DWPS photograph" ratio="3 / 4" className="stage-collage__a" />
-        <Media src={img(b.image2)} alt="DWPS academics — DWPS photograph" ratio="1 / 1" className="stage-collage__b" />
-        <Media src={img(b.image3)} alt="DWPS campus — DWPS photograph" ratio="4 / 3" className="stage-collage__c" />
-        <div className="stage-collage__badge">
-          <strong>{b.items.length}</strong>
-          <span>Stages of<br />Learning</span>
-        </div>
-      </div>
-      <div className="stage-list">
-        {b.items.map((st) => (
-          <div key={st.n} className="stage-item">
-            <span className="stage-item__ic">{st.n}</span>
-            <div className="stage-item__body">
-              <h3 className="stage-item__name">{st.name}</h3>
-              <p className="stage-item__note">{st.note}</p>
-            </div>
-          </div>
-        ))}
-      </div>
     </div>
   </>
 );
@@ -249,16 +224,24 @@ const Downloads = ({ b }) => (
   <>
     {b.title && <SectionHead eyebrow="Downloads" title={b.title} />}
     <div className="dlgrid">
-      {b.items.map((d, i) => (
-        <article key={i} className={"dlcard" + (d.file ? "" : " dlcard--disabled")}>
+      {b.items.map((d, i) => {
+        const meta = <>
           <span className="dlcard__icon"><PdfIcon /></span>
           <span className="dlcard__title">{d.title}</span>
           {d.date && d.date !== "—" && <span className="dlcard__meta"><span className="dlcard__date">{d.date}</span></span>}
-          {d.file
-            ? <a className="dlcard__btn" href={d.file} target="_blank" rel="noopener noreferrer">Download <DownloadIcon /></a>
-            : <span className="dlcard__btn">Coming soon</span>}
-        </article>
-      ))}
+        </>;
+        return d.file ? (
+          <a key={i} className="dlcard" href={d.file} target="_blank" rel="noopener noreferrer">
+            {meta}
+            <span className="dlcard__btn">Download <DownloadIcon /></span>
+          </a>
+        ) : (
+          <article key={i} className="dlcard dlcard--disabled">
+            {meta}
+            <span className="dlcard__btn">Coming soon</span>
+          </article>
+        );
+      })}
     </div>
   </>
 );
@@ -425,7 +408,7 @@ const TestimonialsBlock = () => <Testimonials items={TESTIMONIALS} />;
 
 function Block({ b, tone }) {
   const map = {
-    prose: Prose, prose_media: ProseMedia, cards: Cards, explore_split: ExploreSplit, features: Features, facilities: Facilities, life: LifeRows, steps: Steps, stages: Stages, stage_split: StagesSplit,
+    prose: Prose, prose_media: ProseMedia, cards: Cards, explore_split: ExploreSplit, features: Features, facilities: Facilities, life: LifeRows, steps: Steps, stages: Stages,
     faqs: Faqs, downloads: Downloads, downloads_like: DownloadsLike, news: News,
     achstats: AchStats, leaders: Leaders, jobs: Jobs, gallery: Gallery, note: Note,
     enquiry: Enquiry, contact: Contact, career: CareerForm, members: Members,
