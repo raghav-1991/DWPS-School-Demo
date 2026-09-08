@@ -13,7 +13,7 @@ const Prose = ({ b }) => (
   <>
     {b.title && <SectionHead eyebrow={b.eyebrow || "About"} title={b.title} />}
     <div className="prose">
-      {b.heading && <h3>{b.heading}</h3>}
+      {b.heading && <h3 className={b.headingClass}>{b.heading}</h3>}
       {b.paras.map((p, i) => <p key={i}>{p}</p>)}
     </div>
   </>
@@ -334,13 +334,16 @@ function CareerForm() {
   );
 }
 
+/* b.items (explicit filenames) gives a page its own dedicated photo set; otherwise falls back to the shared numbered gallery-XX.jpg pool.
+   b.equal keeps every tile the same 4/3 ratio (skips the staggered tall/short masonry mix) so all boxes come out the same size. */
 const Gallery = ({ b }) => (
   <div className="masonry">
-    {Array.from({ length: b.count }).map((_, i) => {
-      const tall = i % 3 === 1;
+    {Array.from({ length: b.items ? b.items.length : b.count }).map((_, i) => {
+      const tall = !b.equal && i % 3 === 1;
+      const src = b.items ? img(b.items[i]) : img("gallery-" + String((i % 43) + 1).padStart(2, "0") + ".jpg");
       return (
         <div key={i} className="mtile">
-          <Media src={img("gallery-" + String((i % 43) + 1).padStart(2, "0") + ".jpg")} alt="DWPS gallery image" ratio={tall ? "3 / 4" : "4 / 3"} className="mtile__media" />
+          <Media src={src} alt="DWPS gallery image" ratio={tall ? "3 / 4" : "4 / 3"} className="mtile__media" />
         </div>
       );
     })}

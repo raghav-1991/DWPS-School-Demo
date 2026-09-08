@@ -168,7 +168,7 @@ export const CONTENT = {
    {
     "type": "prose",
     "paras": [
-     "Delhi World Public School is led by the Delhi World Foundation's management, together with the school's academic leadership. Chairman and Managing Director details below are placeholders pending names supplied by the school — the Principal's profile is verified from the school's official site."
+     "Delhi World Public School is led by the Delhi World Foundation's management, together with the school's academic leadership. Chairman and Academic Director details below are placeholders pending names supplied by the school — the Principal's profile is verified from the school's official site."
     ]
    },
    {
@@ -180,8 +180,8 @@ export const CONTENT = {
       "quote": "Education must prepare a child not only for exams, but for a life of purpose."
      },
      {
-      "role": "Managing Director",
-      "name": "Name — Managing Director",
+      "role": "Academic Director",
+      "name": "Name — Academic Director",
       "quote": "We are building an institution where character matters as much as achievement."
      },
      {
@@ -919,7 +919,8 @@ export const CONTENT = {
    },
    {
     "type": "gallery",
-    "count": 6
+    "equal": true,
+    "items": ["campus-smart-classrooms-01.jpg", "campus-smart-classrooms-02.jpg", "campus-smart-classrooms-03.jpg", "campus-smart-classrooms-04.jpg", "campus-smart-classrooms-05.jpg", "campus-smart-classrooms-06.jpg", "campus-smart-classrooms-07.jpg", "campus-smart-classrooms-08.jpg", "campus-smart-classrooms-09.jpg", "campus-smart-classrooms-10.jpg"]
    },
    {
     "type": "cta"
@@ -949,7 +950,8 @@ export const CONTENT = {
    },
    {
     "type": "gallery",
-    "count": 6
+    "equal": true,
+    "items": ["campus-science-labs-01.jpg", "campus-science-labs-02.jpg", "campus-science-labs-03.jpg", "campus-science-labs-04.jpg", "campus-science-labs-05.jpg", "campus-science-labs-06.jpg", "campus-science-labs-07.jpg", "campus-science-labs-08.jpg", "campus-science-labs-09.jpg", "campus-science-labs-10.jpg"]
    },
    {
     "type": "cta"
@@ -979,7 +981,8 @@ export const CONTENT = {
    },
    {
     "type": "gallery",
-    "count": 6
+    "equal": true,
+    "items": ["campus-computer-lab-gallery-01.jpg", "campus-computer-lab-gallery-02.jpg", "campus-computer-lab-gallery-03.jpg", "campus-computer-lab-gallery-04.jpg", "campus-computer-lab-gallery-05.jpg", "campus-computer-lab-gallery-06.jpg", "campus-computer-lab-gallery-07.jpg"]
    },
    {
     "type": "cta"
@@ -1009,7 +1012,8 @@ export const CONTENT = {
    },
    {
     "type": "gallery",
-    "count": 6
+    "equal": true,
+    "items": ["campus-mathematics-lab-gallery-01.jpg", "campus-mathematics-lab-gallery-02.jpg", "campus-mathematics-lab-gallery-03.jpg", "campus-mathematics-lab-gallery-04.jpg", "campus-mathematics-lab-gallery-05.jpg", "campus-mathematics-lab-gallery-06.jpg", "campus-mathematics-lab-gallery-07.jpg", "campus-mathematics-lab-gallery-08.jpg"]
    },
    {
     "type": "cta"
@@ -1069,7 +1073,8 @@ export const CONTENT = {
    },
    {
     "type": "gallery",
-    "count": 6
+    "equal": true,
+    "items": ["campus-activity-rooms-gallery-01.jpg", "campus-activity-rooms-gallery-02.jpg", "campus-activity-rooms-gallery-03.jpg", "campus-activity-rooms-gallery-04.jpg", "campus-activity-rooms-gallery-05.jpg", "campus-activity-rooms-gallery-06.jpg", "campus-activity-rooms-gallery-07.jpg", "campus-activity-rooms-gallery-08.jpg", "campus-activity-rooms-gallery-09.jpg", "campus-activity-rooms-gallery-10.jpg", "campus-activity-rooms-gallery-11.jpg", "campus-activity-rooms-gallery-12.jpg", "campus-activity-rooms-gallery-13.jpg", "campus-activity-rooms-gallery-14.jpg"]
    },
    {
     "type": "cta"
@@ -1093,13 +1098,18 @@ export const CONTENT = {
   "blocks": [
    {
     "type": "prose",
+    "heading": "Building Champions On and Off the Field",
+    "headingClass": "prose__heading--sw600",
     "paras": [
-     "Our sports facilities include a 360-degree running track, a cricket pitch with practice nets, a football ground, basketball and volleyball courts, and a cycling track built especially for our kindergarten students — supporting cricket, football, basketball, volleyball, badminton and cycling."
+     "At DWPS, sports are an essential part of education. We encourage students to stay active, discover their talents and develop discipline, teamwork, leadership, confidence and resilience.",
+     "Through regular training and participation in competitions, students learn to challenge themselves, respect others and embrace both victory and defeat with sporting spirit.",
+     "We don't just build athletes; we build confident individuals for life."
     ]
    },
    {
     "type": "gallery",
-    "count": 6
+    "equal": true,
+    "items": ["campus-sports-gallery-01.jpg", "campus-sports-gallery-02.jpg", "campus-sports-gallery-03.jpg", "campus-sports-gallery-04.jpg", "campus-sports-gallery-05.jpg", "campus-sports-gallery-06.jpg", "campus-sports-gallery-07.jpg", "campus-sports-gallery-08.jpg", "campus-sports-gallery-09.jpg", "campus-sports-gallery-10.jpg", "campus-sports-gallery-11.jpg", "campus-sports-gallery-12.jpg", "campus-sports-gallery-13.jpg", "campus-sports-gallery-14.jpg", "campus-sports-gallery-15.jpg"]
    },
    {
     "type": "cta"
@@ -1129,7 +1139,8 @@ export const CONTENT = {
    },
    {
     "type": "gallery",
-    "count": 6
+    "equal": true,
+    "items": ["campus-transport-gallery-01.jpg", "campus-transport-gallery-02.jpg", "campus-transport-gallery-03.jpg", "campus-transport-gallery-04.jpg", "campus-transport-gallery-05.jpg", "campus-transport-gallery-06.jpg", "campus-transport-gallery-07.jpg", "campus-transport-gallery-08.jpg"]
    },
    {
     "type": "cta"
@@ -1159,7 +1170,8 @@ export const CONTENT = {
    },
    {
     "type": "gallery",
-    "count": 6
+    "equal": true,
+    "items": ["campus-safety-gallery-01.jpg", "campus-safety-gallery-02.jpg", "campus-safety-gallery-03.jpg", "campus-safety-gallery-04.jpg"]
    },
    {
     "type": "cta"
@@ -1189,7 +1201,8 @@ export const CONTENT = {
    },
    {
     "type": "gallery",
-    "count": 6
+    "equal": true,
+    "items": ["campus-medical-room-gallery-01.jpg", "campus-medical-room-gallery-02.jpg", "campus-medical-room-gallery-03.jpg", "campus-medical-room-gallery-04.jpg"]
    },
    {
     "type": "cta"
@@ -1243,10 +1256,6 @@ export const CONTENT = {
     ]
    },
    {
-    "type": "note",
-    "text": "Events and dates are placeholders — replace with verified school events."
-   },
-   {
     "type": "cta"
    }
   ]
@@ -1262,6 +1271,12 @@ export const CONTENT = {
   ],
   "image": "/images/achievement-academic-results.jpg",
   "blocks": [
+   {
+    "type": "prose",
+    "paras": [
+     "Our students continue to make us proud through their achievements in academics, sports, and co-curricular activities. From active participation to winning accolades, every milestone is celebrated and recognised with certificates, prizes, and appreciation."
+    ]
+   },
    {
     "type": "achstats",
     "items": [
@@ -1455,13 +1470,6 @@ export const CONTENT = {
       "date": "—",
       "ftype": "PDF",
       "file": "/pdf/RR_COPY.pdf"
-     },
-     {
-      "title": "Trust Deed (Chaitanya KCS)",
-      "cat": "Legal",
-      "date": "—",
-      "ftype": "PDF",
-      "file": "/pdf/Trust_deed-Chaitanya_KCS.pdf"
      },
      {
       "title": "Lease Deed (Chaitanya KCS)",

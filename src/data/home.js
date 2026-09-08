@@ -5,11 +5,15 @@ export const HERO_SLIDES = [
   { theme: "Performing Arts", title: "Learning That\nBuilds Tomorrow." },
 ];
 
-export const STATS = [
-  { value: 100, suffix: "%", label: "Holistic Learning" },
-  { value: 360, suffix: "°", label: "Child Development" },
-  { display: "CBSE", label: "Affiliation 831712" },
-  { display: "Future", suffix: "-Ready", label: "Learning Environment" },
+export const WHY_CHOOSE = [
+  { name: "Holistic Education", note: "Nurturing academic, physical, social and emotional growth." },
+  { name: "Learning Beyond Classrooms", note: "Encouraging curiosity through experiential and activity-based learning." },
+  { name: "Strong Academic Foundation", note: "Building concepts, critical thinking and lifelong learning skills." },
+  { name: "Values & Character", note: "Developing integrity, discipline, compassion and responsibility." },
+  { name: "Sports & Fitness", note: "Promoting teamwork, leadership, discipline and a healthy lifestyle." },
+  { name: "Creative Expression", note: "Encouraging students to explore art, music, culture and their unique talents." },
+  { name: "Future-Ready Skills", note: "Developing communication, creativity, collaboration and problem-solving." },
+  { name: "Safe & Caring Environment", note: "Providing a supportive space where every child feels valued and confident." },
 ];
 
 export const EXPLORE = [
@@ -84,7 +88,7 @@ export const EVENTS = [
 
 export const LEADERS = [
   { role: "Chairman",          name: "Name — Chairman",          quote: "Education must prepare a child not only for exams, but for a life of purpose." },
-  { role: "Managing Director", name: "Name — Managing Director", quote: "We are building an institution where character matters as much as achievement." },
+  { role: "Academic Director", name: "Name — Academic Director", quote: "We are building an institution where character matters as much as achievement." },
   { role: "Principal",         name: "Ms. Deepika Lakhera",       quote: "Education is what remains after one has forgotten what one has learned in school — our aim is to build lifelong learners who are confident, compassionate and internationally minded." },
 ];
 

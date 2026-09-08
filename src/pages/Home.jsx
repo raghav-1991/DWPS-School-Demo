@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { Band, SectionHead, Eyebrow, Arrow, Media, CountUp, CTASection, Testimonials } from "../components/ui.jsx";
+import { Band, SectionHead, Eyebrow, Arrow, Media, CTASection, Testimonials } from "../components/ui.jsx";
 import { img, slug } from "../lib/assets.js";
 import {
-  HERO_SLIDES, STATS, EXPLORE,
+  HERO_SLIDES, WHY_CHOOSE, EXPLORE,
   GALLERY, TESTIMONIALS,
 } from "../data/home.js";
 
@@ -91,10 +91,10 @@ export default function Home() {
       <Band tone="dark" className="why">
         <SectionHead dark eyebrow="Why Choose DWPS" title={<>An education measured<br/>in more than marks.</>} />
         <div className="why__grid">
-          {STATS.map((s) => (
-            <div key={s.label} className="stat">
-              <div className="stat__value">{s.value != null ? <CountUp end={s.value} suffix={s.suffix} /> : <>{s.display}<em>{s.suffix}</em></>}</div>
-              <div className="stat__label">{s.label}</div>
+          {WHY_CHOOSE.map((w) => (
+            <div key={w.name} className="whyitem">
+              <h3 className="whyitem__name">{w.name}</h3>
+              <p className="whyitem__note">{w.note}</p>
             </div>
           ))}
         </div>
