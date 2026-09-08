@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Band, SectionHead, Eyebrow, Arrow, Media, PageHero, CTASection, Testimonials } from "../components/ui.jsx";
+import { Band, SectionHead, Eyebrow, Arrow, Media, PageHero, CTASection, Testimonials, Lightbox, useLightbox } from "../components/ui.jsx";
 import { Breadcrumbs } from "../components/layout.jsx";
 import { CONTENT } from "../data/content.js";
 import { TESTIMONIALS } from "../data/home.js";
@@ -96,7 +96,7 @@ const LifeRows = ({ b }) => (
         <div key={f.n} className="fac">
           <div className="fac__inner">
             <div className="fac__mediawrap">
-              <Media src={img(f.image)} alt={f.name + " — DWPS photograph"} ratio={b.variant === "fit" || b.mediaHeight ? null : "4 / 3"} className="card__media" />
+              <Media src={img(f.image)} alt={f.name + " — DWPS photograph"} ratio={b.variant === "fit" || b.mediaHeight ? null : "4 / 3"} focus={f.focus} className="card__media" />
               <span className="fac__badge">{f.n}</span>
             </div>
             <div className="fac__body">
@@ -346,21 +346,28 @@ function CareerForm() {
 }
 
 /* b.items (explicit filenames) gives a page its own dedicated photo set; otherwise falls back to the shared numbered gallery-XX.jpg pool (44 photos).
-   b.equal keeps every tile the same 4/3 ratio (skips the staggered tall/short masonry mix) so all boxes come out the same size. */
+   b.equal keeps every tile the same 4/3 ratio (skips the staggered tall/short masonry mix) so all boxes come out the same size.
+   b.focus (optional map of filename -> "x% y%") overrides the crop position for individual off-center photos. */
 const GALLERY_POOL_SIZE = 44;
-const Gallery = ({ b }) => (
-  <div className="masonry">
-    {Array.from({ length: b.items ? b.items.length : b.count }).map((_, i) => {
-      const tall = !b.equal && i % 3 === 1;
-      const src = b.items ? img(b.items[i]) : img("gallery-" + String((i % GALLERY_POOL_SIZE) + 1).padStart(2, "0") + ".jpg");
-      return (
-        <div key={i} className="mtile">
-          <Media src={src} alt="DWPS gallery image" ratio={tall ? "3 / 4" : "4 / 3"} className="mtile__media" />
-        </div>
-      );
-    })}
-  </div>
-);
+function Gallery({ b }) {
+  const count = b.items ? b.items.length : b.count;
+  const files = Array.from({ length: count }, (_, i) => b.items ? b.items[i] : "gallery-" + String((i % GALLERY_POOL_SIZE) + 1).padStart(2, "0") + ".jpg");
+  const srcs = files.map(img);
+  const lightbox = useLightbox(count);
+  return (
+    <div className="masonry">
+      {files.map((file, i) => {
+        const tall = !b.equal && i % 3 === 1;
+        return (
+          <button key={i} type="button" className="mtile mtile--btn" onClick={() => lightbox.open(i)}>
+            <Media src={srcs[i]} alt="DWPS gallery image" ratio={tall ? "3 / 4" : "4 / 3"} focus={b.focus && b.focus[file]} className="mtile__media" />
+          </button>
+        );
+      })}
+      {lightbox.props && <Lightbox srcs={srcs} {...lightbox.props} />}
+    </div>
+  );
+}
 
 const Note = ({ b }) => <p className="band__note band__note--dark">{b.text}</p>;
 

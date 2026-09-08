@@ -21,14 +21,20 @@ export const CONTENT = {
     ]
    },
    {
+    "type": "prose",
+    "title": "Our Story",
+    "heading": "2018 — The Beginning",
+    "paras": [
+     "DWPS Bangalore opened its doors in June 2018 as the first and flagship school of the Delhi World Foundation.",
+     "Since then, DWPS has grown into a vibrant learning community, continually expanding opportunities in academics, sports, creativity and experiential learning.",
+     "Today, our journey continues with one purpose — to inspire every child to learn, grow and make a difference."
+    ]
+   },
+   {
     "type": "explore_split",
     "title": "Explore About Us",
     "aside": null,
     "items": [
-     {
-      "name": "Our Story",
-      "note": "Delhi World Public School is part of the prestigious Delhi World Foundation, an initiative led by distinguished alumni of Delhi Public Schools. That lineage shaped a school built on the idea that education should be modern and rigorous, yet still rooted in Indian values."
-     },
      {
       "name": "Vision",
       "note": "Our vision is to provide modern, high-quality education rooted in Indian values and enriched with a global outlook — developing confident young minds who become responsible citizens contributing meaningfully to society, at every stage from Kindergarten to Secondary."
@@ -400,7 +406,7 @@ export const CONTENT = {
    },
    {
     "type": "life",
-    "variant": "fit",
+    "mediaHeight": 225,
     "pad30": true,
     "eyebrow": "Explore",
     "title": "Admissions Information",
@@ -553,7 +559,7 @@ export const CONTENT = {
    },
    {
     "type": "life",
-    "variant": "fit",
+    "mediaHeight": 225,
     "eyebrow": "Explore",
     "title": "Explore Student Life",
     "items": [
@@ -631,7 +637,7 @@ export const CONTENT = {
    },
    {
     "type": "life",
-    "mediaHeight": 200,
+    "mediaHeight": 225,
     "eyebrow": "Explore",
     "title": "Explore Co-Curricular",
     "items": [
@@ -651,7 +657,8 @@ export const CONTENT = {
       "n": "03",
       "name": "Art & Craft",
       "note": "Beyond drawing and painting, students explore handmade paper-making, paper recycling, cotton spinning, weaving and clay art — cultural craft techniques that build imagination, hand coordination and spatial awareness alongside creative confidence.",
-      "image": "explore-art-craft.jpg"
+      "image": "explore-art-craft.jpg",
+      "focus": "48% 30%"
      },
      {
       "n": "04",
@@ -697,7 +704,7 @@ export const CONTENT = {
    },
    {
     "type": "life",
-    "variant": "fit",
+    "mediaHeight": 225,
     "eyebrow": "Explore",
     "title": "Explore Kindergarten",
     "items": [
@@ -892,7 +899,7 @@ export const CONTENT = {
    {
     "type": "gallery",
     "equal": true,
-    "items": ["campus-smart-classrooms-01.jpg", "campus-smart-classrooms-02.jpg", "campus-smart-classrooms-03.jpg", "campus-smart-classrooms-04.jpg", "campus-smart-classrooms-05.jpg", "campus-smart-classrooms-06.jpg", "campus-smart-classrooms-07.jpg", "campus-smart-classrooms-08.jpg", "campus-smart-classrooms-09.jpg", "campus-smart-classrooms-10.jpg"]
+    "items": ["campus-smart-classrooms-01.jpg", "campus-smart-classrooms-02.jpg", "campus-smart-classrooms-03.jpg", "campus-smart-classrooms-04.jpg", "campus-smart-classrooms-05.jpg", "campus-smart-classrooms-06.jpg", "campus-smart-classrooms-07.jpg", "campus-smart-classrooms-08.jpg", "campus-smart-classrooms-09.jpg", "campus-smart-classrooms-10.jpg", "campus-smart-classrooms-11.jpg", "campus-smart-classrooms-12.jpg"]
    },
    {
     "type": "cta"
@@ -923,7 +930,7 @@ export const CONTENT = {
    {
     "type": "gallery",
     "equal": true,
-    "items": ["campus-science-labs-01.jpg", "campus-science-labs-02.jpg", "campus-science-labs-03.jpg", "campus-science-labs-04.jpg", "campus-science-labs-05.jpg", "campus-science-labs-06.jpg", "campus-science-labs-07.jpg", "campus-science-labs-08.jpg", "campus-science-labs-09.jpg", "campus-science-labs-10.jpg"]
+    "items": ["campus-science-labs-01.jpg", "campus-science-labs-02.jpg", "campus-science-labs-03.jpg", "campus-science-labs-04.jpg", "campus-science-labs-05.jpg", "campus-science-labs-06.jpg", "campus-science-labs-07.jpg", "campus-science-labs-08.jpg", "campus-science-labs-09.jpg", "campus-science-labs-10.jpg", "campus-science-labs-11.jpg", "campus-science-labs-12.jpg"]
    },
    {
     "type": "cta"
@@ -1047,7 +1054,7 @@ export const CONTENT = {
    {
     "type": "gallery",
     "equal": true,
-    "items": ["campus-activity-rooms-gallery-01.jpg", "campus-activity-rooms-gallery-02.jpg", "campus-activity-rooms-gallery-03.jpg", "campus-activity-rooms-gallery-04.jpg", "campus-activity-rooms-gallery-05.jpg", "campus-activity-rooms-gallery-06.jpg", "campus-activity-rooms-gallery-07.jpg", "campus-activity-rooms-gallery-08.jpg", "campus-activity-rooms-gallery-09.jpg", "campus-activity-rooms-gallery-10.jpg", "campus-activity-rooms-gallery-11.jpg", "campus-activity-rooms-gallery-12.jpg", "campus-activity-rooms-gallery-13.jpg", "campus-activity-rooms-gallery-14.jpg"]
+    "items": ["campus-activity-rooms-gallery-01.jpg", "campus-activity-rooms-gallery-02.jpg", "campus-activity-rooms-gallery-03.jpg", "campus-activity-rooms-gallery-04.jpg", "campus-activity-rooms-gallery-05.jpg", "campus-activity-rooms-gallery-06.jpg", "campus-activity-rooms-gallery-07.jpg", "campus-activity-rooms-gallery-08.jpg", "campus-activity-rooms-gallery-09.jpg", "campus-activity-rooms-gallery-10.jpg", "campus-activity-rooms-gallery-11.jpg", "campus-activity-rooms-gallery-12.jpg", "campus-activity-rooms-gallery-13.jpg", "campus-activity-rooms-gallery-14.jpg", "campus-activity-rooms-gallery-15.jpg", "campus-activity-rooms-gallery-16.jpg"]
    },
    {
     "type": "cta"
@@ -1082,7 +1089,7 @@ export const CONTENT = {
    {
     "type": "gallery",
     "equal": true,
-    "items": ["campus-sports-gallery-01.jpg", "campus-sports-gallery-02.jpg", "campus-sports-gallery-03.jpg", "campus-sports-gallery-04.jpg", "campus-sports-gallery-05.jpg", "campus-sports-gallery-06.jpg", "campus-sports-gallery-07.jpg", "campus-sports-gallery-08.jpg", "campus-sports-gallery-09.jpg", "campus-sports-gallery-10.jpg", "campus-sports-gallery-11.jpg", "campus-sports-gallery-12.jpg", "campus-sports-gallery-13.jpg", "campus-sports-gallery-14.jpg", "campus-sports-gallery-15.jpg"]
+    "items": ["campus-sports-gallery-01.jpg", "campus-sports-gallery-02.jpg", "campus-sports-gallery-03.jpg", "campus-sports-gallery-04.jpg", "campus-sports-gallery-05.jpg", "campus-sports-gallery-06.jpg", "campus-sports-gallery-07.jpg", "campus-sports-gallery-08.jpg", "campus-sports-gallery-09.jpg", "campus-sports-gallery-10.jpg", "campus-sports-gallery-11.jpg", "campus-sports-gallery-12.jpg", "campus-sports-gallery-13.jpg", "campus-sports-gallery-14.jpg", "campus-sports-gallery-15.jpg", "campus-sports-gallery-16.jpg"]
    },
    {
     "type": "cta"
@@ -1220,11 +1227,6 @@ export const CONTENT = {
       "cat": "Cultural Celebration",
       "date": "—",
       "title": "Placeholder — add real events and dates."
-     },
-     {
-      "cat": "Newsletter",
-      "date": "—",
-      "title": "Placeholder — link the school newsletter here."
      }
     ]
    },
@@ -1276,7 +1278,11 @@ export const CONTENT = {
    {
     "type": "gallery",
     "equal": true,
-    "items": ["achievements-gallery-01.jpg", "achievements-gallery-02.jpg", "achievements-gallery-03.jpg", "achievements-gallery-04.jpg", "achievements-gallery-05.jpg", "achievements-gallery-06.jpg", "achievements-gallery-07.jpg", "achievements-gallery-08.jpg", "achievements-gallery-09.jpg", "achievements-gallery-10.jpg", "achievements-gallery-11.jpg"]
+    "items": ["achievements-gallery-01.jpg", "achievements-gallery-02.jpg", "achievements-gallery-03.jpg", "achievements-gallery-04.jpg", "achievements-gallery-05.jpg", "achievements-gallery-06.jpg", "achievements-gallery-07.jpg", "achievements-gallery-08.jpg", "achievements-gallery-09.jpg", "achievements-gallery-10.jpg", "achievements-gallery-11.jpg", "achievements-gallery-12.jpg"],
+    "focus": {
+     "achievements-gallery-04.jpg": "50% 37%",
+     "achievements-gallery-10.jpg": "50% 42%"
+    }
    },
    {
     "type": "cta"

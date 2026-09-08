@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { Band, SectionHead, Eyebrow, Arrow, Media, CTASection, Testimonials } from "../components/ui.jsx";
+import { Band, SectionHead, Eyebrow, Arrow, Media, CTASection, Testimonials, Lightbox, useLightbox } from "../components/ui.jsx";
 import { img, slug } from "../lib/assets.js";
 import {
   HERO_SLIDES, WHY_CHOOSE, EXPLORE,
@@ -61,6 +61,8 @@ function Hero() {
 
 export default function Home() {
   const exploreRail = useRef(null);
+  const gallerySrcs = GALLERY.map((_, i) => img("home-gallery-" + String(i + 1).padStart(2, "0") + ".jpg"));
+  const lightbox = useLightbox(gallerySrcs.length);
   const scrollExplore = (dir) => {
     const el = exploreRail.current;
     if (!el) return;
@@ -76,7 +78,7 @@ export default function Home() {
       {/* Welcome */}
       <Band tone="paper" className="welcome">
         <div className="welcome__media">
-          <Media src={img("home-welcome.jpg")} alt="Campus / students — DWPS photograph" ratio="5 / 6" />
+          <Media src={img("home-welcome.jpg")} alt="Campus / students — DWPS photograph" ratio={null} />
         </div>
         <div className="welcome__copy">
           <Eyebrow>Welcome</Eyebrow>
@@ -133,12 +135,13 @@ export default function Home() {
           action={{ to: "/gallery", label: "Open full gallery" }} />
         <div className="masonry">
           {GALLERY.map((g, i) => (
-            <Link key={i} to="/gallery" className={"mtile" + (g.tall ? " mtile--tall" : "")}>
-              <Media src={img("home-gallery-" + String(i + 1).padStart(2, "0") + ".jpg")} alt="DWPS gallery image" ratio={g.tall ? "3 / 4" : "4 / 3"} className="mtile__media" />
-            </Link>
+            <button key={i} type="button" className={"mtile mtile--btn" + (g.tall ? " mtile--tall" : "")} onClick={() => lightbox.open(i)}>
+              <Media src={gallerySrcs[i]} alt="DWPS gallery image" ratio={g.tall ? "3 / 4" : "4 / 3"} className="mtile__media" />
+            </button>
           ))}
         </div>
       </Band>
+      {lightbox.props && <Lightbox srcs={gallerySrcs} {...lightbox.props} />}
 
       {/* Testimonials */}
       <Band tone="cream" className="testi">

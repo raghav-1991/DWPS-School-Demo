@@ -1,6 +1,50 @@
 import React, { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 import { cx } from "../lib/assets.js";
+
+/* Shared open/close/prev/next state for a Lightbox — call once per gallery, spread the returned props onto <Lightbox>. */
+export function useLightbox(count) {
+  const [index, setIndex] = useState(null);
+  return {
+    index,
+    open: (i) => setIndex(i),
+    props: index === null ? null : {
+      index,
+      onClose: () => setIndex(null),
+      onNav: (dir) => setIndex((i) => (i + dir + count) % count),
+    },
+  };
+}
+
+/* Full-size popup for a gallery thumbnail — click to open, arrows/keys to browse, Esc/backdrop/× to close. */
+export function Lightbox({ srcs, index, onClose, onNav }) {
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowRight") onNav(1);
+      if (e.key === "ArrowLeft") onNav(-1);
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [onClose, onNav]);
+
+  return createPortal(
+    <div className="modal lightbox" role="dialog" aria-modal="true" aria-label="Gallery image" onClick={onClose}>
+      <button type="button" className="lightbox__close iconbtn iconbtn--light" aria-label="Close" onClick={onClose}>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M6 6l12 12M18 6 6 18" /></svg>
+      </button>
+      <button type="button" className="lightbox__nav lightbox__nav--prev iconbtn iconbtn--light" aria-label="Previous image" onClick={(e) => { e.stopPropagation(); onNav(-1); }}>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 6l-6 6 6 6" /></svg>
+      </button>
+      <img src={srcs[index]} alt="DWPS gallery image, enlarged" className="lightbox__img" onClick={(e) => e.stopPropagation()} />
+      <button type="button" className="lightbox__nav lightbox__nav--next iconbtn iconbtn--light" aria-label="Next image" onClick={(e) => { e.stopPropagation(); onNav(1); }}>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 6l6 6-6 6" /></svg>
+      </button>
+    </div>,
+    document.body
+  );
+}
 
 /* Reveal-on-scroll — re-run per route via key/path in Layout. */
 export function useReveal(dep) {
@@ -44,8 +88,8 @@ export const SectionHead = ({ eyebrow, title, aside, action, dark }) => (
   </div>
 );
 
-/* Photo when it loads; branded frame fallback otherwise. */
-export function Media({ src, alt, ratio = "4 / 3", className = "", children }) {
+/* Photo when it loads; branded frame fallback otherwise. `focus` overrides object-position for a crop that's off-center (e.g. "50% 30%"). */
+export function Media({ src, alt, ratio = "4 / 3", className = "", focus, children }) {
   const [loaded, setLoaded] = useState(false);
   const [err, setErr] = useState(false);
   const show = src && !err;
@@ -54,7 +98,7 @@ export function Media({ src, alt, ratio = "4 / 3", className = "", children }) {
       <div className="frame__grid" />
       {show && (
         <img src={src} alt={alt} loading="lazy" className="frame__img"
-          style={{ opacity: loaded ? 1 : 0 }}
+          style={{ opacity: loaded ? 1 : 0, objectPosition: focus }}
           onLoad={() => setLoaded(true)} onError={() => setErr(true)} />
       )}
       {!loaded && (children || <span className="frame__label">{alt}</span>)}
