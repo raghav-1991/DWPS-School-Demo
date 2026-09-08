@@ -1043,7 +1043,8 @@ export const CONTENT = {
    },
    {
     "type": "gallery",
-    "count": 6
+    "equal": true,
+    "items": ["campus-library-gallery-01.jpg", "campus-library-gallery-02.jpg", "campus-library-gallery-03.jpg", "campus-library-gallery-04.jpg", "campus-library-gallery-05.jpg", "campus-library-gallery-06.jpg", "campus-library-gallery-07.jpg", "campus-library-gallery-08.jpg", "campus-library-gallery-09.jpg", "campus-library-gallery-10.jpg", "campus-library-gallery-11.jpg", "campus-library-gallery-12.jpg"]
    },
    {
     "type": "cta"
