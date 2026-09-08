@@ -82,18 +82,21 @@ const ExploreSplit = ({ b }) => (
 );
 
 /* Alternating full-bleed rows, same treatment as Facilities but for topics with no sub-page (image set explicitly, not clickable).
-   variant "fit" (Academics Stages, Admissions Information, Student Life, Co-Curricular, Kindergarten) drops the fixed 4/3 image
-   ratio and instead crops the image to match the text column's height. pad30 (Academics Stages, Admissions Information) additionally
-   tightens each row's vertical padding to 30px. */
+   variant "fit" (Academics Stages, Admissions Information, Student Life, Kindergarten) drops the fixed 4/3 image ratio and instead
+   crops the image to match the text column's height. pad30 (Academics Stages, Admissions Information) additionally tightens each
+   row's vertical padding to 30px. mediaHeight (px, Co-Curricular) fixes the image to an exact height instead. */
 const LifeRows = ({ b }) => (
   <>
     {b.title && <SectionHead eyebrow={b.eyebrow || "Explore"} title={b.title} />}
-    <div className={cx("facilities", "facilities--life", b.variant && `facilities--${b.variant}`, b.pad30 && "facilities--pad30")}>
+    <div
+      className={cx("facilities", "facilities--life", b.variant && `facilities--${b.variant}`, b.pad30 && "facilities--pad30", b.mediaHeight && "facilities--media-h")}
+      style={b.mediaHeight ? { "--media-h": b.mediaHeight + "px" } : undefined}
+    >
       {b.items.map((f) => (
         <div key={f.n} className="fac">
           <div className="fac__inner">
             <div className="fac__mediawrap">
-              <Media src={img(f.image)} alt={f.name + " — DWPS photograph"} ratio={b.variant === "fit" ? null : "4 / 3"} className="card__media" />
+              <Media src={img(f.image)} alt={f.name + " — DWPS photograph"} ratio={b.variant === "fit" || b.mediaHeight ? null : "4 / 3"} className="card__media" />
               <span className="fac__badge">{f.n}</span>
             </div>
             <div className="fac__body">
@@ -264,14 +267,22 @@ const AchStats = ({ b }) => (
   </div>
 );
 
+/* Alternating full-bleed rows, same left-right / right-left pattern as the Campus page's facility rows. */
 const Leaders = ({ b }) => (
-  <div className="grid grid--3">
-    {b.items.map((l) => (
-      <figure key={l.role} className="lcard">
-        <Media src={img("leader-" + slug(l.role) + ".jpg")} alt={l.role} ratio="1 / 1" className="lcard__media" />
-        <blockquote className="lcard__quote">“{l.quote}”</blockquote>
-        <figcaption className="lcard__cap"><strong>{l.name}</strong><span>{l.role}'s Message</span></figcaption>
-      </figure>
+  <div className="facilities facilities--life facilities--leaders">
+    {b.items.map((l, i) => (
+      <div key={l.role} className="fac">
+        <div className="fac__inner">
+          <div className="fac__mediawrap">
+            <Media src={img("leader-" + slug(l.role) + ".jpg")} alt={l.role} ratio="1 / 1" className="card__media" />
+            <span className="fac__badge">{String(i + 1).padStart(2, "0")} · {l.role}</span>
+          </div>
+          <div className="fac__body">
+            <h3 className="fac__name">{l.name}</h3>
+            <blockquote className="fac__quote">“{l.quote}”</blockquote>
+          </div>
+        </div>
+      </div>
     ))}
   </div>
 );
@@ -334,13 +345,14 @@ function CareerForm() {
   );
 }
 
-/* b.items (explicit filenames) gives a page its own dedicated photo set; otherwise falls back to the shared numbered gallery-XX.jpg pool.
+/* b.items (explicit filenames) gives a page its own dedicated photo set; otherwise falls back to the shared numbered gallery-XX.jpg pool (44 photos).
    b.equal keeps every tile the same 4/3 ratio (skips the staggered tall/short masonry mix) so all boxes come out the same size. */
+const GALLERY_POOL_SIZE = 44;
 const Gallery = ({ b }) => (
   <div className="masonry">
     {Array.from({ length: b.items ? b.items.length : b.count }).map((_, i) => {
       const tall = !b.equal && i % 3 === 1;
-      const src = b.items ? img(b.items[i]) : img("gallery-" + String((i % 43) + 1).padStart(2, "0") + ".jpg");
+      const src = b.items ? img(b.items[i]) : img("gallery-" + String((i % GALLERY_POOL_SIZE) + 1).padStart(2, "0") + ".jpg");
       return (
         <div key={i} className="mtile">
           <Media src={src} alt="DWPS gallery image" ratio={tall ? "3 / 4" : "4 / 3"} className="mtile__media" />
@@ -420,10 +432,9 @@ function Block({ b, tone }) {
   if (b.type === "cta") return <CTASection />;
   const Cmp = map[b.type];
   if (!Cmp) return null;
-  const dark = b.type === "leaders";
   const cls = b.type === "prose_media" ? "split" : b.type === "testimonials" ? "testi" : b.type === "explore_split" ? "explore-band" : undefined;
   const forcedTone = b.type === "testimonials" ? "cream" : tone;
-  return <Band tone={dark ? "dark" : forcedTone} className={cls}><Cmp b={b} /></Band>;
+  return <Band tone={forcedTone} className={cls}><Cmp b={b} /></Band>;
 }
 
 export default function InteriorPage({ slug: key }) {
@@ -445,7 +456,7 @@ export default function InteriorPage({ slug: key }) {
       <PageHero eyebrow={page.eyebrow} title={page.title} sub={page.sub} image={page.image} />
       <Breadcrumbs trail={page.trail} />
       {page.blocks.map((b, i) => {
-        const tone = b.type === "cta" || b.type === "leaders" ? null : TONES[toneI++ % TONES.length];
+        const tone = b.type === "cta" ? null : TONES[toneI++ % TONES.length];
         return <Block key={i} b={b} tone={tone} />;
       })}
     </>

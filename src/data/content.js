@@ -55,34 +55,6 @@ export const CONTENT = {
    }
   ]
  },
- "about-us/our-story": {
-  "eyebrow": "About Us · Our Story",
-  "title": "Our Story",
-  "sub": "The journey of Delhi World Public School.",
-  "trail": [
-   {
-    "label": "About Us",
-    "to": "/about-us"
-   },
-   {
-    "label": "Our Story"
-   }
-  ],
-  "image": "/images/welcome-campus.jpg",
-  "blocks": [
-   {
-    "type": "prose",
-    "paras": [
-     "Delhi World Public School (DWPS) is part of the prestigious Delhi World Foundation, an initiative led by distinguished alumni of Delhi Public Schools — including Salman Khurshid, Montek Singh Ahluwalia, Chintamani Rao, Dr. Rakshanda Jalil, Rajeev Talwar, Pradeep Pant and Manvendra Singh Banga.",
-     "The school was built around a simple idea: that learning should happen by doing, combining strong academics with values like compassion, respect and cooperation. That philosophy — modern, high-quality education rooted in Indian values and enriched with a global outlook — continues to guide every stage of a child's journey at DWPS today.",
-     "(A detailed founding timeline — year, founders and key milestones — will be added once supplied by the school.)"
-    ]
-   },
-   {
-    "type": "cta"
-   }
-  ]
- },
  "about-us/vision-mission": {
   "eyebrow": "About Us · Vision & Mission",
   "title": "Vision & Mission",
@@ -454,7 +426,7 @@ export const CONTENT = {
      {
       "n": "04",
       "name": "Fee Structure",
-      "note": "Fees are structured transparently by grade. For the current, verified fee schedule, please contact our Admissions Office directly — figures are not published here until confirmed by the school.",
+      "note": "Fees are structured transparently by grade. For the current, verified fee schedule, please contact our Admissions Office directly.",
       "image": "explore-fee-structure.jpg"
      },
      {
@@ -659,7 +631,7 @@ export const CONTENT = {
    },
    {
     "type": "life",
-    "variant": "fit",
+    "mediaHeight": 200,
     "eyebrow": "Explore",
     "title": "Explore Co-Curricular",
     "items": [
@@ -1279,27 +1251,6 @@ export const CONTENT = {
     ]
    },
    {
-    "type": "achstats",
-    "items": [
-     {
-      "v": "Board",
-      "l": "Results (placeholder)"
-     },
-     {
-      "v": "Sports",
-      "l": "Championships (placeholder)"
-     },
-     {
-      "v": "Arts",
-      "l": "Awards (placeholder)"
-     },
-     {
-      "v": "Olympiad",
-      "l": "Medals (placeholder)"
-     }
-    ]
-   },
-   {
     "type": "cards",
     "title": "Categories",
     "aside": null,
@@ -1323,6 +1274,11 @@ export const CONTENT = {
     ]
    },
    {
+    "type": "gallery",
+    "equal": true,
+    "items": ["achievements-gallery-01.jpg", "achievements-gallery-02.jpg", "achievements-gallery-03.jpg", "achievements-gallery-04.jpg", "achievements-gallery-05.jpg", "achievements-gallery-06.jpg", "achievements-gallery-07.jpg", "achievements-gallery-08.jpg", "achievements-gallery-09.jpg", "achievements-gallery-10.jpg", "achievements-gallery-11.jpg"]
+   },
+   {
     "type": "cta"
    }
   ]
@@ -1340,7 +1296,7 @@ export const CONTENT = {
   "blocks": [
    {
     "type": "gallery",
-    "count": 43
+    "count": 44
    },
    {
     "type": "cta"

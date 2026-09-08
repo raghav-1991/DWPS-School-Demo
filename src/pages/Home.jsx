@@ -83,7 +83,7 @@ export default function Home() {
           <h2 className="h2">Welcome to Delhi<br/>World Public School</h2>
           <p className="lede">A future-ready school where education, character, technology, creativity and excellence come together — for the students of today and the leaders of tomorrow.</p>
           <p className="body">Across every stage, DWPS pairs a rigorous CBSE foundation with the confidence, curiosity and care that help each child become the fullest version of themselves.</p>
-          <Link to="/about-us/our-story" className="link">Discover Our Story <Arrow /></Link>
+          <Link to="/about-us" className="link">Discover Our Story <Arrow /></Link>
         </div>
       </Band>
 
@@ -134,7 +134,7 @@ export default function Home() {
         <div className="masonry">
           {GALLERY.map((g, i) => (
             <Link key={i} to="/gallery" className={"mtile" + (g.tall ? " mtile--tall" : "")}>
-              <Media src={img("gallery-" + String(i + 1).padStart(2, "0") + ".jpg")} alt="DWPS gallery image" ratio={g.tall ? "3 / 4" : "4 / 3"} className="mtile__media" />
+              <Media src={img("home-gallery-" + String(i + 1).padStart(2, "0") + ".jpg")} alt="DWPS gallery image" ratio={g.tall ? "3 / 4" : "4 / 3"} className="mtile__media" />
             </Link>
           ))}
         </div>

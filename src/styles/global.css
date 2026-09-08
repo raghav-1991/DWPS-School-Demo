@@ -236,6 +236,7 @@ body{margin:0;}
 .fac__body{display:flex;flex-direction:column;flex:1;}
 .fac__name{font-family:'Inter',sans-serif;font-weight:600;font-size:1.32rem;color:var(--ink);margin:0 0 .6rem;}
 .fac__note{color:var(--slate);font-size:.94rem;line-height:1.6;margin:0 0 1.1rem;}
+.fac__quote{color:var(--slate);font-size:1.08rem;line-height:1.65;font-style:italic;margin:0;padding-left:1.1rem;border-left:3px solid var(--gold);}
 .fac__bullets{display:grid;grid-template-columns:repeat(2,1fr);gap:.4rem 1.2rem;list-style:none;margin:0 0 1.1rem;padding:0;}
 .fac__bullets li{font-size:.83rem;color:var(--ink);padding-left:1rem;position:relative;}
 
@@ -257,6 +258,8 @@ body{margin:0;}
 .facilities--fit .fac__mediawrap .frame{height:100%;}
 /* ---- pad30 rows (Academics Stages, Admissions Information) — tighter 30px vertical row padding ---- */
 .facilities--pad30 .fac__inner{padding-top:30px;padding-bottom:30px;}
+/* ---- media-h rows (Co-Curricular) — image fixed to an exact height (--media-h) instead of a ratio ---- */
+.facilities--media-h .fac__mediawrap .frame{height:var(--media-h);}
 
 /* ---- Campus page rows — tighter vertical rhythm ---- */
 .facilities--campus .fac__inner{padding:1.9rem 80px;}
@@ -286,12 +289,6 @@ body{margin:0;}
 .ncard__date{font-size:.73rem;letter-spacing:.1em;color:var(--slate);}
 .ncard__title{font-family:'Inter',sans-serif;font-weight:600;font-size:1.08rem;line-height:1.35;color:var(--ink);}
 .ncard .card__more{margin-top:.85rem;}
-.lcard{margin:0;background:#0A3D24;border:1px solid var(--line);border-radius:var(--radius);padding:1.5rem;transition:.3s;}
-.lcard:hover{border-color:rgba(198,154,76,.4);transform:translateY(-4px);}
-.lcard__media{margin-bottom:1.1rem;}
-.lcard__quote{font-family:'Inter',sans-serif;font-size:1.02rem;line-height:1.5;color:var(--paper);margin:0 0 1rem;font-weight:500;}
-.lcard__cap strong{display:block;color:var(--gold-light);font-family:'Inter',sans-serif;font-size:.92rem;}
-.lcard__cap span{font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(245,243,236,.55);}
 .mgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:1.4rem;}
 .mcard{text-align:center;}
 .mcard__media{margin-bottom:.8rem;}

@@ -27,7 +27,7 @@ export const NAV = [
 
 export const FOOTER_COLS = [
   { h: "About School", items: [
-    ["Our Story", "/about-us/our-story"], ["Vision & Mission", "/about-us/vision-mission"],
+    ["Vision & Mission", "/about-us/vision-mission"],
     ["Management", "/about-us/management"], ["Life Trustee", "/about-us/life-trustee"],
   ]},
   { h: "Quick Links", items: [
