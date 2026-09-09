@@ -13,6 +13,7 @@ export const NAV = [
   { label: "About", to: "/about-us", menu: [
     { items: [
       ["About Us", "/about-us"],
+      ["Our Story", "/about-us/our-story"],
       ["Management", "/about-us/management"],
       ["Academics", "/about-us/academics"],
       ["Life Trustee", "/about-us/life-trustee"],
@@ -27,7 +28,7 @@ export const NAV = [
 
 export const FOOTER_COLS = [
   { h: "About School", items: [
-    ["Vision & Mission", "/about-us/vision-mission"],
+    ["Our Story", "/about-us/our-story"], ["Vision & Mission", "/about-us/vision-mission"],
     ["Management", "/about-us/management"], ["Life Trustee", "/about-us/life-trustee"],
   ]},
   { h: "Quick Links", items: [

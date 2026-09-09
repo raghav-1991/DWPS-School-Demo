@@ -85,7 +85,7 @@ export default function Home() {
           <h2 className="h2">Welcome to Delhi<br/>World Public School</h2>
           <p className="lede">A future-ready school where education, character, technology, creativity and excellence come together — for the students of today and the leaders of tomorrow.</p>
           <p className="body">Across every stage, DWPS pairs a rigorous CBSE foundation with the confidence, curiosity and care that help each child become the fullest version of themselves.</p>
-          <Link to="/about-us" className="link">Discover Our Story <Arrow /></Link>
+          <Link to="/about-us/our-story" className="link">Discover Our Story <Arrow /></Link>
         </div>
       </Band>
 

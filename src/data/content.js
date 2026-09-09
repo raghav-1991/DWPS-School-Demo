@@ -21,16 +21,6 @@ export const CONTENT = {
     ]
    },
    {
-    "type": "prose",
-    "title": "Our Story",
-    "heading": "2018 — The Beginning",
-    "paras": [
-     "DWPS Bangalore opened its doors in June 2018 as the first and flagship school of the Delhi World Foundation.",
-     "Since then, DWPS has grown into a vibrant learning community, continually expanding opportunities in academics, sports, creativity and experiential learning.",
-     "Today, our journey continues with one purpose — to inspire every child to learn, grow and make a difference."
-    ]
-   },
-   {
     "type": "explore_split",
     "title": "Explore About Us",
     "aside": null,
@@ -55,6 +45,42 @@ export const CONTENT = {
    },
    {
     "type": "testimonials"
+   },
+   {
+    "type": "cta"
+   }
+  ]
+ },
+ "about-us/our-story": {
+  "eyebrow": "About Us · Our Story",
+  "title": "Our Story",
+  "sub": "The journey of Delhi World Public School.",
+  "trail": [
+   {
+    "label": "About Us",
+    "to": "/about-us"
+   },
+   {
+    "label": "Our Story"
+   }
+  ],
+  "image": "/images/welcome-campus.jpg",
+  "blocks": [
+   {
+    "type": "prose",
+    "paras": [
+     "Delhi World Public School (DWPS) is part of the prestigious Delhi World Foundation, an initiative led by distinguished alumni of Delhi Public Schools — including Salman Khurshid, Montek Singh Ahluwalia, Chintamani Rao, Dr. Rakshanda Jalil, Rajeev Talwar, Pradeep Pant and Manvendra Singh Banga.",
+     "The school was built around a simple idea: that learning should happen by doing, combining strong academics with values like compassion, respect and cooperation. That philosophy — modern, high-quality education rooted in Indian values and enriched with a global outlook — continues to guide every stage of a child's journey at DWPS today."
+    ]
+   },
+   {
+    "type": "prose",
+    "heading": "2018 — The Beginning",
+    "paras": [
+     "DWPS Bangalore opened its doors in June 2018 as the first and flagship school of the Delhi World Foundation.",
+     "Since then, DWPS has grown into a vibrant learning community, continually expanding opportunities in academics, sports, creativity and experiential learning.",
+     "Today, our journey continues with one purpose — to inspire every child to learn, grow and make a difference."
+    ]
    },
    {
     "type": "cta"
@@ -1181,13 +1207,13 @@ export const CONTENT = {
    {
     "type": "prose",
     "paras": [
-     "On-campus care when it's needed. This page describes the facility in detail. (Editable placeholder — replace with verified DWPS content.)"
+     "Our School Medical Room provides a safe and caring space for students who need medical attention during school hours. A trained medical professional is available to provide first aid and attend to minor illnesses and injuries. The room is equipped with essential medical supplies to ensure prompt and appropriate care when needed. We prioritize student health and well-being, creating a secure environment where every child feels cared for."
     ]
    },
    {
     "type": "gallery",
     "equal": true,
-    "items": ["campus-medical-room-gallery-01.jpg", "campus-medical-room-gallery-02.jpg", "campus-medical-room-gallery-03.jpg", "campus-medical-room-gallery-04.jpg"]
+    "items": ["campus-medical-room-gallery-03.jpg", "campus-medical-room-gallery-02.jpg", "campus-medical-room-gallery-01.jpg", "campus-medical-room-gallery-04.jpg"]
    },
    {
     "type": "cta"
