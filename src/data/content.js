@@ -146,7 +146,7 @@ export const CONTENT = {
    {
     "type": "prose",
     "paras": [
-     "Delhi World Public School is led by the Delhi World Foundation's management, together with the school's academic leadership. Chairman and Academic Director details below are placeholders pending names supplied by the school — the Principal's profile is verified from the school's official site."
+     "Delhi World Public School is led by the Delhi World Foundation's management, together with the school's academic leadership. Chairman, Managing Director and Academic Director details below are placeholders pending names supplied by the school — the Principal's profile is verified from the school's official site."
     ]
    },
    {
@@ -156,6 +156,11 @@ export const CONTENT = {
       "role": "Chairman",
       "name": "Name — Chairman",
       "quote": "Education must prepare a child not only for exams, but for a life of purpose."
+     },
+     {
+      "role": "Managing Director",
+      "name": "Name — Managing Director",
+      "quote": "Our commitment is to build a school our community can be proud of, run with integrity, transparency and care for every stakeholder."
      },
      {
       "role": "Academic Director",
