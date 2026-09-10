@@ -14,7 +14,10 @@ const Prose = ({ b }) => (
     {b.title && <SectionHead eyebrow={b.eyebrow || "About"} title={b.title} />}
     <div className="prose">
       {b.heading && <h3 className={b.headingClass}>{b.heading}</h3>}
-      {b.paras.map((p, i) => <p key={i}>{p}</p>)}
+      {b.paras.map((p, i) => (typeof p === "object" && p.bold)
+        ? <p key={i} className="prose__bold">{p.text}</p>
+        : <p key={i}>{p}</p>
+      )}
     </div>
   </>
 );

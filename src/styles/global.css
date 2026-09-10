@@ -393,6 +393,7 @@ body{margin:0;}
 .prose{max-width:760px;}
 .prose p{color:var(--slate);font-size:1.02rem;line-height:1.75;margin:0 0 1.1rem;}
 .prose h3{font-size:1.4rem;color:var(--ink);margin:1.5rem 0 .6rem;}
+.prose__bold{font-weight:700;color:var(--ink);font-size:1.15rem;margin:1.5rem 0 .6rem;}
 .prose__heading--sw600{font-weight:600;padding-bottom:20px;}
 
 .featurelist{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem;}

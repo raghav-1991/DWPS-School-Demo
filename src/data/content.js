@@ -70,13 +70,11 @@ export const CONTENT = {
     "type": "prose",
     "paras": [
      "Delhi World Public School (DWPS) is part of the prestigious Delhi World Foundation, an initiative led by distinguished alumni of Delhi Public Schools — including Salman Khurshid, Montek Singh Ahluwalia, Chintamani Rao, Dr. Rakshanda Jalil, Rajeev Talwar, Pradeep Pant and Manvendra Singh Banga.",
-     "The school was built around a simple idea: that learning should happen by doing, combining strong academics with values like compassion, respect and cooperation. That philosophy — modern, high-quality education rooted in Indian values and enriched with a global outlook — continues to guide every stage of a child's journey at DWPS today."
-    ]
-   },
-   {
-    "type": "prose",
-    "heading": "2018 — The Beginning",
-    "paras": [
+     "The school was built around a simple idea: that learning should happen by doing, combining strong academics with values like compassion, respect and cooperation. That philosophy — modern, high-quality education rooted in Indian values and enriched with a global outlook — continues to guide every stage of a child's journey at DWPS today.",
+     {
+      "bold": true,
+      "text": "2018 — The Beginning:"
+     },
      "DWPS Bangalore opened its doors in June 2018 as the first and flagship school of the Delhi World Foundation.",
      "Since then, DWPS has grown into a vibrant learning community, continually expanding opportunities in academics, sports, creativity and experiential learning.",
      "Today, our journey continues with one purpose — to inspire every child to learn, grow and make a difference."
