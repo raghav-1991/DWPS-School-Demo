@@ -13,6 +13,7 @@ export const CONTENT = {
   "blocks": [
    {
     "type": "prose_media",
+    "shadow": true,
     "image": "about-us-intro.jpg",
     "alt": "Delhi World Public School — campus photograph",
     "ratio": "4 / 5",
@@ -67,10 +68,22 @@ export const CONTENT = {
   "image": "/images/welcome-campus.jpg",
   "blocks": [
    {
-    "type": "prose",
+    "type": "prose_media",
+    "shadow": true,
+    "image": "our-story-photo.jpg",
+    "alt": "The DWPS team outside the school building — DWPS photograph",
     "paras": [
      "Delhi World Public School (DWPS) is part of the prestigious Delhi World Foundation, an initiative led by distinguished alumni of Delhi Public Schools — including Salman Khurshid, Montek Singh Ahluwalia, Chintamani Rao, Dr. Rakshanda Jalil, Rajeev Talwar, Pradeep Pant and Manvendra Singh Banga.",
-     "The school was built around a simple idea: that learning should happen by doing, combining strong academics with values like compassion, respect and cooperation. That philosophy — modern, high-quality education rooted in Indian values and enriched with a global outlook — continues to guide every stage of a child's journey at DWPS today.",
+     "The school was built around a simple idea: that learning should happen by doing, combining strong academics with values like compassion, respect and cooperation. That philosophy — modern, high-quality education rooted in Indian values and enriched with a global outlook — continues to guide every stage of a child's journey at DWPS today."
+    ]
+   },
+   {
+    "type": "prose_media",
+    "shadow": true,
+    "imageLeft": true,
+    "image": "our-story-photo-2.jpg",
+    "alt": "DWPS students with their achievements — DWPS photograph",
+    "paras": [
      {
       "bold": true,
       "text": "2018 — The Beginning:"
@@ -170,31 +183,42 @@ export const CONTENT = {
    {
     "type": "prose",
     "paras": [
-     "Delhi World Public School is led by the Delhi World Foundation's management, together with the school's academic leadership. Chairman, Managing Director and Academic Director details below are placeholders pending names supplied by the school — the Principal's profile is verified from the school's official site."
+     "Delhi World Public School is led by the Delhi World Foundation's management, together with the school's academic leadership — introduced below in their own words."
     ]
    },
    {
     "type": "leaders",
+    "mediaHeight": 350,
     "items": [
      {
       "role": "Chairman",
-      "name": "Name — Chairman",
-      "quote": "Education must prepare a child not only for exams, but for a life of purpose."
+      "name": "Ms. H C Kamalamma",
+      "quote": "Our commitment is to create an environment where education, healthcare and human values come together. We strive to empower students with quality education, professional excellence and a strong sense of service to society."
      },
      {
       "role": "Managing Director",
-      "name": "Name — Managing Director",
-      "quote": "Our commitment is to build a school our community can be proud of, run with integrity, transparency and care for every stakeholder."
+      "name": "Mr. Chethan Chandrashekar K",
+      "quote": "Our vision is to create an institution where every child is inspired to learn, encouraged to explore and empowered to achieve their fullest potential. At Delhi World Public School, we are committed to providing an education that blends academic excellence with strong values, confidence and compassion, preparing our students to lead with purpose and make a positive difference in the world."
      },
      {
       "role": "Academic Director",
-      "name": "Name — Academic Director",
-      "quote": "We are building an institution where character matters as much as achievement."
+      "name": "Ms. Geeta Subramaniam",
+      "quote": "Education is the most powerful tool to transform lives, build inclusive communities and enhance everyone's future. Let us all renew our commitment to ensure accessible, equitable and quality education for everyone. Together we have the power to unlock untold potentials, inspire change and create a wonderful world where every individual gets the opportunity to shine and thrive."
      },
      {
       "role": "Principal",
-      "name": "Ms. Deepika Lakhera — Principal",
-      "quote": "Education is what remains after one has forgotten what one has learned in school — our aim is to build lifelong learners who are confident, compassionate and internationally minded."
+      "name": "Ms. Deepika Lakhera",
+      "quote": [
+       "“Education is not about answers; it is about learning to think, question and create.”",
+       "As Delhi World Public School, Bangalore enters its ninth year, I look back with immense pride on a journey shaped by purpose, perseverance, and excellence. What began as a vision has grown into a vibrant community where students are encouraged to question, explore, and think beyond boundaries.",
+       "We urge our students to aim high, face challenges with resilience, and lead with empathy. Our curriculum blends academic rigor with curiosity — incorporating digital learning, public speaking, and application-based experiences to prepare children for an ever-changing world.",
+       "Our teachers are at the heart of this success. By giving them the freedom to innovate, we build classrooms that truly inspire. Ultimately, education is measured not just by what our students know, but by how they use that knowledge to make a difference. Guided by the principle that “it takes a village to raise a child,” we look forward to continuing this partnership with our parents and community to help every child thrive."
+      ]
+     },
+     {
+      "role": "Executive Director",
+      "name": "Dr Sebastian Prabhakar",
+      "quote": "Our commitment is to turn vision into meaningful action and create an institution that continuously strives for excellence. We aim to provide every student with the right opportunities, guidance, and environment to discover their strengths, build confidence, and prepare for a successful future."
      }
     ]
    },
@@ -760,6 +784,13 @@ export const CONTENT = {
       "name": "Play-Based Learning",
       "note": "How our youngest learn best. Every stage of Kindergarten follows the same 'learning by doing' philosophy that shapes DWPS as a whole — monthly themes, hands-on activity and guided play, in a dedicated Kindergarten Block with its own cycling track and play area.",
       "image": "explore-play-based-learning.jpg"
+     },
+     {
+      "n": "05",
+      "name": "Activity-Based Learning",
+      "note": "Learning by doing, every day. From art and craft to dance, drama and outdoor activities like tree-planting, students build confidence, coordination and creativity through real, hands-on experiences — not just from a textbook.",
+      "image": "kindergarten-activity-based-learning.jpg",
+      "to": "/kindergarten/student-activities"
      }
     ]
    },
@@ -788,6 +819,37 @@ export const CONTENT = {
       "icon": "4"
      }
     ]
+   },
+   {
+    "type": "cta"
+   }
+  ]
+ },
+ "kindergarten/student-activities": {
+  "eyebrow": "Kindergarten · Student Activities",
+  "title": "Activity-Based Learning",
+  "sub": "Learning by doing — art, craft, dance, drama and hands-on activities from day one.",
+  "trail": [
+   {
+    "label": "Kindergarten",
+    "to": "/kindergarten"
+   },
+   {
+    "label": "Student Activities"
+   }
+  ],
+  "image": "/images/kindergarten-activity-based-learning.jpg",
+  "blocks": [
+   {
+    "type": "prose",
+    "paras": [
+     "From art and craft to dance, drama and outdoor activities like tree-planting, our youngest learners build confidence, coordination and creativity through real, hands-on experiences — not just from a textbook. Here's a look at activity-based learning in action."
+    ]
+   },
+   {
+    "type": "gallery",
+    "equal": true,
+    "items": ["student-activities-gallery-01.jpg", "student-activities-gallery-02.jpg", "student-activities-gallery-03.jpg", "student-activities-gallery-04.jpg", "student-activities-gallery-05.jpg", "student-activities-gallery-06.jpg", "student-activities-gallery-07.jpg", "student-activities-gallery-08.jpg", "student-activities-gallery-09.jpg", "student-activities-gallery-10.jpg", "student-activities-gallery-11.jpg", "student-activities-gallery-12.jpg", "student-activities-gallery-13.jpg", "student-activities-gallery-14.jpg", "student-activities-gallery-15.jpg", "student-activities-gallery-16.jpg"]
    },
    {
     "type": "cta"
@@ -1282,30 +1344,9 @@ export const CONTENT = {
     ]
    },
    {
-    "type": "cards",
-    "title": "Categories",
-    "aside": null,
-    "items": [
-     {
-      "name": "Student Achievements",
-      "note": "Individual excellence across disciplines."
-     },
-     {
-      "name": "Sports Achievements",
-      "note": "Podiums, teams and personal bests."
-     },
-     {
-      "name": "Academic Results",
-      "note": "Board outcomes worth celebrating."
-     },
-     {
-      "name": "Awards & Recognitions",
-      "note": "Honours earned by school and students."
-     }
-    ]
-   },
-   {
     "type": "gallery",
+    "eyebrow": "Achievements",
+    "title": "Our Student Achievements",
     "equal": true,
     "items": ["achievements-gallery-01.jpg", "achievements-gallery-02.jpg", "achievements-gallery-03.jpg", "achievements-gallery-04.jpg", "achievements-gallery-05.jpg", "achievements-gallery-06.jpg", "achievements-gallery-07.jpg", "achievements-gallery-08.jpg", "achievements-gallery-09.jpg", "achievements-gallery-10.jpg", "achievements-gallery-11.jpg", "achievements-gallery-12.jpg"],
     "focus": {
@@ -1350,7 +1391,10 @@ export const CONTENT = {
   "image": "/images/welcome-campus.jpg",
   "blocks": [
    {
-    "type": "prose",
+    "type": "prose_media",
+    "stacked": true,
+    "image": "careers-group-photo.jpg",
+    "alt": "The DWPS teaching and staff team — DWPS photograph",
     "paras": [
      "We're building a passionate teaching team focused on innovation and excellence, in an environment where collaboration and professional growth go hand in hand. We're always looking for educators and staff who care deeply about children and learning, with excellent communication skills and a willingness to keep developing professionally."
     ]

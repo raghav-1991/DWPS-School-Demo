@@ -9,29 +9,33 @@ import { ENQUIRY_URL, PHONES } from "../data/site.js";
 
 /* ---- individual block renderers ---- */
 
+/* Each entry is either a plain string paragraph, or {bold:true, text} for a short inline title line. */
+const ParaList = ({ paras }) => paras.map((p, i) => (typeof p === "object" && p.bold)
+  ? <p key={i} className="prose__bold">{p.text}</p>
+  : <p key={i}>{p}</p>
+);
+
 const Prose = ({ b }) => (
   <>
     {b.title && <SectionHead eyebrow={b.eyebrow || "About"} title={b.title} />}
     <div className="prose">
       {b.heading && <h3 className={b.headingClass}>{b.heading}</h3>}
-      {b.paras.map((p, i) => (typeof p === "object" && p.bold)
-        ? <p key={i} className="prose__bold">{p.text}</p>
-        : <p key={i}>{p}</p>
-      )}
+      <ParaList paras={b.paras} />
     </div>
   </>
 );
 
-/* Text-left, image-right split — used where a prose block needs an accompanying photo. */
-const ProseMedia = ({ b }) => (
-  <>
+/* Text-left, image-right split (image-left when b.imageLeft; text-on-top when b.stacked) — used where a prose block needs an accompanying photo. */
+const ProseMedia = ({ b }) => {
+  const copy = (
     <div className="split__copy prose">
       {b.heading && <h3>{b.heading}</h3>}
-      {b.paras.map((p, i) => <p key={i}>{p}</p>)}
+      <ParaList paras={b.paras} />
     </div>
-    <Media src={img(b.image)} alt={b.alt || "DWPS photograph"} ratio={b.ratio || "4 / 3"} className="split__media" />
-  </>
-);
+  );
+  const media = <Media src={img(b.image)} alt={b.alt || "DWPS photograph"} ratio={b.ratio || "4 / 3"} className="split__media" />;
+  return b.imageLeft ? <>{media}{copy}</> : <>{copy}{media}</>;
+};
 
 const Cards = ({ b }) => (
   <>
@@ -95,8 +99,8 @@ const LifeRows = ({ b }) => (
       className={cx("facilities", "facilities--life", b.variant && `facilities--${b.variant}`, b.pad30 && "facilities--pad30", b.mediaHeight && "facilities--media-h")}
       style={b.mediaHeight ? { "--media-h": b.mediaHeight + "px" } : undefined}
     >
-      {b.items.map((f) => (
-        <div key={f.n} className="fac">
+      {b.items.map((f) => {
+        const inner = (
           <div className="fac__inner">
             <div className="fac__mediawrap">
               <Media src={img(f.image)} alt={f.name + " — DWPS photograph"} ratio={b.variant === "fit" || b.mediaHeight ? null : "4 / 3"} focus={f.focus} className="card__media" />
@@ -105,10 +109,14 @@ const LifeRows = ({ b }) => (
             <div className="fac__body">
               <h3 className="fac__name">{f.name}</h3>
               <p className="fac__note">{f.note}</p>
+              {f.to && <span className="card__more">Read more <Arrow /></span>}
             </div>
           </div>
-        </div>
-      ))}
+        );
+        return f.to
+          ? <Link key={f.n} to={f.to} className="fac">{inner}</Link>
+          : <div key={f.n} className="fac">{inner}</div>;
+      })}
     </div>
   </>
 );
@@ -271,18 +279,27 @@ const AchStats = ({ b }) => (
 );
 
 /* Alternating full-bleed rows, same left-right / right-left pattern as the Campus page's facility rows. */
+/* l.quote is either a short pull-quote (string, wrapped in “”) or a full message (array of paragraphs, printed as-is). */
 const Leaders = ({ b }) => (
-  <div className="facilities facilities--life facilities--leaders">
+  <div
+    className={cx("facilities", "facilities--life", "facilities--leaders", b.mediaHeight && "facilities--media-h")}
+    style={b.mediaHeight ? { "--media-h": b.mediaHeight + "px" } : undefined}
+  >
     {b.items.map((l, i) => (
       <div key={l.role} className="fac">
         <div className="fac__inner">
           <div className="fac__mediawrap">
-            <Media src={img("leader-" + slug(l.role) + ".jpg")} alt={l.role} ratio="1 / 1" className="card__media" />
+            <Media src={img("leader-" + slug(l.role) + ".jpg")} alt={l.role} ratio={b.mediaHeight ? null : "1 / 1"} className="card__media" />
             <span className="fac__badge">{String(i + 1).padStart(2, "0")} · {l.role}</span>
           </div>
           <div className="fac__body">
             <h3 className="fac__name">{l.name}</h3>
-            <blockquote className="fac__quote">“{l.quote}”</blockquote>
+            <blockquote className="fac__quote">
+              {Array.isArray(l.quote)
+                ? l.quote.map((p, pi) => <p key={pi}>{p}</p>)
+                : <p>“{l.quote}”</p>}
+              <p className="fac__signoff">Regards,<br />{l.name}<br /><span className="fac__signoff-role">{l.role}</span></p>
+            </blockquote>
           </div>
         </div>
       </div>
@@ -358,6 +375,8 @@ function Gallery({ b }) {
   const srcs = files.map(img);
   const lightbox = useLightbox(count);
   return (
+    <>
+    {b.title && <SectionHead eyebrow={b.eyebrow || "Gallery"} title={b.title} />}
     <div className="masonry">
       {files.map((file, i) => {
         const tall = !b.equal && i % 3 === 1;
@@ -369,6 +388,7 @@ function Gallery({ b }) {
       })}
       {lightbox.props && <Lightbox srcs={srcs} {...lightbox.props} />}
     </div>
+    </>
   );
 }
 
@@ -442,7 +462,7 @@ function Block({ b, tone }) {
   if (b.type === "cta") return <CTASection />;
   const Cmp = map[b.type];
   if (!Cmp) return null;
-  const cls = b.type === "prose_media" ? "split" : b.type === "testimonials" ? "testi" : b.type === "explore_split" ? "explore-band" : undefined;
+  const cls = b.type === "prose_media" ? cx("split", b.stacked && "split--stacked", b.shadow && "split--shadow") : b.type === "testimonials" ? "testi" : b.type === "explore_split" ? "explore-band" : undefined;
   const forcedTone = b.type === "testimonials" ? "cream" : tone;
   return <Band tone={forcedTone} className={cls}><Cmp b={b} /></Band>;
 }
