@@ -1297,29 +1297,169 @@ export const CONTENT = {
      {
       "cat": "Sports Day",
       "date": "20 FEB 2027",
-      "title": "Celebrating teamwork, determination and sporting spirit."
+      "title": "Celebrating teamwork, determination and sporting spirit.",
+      "to": "/events-news/sports-day"
      },
      {
       "cat": "Investiture Ceremony",
       "date": "11 APR 2027",
-      "title": "Student leaders take the pledge for the year ahead."
+      "title": "Student leaders take the pledge for the year ahead.",
+      "to": "/events-news/investiture-ceremony"
      },
      {
       "cat": "Annual Day",
       "date": "06 DEC 2026",
-      "title": "A full-campus celebration of a year of learning."
+      "title": "A full-campus celebration of a year of learning.",
+      "to": "/events-news/annual-day"
      },
      {
       "cat": "Independence Day",
       "date": "15 AUG 2026",
-      "title": "Honouring the nation with pride and gratitude."
+      "title": "Honouring the nation with pride and gratitude.",
+      "to": "/events-news/independence-day"
      },
      {
       "cat": "Cultural Celebration",
       "date": "—",
-      "title": "Placeholder — add real events and dates."
+      "title": "Moments of music, dance and colour from across the year.",
+      "to": "/events-news/cultural-celebration"
      }
     ]
+   },
+   {
+    "type": "cta"
+   }
+  ]
+ },
+ "events-news/sports-day": {
+  "eyebrow": "Events & News",
+  "title": "Sports Day.",
+  "sub": "Celebrating teamwork, determination and sporting spirit.",
+  "trail": [
+   {
+    "label": "Events & News",
+    "to": "/events-news"
+   },
+   {
+    "label": "Sports Day"
+   }
+  ],
+  "image": "/images/event-sports-day.jpg",
+  "blocks": [
+   {
+    "type": "gallery",
+    "eyebrow": "Sports Day",
+    "title": "Moments from Sports Day",
+    "equal": true,
+    "items": ["sports-day-gallery-01.jpg", "sports-day-gallery-02.jpg", "sports-day-gallery-03.jpg", "sports-day-gallery-04.jpg", "sports-day-gallery-05.jpg", "sports-day-gallery-06.jpg", "sports-day-gallery-07.jpg", "sports-day-gallery-08.jpg", "sports-day-gallery-09.jpg", "sports-day-gallery-10.jpg", "sports-day-gallery-11.jpg", "sports-day-gallery-12.jpg", "sports-day-gallery-13.jpg", "sports-day-gallery-14.jpg", "sports-day-gallery-15.jpg", "sports-day-gallery-16.jpg"]
+   },
+   {
+    "type": "cta"
+   }
+  ]
+ },
+ "events-news/annual-day": {
+  "eyebrow": "Events & News",
+  "title": "Annual Day.",
+  "sub": "A full-campus celebration of a year of learning.",
+  "trail": [
+   {
+    "label": "Events & News",
+    "to": "/events-news"
+   },
+   {
+    "label": "Annual Day"
+   }
+  ],
+  "image": "/images/event-annual-day.jpg",
+  "blocks": [
+   {
+    "type": "gallery",
+    "eyebrow": "Annual Day",
+    "title": "Moments from Annual Day",
+    "equal": true,
+    "items": ["annual-day-gallery-01.jpg"]
+   },
+   {
+    "type": "cta"
+   }
+  ]
+ },
+ "events-news/investiture-ceremony": {
+  "eyebrow": "Events & News",
+  "title": "Investiture Ceremony.",
+  "sub": "Student leaders take the pledge for the year ahead.",
+  "trail": [
+   {
+    "label": "Events & News",
+    "to": "/events-news"
+   },
+   {
+    "label": "Investiture Ceremony"
+   }
+  ],
+  "image": "/images/event-investiture-ceremony.jpg",
+  "blocks": [
+   {
+    "type": "gallery",
+    "eyebrow": "Investiture Ceremony",
+    "title": "Moments from the Investiture Ceremony",
+    "equal": true,
+    "items": ["investiture-gallery-01.jpg", "investiture-gallery-02.jpg", "investiture-gallery-03.jpg", "investiture-gallery-04.jpg", "investiture-gallery-05.jpg", "investiture-gallery-06.jpg", "investiture-gallery-07.jpg", "investiture-gallery-08.jpg", "investiture-gallery-09.jpg", "investiture-gallery-10.jpg", "investiture-gallery-11.jpg", "investiture-gallery-12.jpg", "investiture-gallery-13.jpg", "investiture-gallery-14.jpg", "investiture-gallery-15.jpg", "investiture-gallery-16.jpg", "investiture-gallery-17.jpg", "investiture-gallery-18.jpg", "investiture-gallery-19.jpg", "investiture-gallery-20.jpg"]
+   },
+   {
+    "type": "cta"
+   }
+  ]
+ },
+ "events-news/independence-day": {
+  "eyebrow": "Events & News",
+  "title": "Independence Day.",
+  "sub": "Honouring the nation with pride and gratitude.",
+  "trail": [
+   {
+    "label": "Events & News",
+    "to": "/events-news"
+   },
+   {
+    "label": "Independence Day"
+   }
+  ],
+  "image": "/images/event-independence-day.jpg",
+  "blocks": [
+   {
+    "type": "gallery",
+    "eyebrow": "Independence Day",
+    "title": "Moments from Independence Day",
+    "equal": true,
+    "items": ["independence-day-gallery-01.jpg", "independence-day-gallery-02.jpg", "independence-day-gallery-03.jpg", "independence-day-gallery-04.jpg", "independence-day-gallery-05.jpg", "independence-day-gallery-06.jpg", "independence-day-gallery-07.jpg", "independence-day-gallery-08.jpg", "independence-day-gallery-09.jpg", "independence-day-gallery-10.jpg", "independence-day-gallery-11.jpg", "independence-day-gallery-12.jpg", "independence-day-gallery-13.jpg", "independence-day-gallery-14.jpg", "independence-day-gallery-15.jpg", "independence-day-gallery-16.jpg", "independence-day-gallery-17.jpg", "independence-day-gallery-18.jpg", "independence-day-gallery-19.jpg", "independence-day-gallery-20.jpg"]
+   },
+   {
+    "type": "cta"
+   }
+  ]
+ },
+ "events-news/cultural-celebration": {
+  "eyebrow": "Events & News",
+  "title": "Cultural Celebration.",
+  "sub": "Moments of music, dance and colour from across the year.",
+  "trail": [
+   {
+    "label": "Events & News",
+    "to": "/events-news"
+   },
+   {
+    "label": "Cultural Celebration"
+   }
+  ],
+  "image": "/images/event-cultural-celebration.jpg",
+  "blocks": [
+   {
+    "type": "gallery",
+    "eyebrow": "Cultural Celebration",
+    "title": "Moments from Cultural Celebrations",
+    "equal": true,
+    "items": ["cultural-celebration-gallery-01.jpg", "cultural-celebration-gallery-02.jpg", "cultural-celebration-gallery-03.jpg", "cultural-celebration-gallery-04.jpg", "cultural-celebration-gallery-05.jpg", "cultural-celebration-gallery-06.jpg", "cultural-celebration-gallery-07.jpg"]
    },
    {
     "type": "cta"

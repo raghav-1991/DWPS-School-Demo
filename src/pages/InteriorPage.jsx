@@ -262,13 +262,19 @@ const Downloads = ({ b }) => (
 
 const News = ({ b }) => (
   <div className="grid grid--3">
-    {b.items.map((e, i) => (
-      <div key={i} className="ncard">
-        <Media src={img("event-" + slug(e.cat) + ".jpg")} alt={e.cat} ratio="4 / 3" className="card__media" />
-        <div className="ncard__meta"><span className="ncard__cat">{e.cat}</span><span className="ncard__date">{e.date}</span></div>
-        <p className="ncard__title">{e.title}</p>
-      </div>
-    ))}
+    {b.items.map((e, i) => {
+      const inner = (
+        <>
+          <Media src={img("event-" + slug(e.cat) + ".jpg")} alt={e.cat} ratio="4 / 3" className="card__media" />
+          <div className="ncard__meta"><span className="ncard__cat">{e.cat}</span><span className="ncard__date">{e.date}</span></div>
+          <p className="ncard__title">{e.title}</p>
+          {e.to && <span className="card__more">View More <Arrow /></span>}
+        </>
+      );
+      return e.to
+        ? <Link key={i} to={e.to} className="ncard">{inner}</Link>
+        : <div key={i} className="ncard">{inner}</div>;
+    })}
   </div>
 );
 
