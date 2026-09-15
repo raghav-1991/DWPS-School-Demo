@@ -208,6 +208,7 @@ export const CONTENT = {
      {
       "role": "Principal",
       "name": "Ms. Deepika Lakhera",
+      "mediaHeight": 500,
       "quote": [
        "“Education is not about answers; it is about learning to think, question and create.”",
        "As Delhi World Public School, Bangalore enters its ninth year, I look back with immense pride on a journey shaped by purpose, perseverance, and excellence. What began as a vision has grown into a vibrant community where students are encouraged to question, explore, and think beyond boundaries.",
@@ -710,8 +711,7 @@ export const CONTENT = {
       "n": "03",
       "name": "Art & Craft",
       "note": "Beyond drawing and painting, students explore handmade paper-making, paper recycling, cotton spinning, weaving and clay art — cultural craft techniques that build imagination, hand coordination and spatial awareness alongside creative confidence.",
-      "image": "explore-art-craft.jpg",
-      "focus": "48% 30%"
+      "image": "explore-art-craft.jpg"
      },
      {
       "n": "04",
@@ -849,7 +849,7 @@ export const CONTENT = {
    {
     "type": "gallery",
     "equal": true,
-    "items": ["student-activities-gallery-01.jpg", "student-activities-gallery-02.jpg", "student-activities-gallery-03.jpg", "student-activities-gallery-04.jpg", "student-activities-gallery-05.jpg", "student-activities-gallery-06.jpg", "student-activities-gallery-07.jpg", "student-activities-gallery-08.jpg", "student-activities-gallery-09.jpg", "student-activities-gallery-10.jpg", "student-activities-gallery-11.jpg", "student-activities-gallery-12.jpg", "student-activities-gallery-13.jpg", "student-activities-gallery-14.jpg", "student-activities-gallery-15.jpg", "student-activities-gallery-16.jpg"]
+    "items": ["student-activities-gallery-01.jpg", "student-activities-gallery-02.jpg", "student-activities-gallery-03.jpg", "student-activities-gallery-04.jpg", "student-activities-gallery-05.jpg", "student-activities-gallery-06.jpg", "student-activities-gallery-07.jpg", "student-activities-gallery-08.jpg", "student-activities-gallery-09.jpg", "student-activities-gallery-10.jpg", "student-activities-gallery-11.jpg", "student-activities-gallery-12.jpg", "student-activities-gallery-13.jpg", "student-activities-gallery-14.jpg", "student-activities-gallery-15.jpg", "student-activities-gallery-16.jpg", "student-activities-gallery-17.jpg", "student-activities-gallery-18.jpg", "student-activities-gallery-19.jpg", "student-activities-gallery-20.jpg", "student-activities-gallery-21.jpg", "student-activities-gallery-22.jpg", "student-activities-gallery-23.jpg", "student-activities-gallery-24.jpg"]
    },
    {
     "type": "cta"
@@ -1459,7 +1459,7 @@ export const CONTENT = {
     "eyebrow": "Cultural Celebration",
     "title": "Moments from Cultural Celebrations",
     "equal": true,
-    "items": ["cultural-celebration-gallery-01.jpg", "cultural-celebration-gallery-02.jpg", "cultural-celebration-gallery-03.jpg", "cultural-celebration-gallery-04.jpg", "cultural-celebration-gallery-05.jpg", "cultural-celebration-gallery-06.jpg", "cultural-celebration-gallery-07.jpg"]
+    "items": ["cultural-celebration-gallery-01.jpg", "cultural-celebration-gallery-02.jpg", "cultural-celebration-gallery-03.jpg", "cultural-celebration-gallery-04.jpg", "cultural-celebration-gallery-05.jpg", "cultural-celebration-gallery-06.jpg", "cultural-celebration-gallery-07.jpg", "cultural-celebration-gallery-08.jpg", "cultural-celebration-gallery-09.jpg", "cultural-celebration-gallery-10.jpg", "cultural-celebration-gallery-11.jpg", "cultural-celebration-gallery-12.jpg", "cultural-celebration-gallery-13.jpg", "cultural-celebration-gallery-14.jpg", "cultural-celebration-gallery-15.jpg", "cultural-celebration-gallery-16.jpg"]
    },
    {
     "type": "cta"

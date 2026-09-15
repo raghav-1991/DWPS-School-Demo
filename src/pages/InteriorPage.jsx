@@ -291,15 +291,14 @@ const Leaders = ({ b }) => (
     className={cx("facilities", "facilities--life", "facilities--leaders", b.mediaHeight && "facilities--media-h")}
     style={b.mediaHeight ? { "--media-h": b.mediaHeight + "px" } : undefined}
   >
-    {b.items.map((l, i) => (
+    {b.items.map((l) => (
       <div key={l.role} className="fac">
         <div className="fac__inner">
-          <div className="fac__mediawrap">
+          <div className="fac__mediawrap" style={l.mediaHeight ? { "--media-h": l.mediaHeight + "px" } : undefined}>
             <Media src={img("leader-" + slug(l.role) + ".jpg")} alt={l.role} ratio={b.mediaHeight ? null : "1 / 1"} className="card__media" />
-            <span className="fac__badge">{String(i + 1).padStart(2, "0")} · {l.role}</span>
           </div>
           <div className="fac__body">
-            <h3 className="fac__name">{l.name}</h3>
+            <h3 className="fac__name">{l.role}'s Message</h3>
             <blockquote className="fac__quote">
               {Array.isArray(l.quote)
                 ? l.quote.map((p, pi) => <p key={pi}>{p}</p>)
