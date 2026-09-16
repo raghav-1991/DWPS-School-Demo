@@ -196,9 +196,15 @@ export const CONTENT = {
       "quote": "Our commitment is to create an environment where education, healthcare and human values come together. We strive to empower students with quality education, professional excellence and a strong sense of service to society."
      },
      {
-      "role": "Managing Director",
+      "role": "Managing Trustee",
       "name": "Mr. Chethan Chandrashekar K",
       "quote": "Our vision is to create an institution where every child is inspired to learn, encouraged to explore and empowered to achieve their fullest potential. At Delhi World Public School, we are committed to providing an education that blends academic excellence with strong values, confidence and compassion, preparing our students to lead with purpose and make a positive difference in the world."
+     },
+     {
+      "role": "Executive Director",
+      "name": "Dr Sebastian Prabhakar",
+      "focus": "50% 20%",
+      "quote": "Our commitment is to turn vision into meaningful action and create an institution that continuously strives for excellence. We aim to provide every student with the right opportunities, guidance, and environment to discover their strengths, build confidence, and prepare for a successful future."
      },
      {
       "role": "Academic Director",
@@ -215,11 +221,6 @@ export const CONTENT = {
        "We urge our students to aim high, face challenges with resilience, and lead with empathy. Our curriculum blends academic rigor with curiosity — incorporating digital learning, public speaking, and application-based experiences to prepare children for an ever-changing world.",
        "Our teachers are at the heart of this success. By giving them the freedom to innovate, we build classrooms that truly inspire. Ultimately, education is measured not just by what our students know, but by how they use that knowledge to make a difference. Guided by the principle that “it takes a village to raise a child,” we look forward to continuing this partnership with our parents and community to help every child thrive."
       ]
-     },
-     {
-      "role": "Executive Director",
-      "name": "Dr Sebastian Prabhakar",
-      "quote": "Our commitment is to turn vision into meaningful action and create an institution that continuously strives for excellence. We aim to provide every student with the right opportunities, guidance, and environment to discover their strengths, build confidence, and prepare for a successful future."
      }
     ]
    },
@@ -1378,7 +1379,7 @@ export const CONTENT = {
     "eyebrow": "Annual Day",
     "title": "Moments from Annual Day",
     "equal": true,
-    "items": ["annual-day-gallery-01.jpg"]
+    "items": ["annual-day-gallery-01.jpg", "annual-day-gallery-02.jpg", "annual-day-gallery-03.jpg", "annual-day-gallery-04.jpg", "annual-day-gallery-05.jpg", "annual-day-gallery-06.jpg", "annual-day-gallery-07.jpg", "annual-day-gallery-08.jpg", "annual-day-gallery-09.jpg", "annual-day-gallery-10.jpg", "annual-day-gallery-11.jpg", "annual-day-gallery-12.jpg", "annual-day-gallery-13.jpg", "annual-day-gallery-14.jpg", "annual-day-gallery-15.jpg", "annual-day-gallery-16.jpg", "annual-day-gallery-17.jpg", "annual-day-gallery-18.jpg", "annual-day-gallery-19.jpg", "annual-day-gallery-20.jpg", "annual-day-gallery-21.jpg", "annual-day-gallery-22.jpg", "annual-day-gallery-23.jpg", "annual-day-gallery-24.jpg", "annual-day-gallery-25.jpg", "annual-day-gallery-26.jpg", "annual-day-gallery-27.jpg", "annual-day-gallery-28.jpg", "annual-day-gallery-29.jpg", "annual-day-gallery-30.jpg", "annual-day-gallery-31.jpg", "annual-day-gallery-32.jpg", "annual-day-gallery-33.jpg", "annual-day-gallery-34.jpg", "annual-day-gallery-35.jpg", "annual-day-gallery-36.jpg", "annual-day-gallery-37.jpg", "annual-day-gallery-38.jpg", "annual-day-gallery-39.jpg", "annual-day-gallery-40.jpg", "annual-day-gallery-41.jpg", "annual-day-gallery-42.jpg", "annual-day-gallery-43.jpg", "annual-day-gallery-44.jpg", "annual-day-gallery-45.jpg", "annual-day-gallery-46.jpg", "annual-day-gallery-47.jpg", "annual-day-gallery-48.jpg"]
    },
    {
     "type": "cta"
