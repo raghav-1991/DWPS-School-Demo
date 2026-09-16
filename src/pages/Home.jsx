@@ -7,10 +7,6 @@ import {
   GALLERY, TESTIMONIALS,
 } from "../data/home.js";
 
-// Hero background plays only this segment of the source video, then loops back.
-const HERO_CLIP_START = 11; // seconds
-const HERO_CLIP_END = 28; // seconds
-
 function Hero() {
   const [i, setI] = useState(0);
   useEffect(() => {
@@ -28,13 +24,10 @@ function Hero() {
           src="/videos/DWPS-Video.mp4"
           autoPlay
           muted
+          loop
           playsInline
           preload="auto"
           aria-hidden="true"
-          onLoadedMetadata={(e) => { e.currentTarget.currentTime = HERO_CLIP_START; }}
-          onTimeUpdate={(e) => {
-            if (e.currentTarget.currentTime >= HERO_CLIP_END) e.currentTarget.currentTime = HERO_CLIP_START;
-          }}
           onError={(e) => { e.currentTarget.style.display = "none"; }}
         />
         <div className="hero__grid-overlay" />
