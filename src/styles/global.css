@@ -510,8 +510,11 @@ body{margin:0;}
   .dwps{--pad-x:20px;--pad-y:18px;--gap:1rem;}
   .xbox{flex-basis:100%;}
   /* Full-bleed breakout so the (now content-free, video-only) hero spans true edge-to-edge width
-     regardless of any ancestor padding. */
-  .hero{width:100vw;position:relative;left:50%;margin-left:-50vw;}
+     regardless of any ancestor padding. Height: the aspect-ratio's own value (30vw, i.e. 100vw / (10/3))
+     plus a flat 50px on top — mobile only — for a bit more presence than the bare video ratio gives;
+     the video itself still fits via object-fit:contain, so the extra height just shows a little more
+     of the placeholder gradient above/below it rather than stretching or cropping the footage. */
+  .hero{width:100vw;position:relative;left:50%;margin-left:-50vw;aspect-ratio:auto;height:calc(30vw + 50px);}
   /* Dropped rather than shrunk: at phone widths it doesn't fit next to the logo + hamburger without
      crowding, and the same "Enquire" action is already one tap away in the mobile menu and the
      bottom sticky bar. */
