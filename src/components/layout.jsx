@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
-import { NAV, FOOTER_COLS, ENQUIRY_URL, SOCIAL } from "../data/site.js";
+import { NAV, FOOTER_COLS, ENQUIRY_URL, SOCIAL, PHONES } from "../data/site.js";
 import { useReveal } from "./ui.jsx";
 import { cx } from "../lib/assets.js";
+import { useFormSubmit } from "../lib/useFormSubmit.js";
 
 // Official brand glyphs in their real brand colors.
 const SOCIAL_PATHS = {
@@ -47,31 +48,53 @@ function AnnouncementBar() {
 }
 
 function EnquiryModal({ open, onClose }) {
+  const { status, submit, reset } = useFormSubmit("header-enquiry");
   useEffect(() => {
     if (!open) return;
+    reset();
     const onKey = (e) => { if (e.key === "Escape") onClose(); };
     window.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
     return () => { window.removeEventListener("keydown", onKey); document.body.style.overflow = ""; };
   }, [open, onClose]);
   if (!open) return null;
+  const busy = status === "sending" || status === "success";
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const f = new FormData(e.currentTarget);
+    submit({
+      name: f.get("studentName"),
+      fields: {
+        "Student's name": f.get("studentName"),
+        "Grade applying for": f.get("grade"),
+        "Parent's phone": f.get("phone"),
+      },
+      honeypot: f.get("company"),
+    });
+  };
   return (
     <div className="modal" role="dialog" aria-modal="true" aria-label="Enquire Now" onClick={onClose}>
-      <form
-        className="modal__panel formcard"
-        onClick={(e) => e.stopPropagation()}
-        onSubmit={(e) => { e.preventDefault(); window.open(ENQUIRY_URL, "_blank", "noopener,noreferrer"); }}
-      >
+      <form className="modal__panel formcard" onClick={(e) => e.stopPropagation()} onSubmit={onSubmit}>
         <button type="button" className="modal__close iconbtn" aria-label="Close" onClick={onClose}>
           <svg width="18" height="18" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/></svg>
         </button>
         <h3 className="modal__title">Start your enquiry</h3>
         <p className="modal__sub">Fill in a few details and our Admissions Office will get back to you.</p>
-        <div className="fld"><label>Student's name</label><input required placeholder="Full name" /></div>
-        <div className="fld"><label>Grade applying for</label><input required placeholder="e.g. Grade I" /></div>
-        <div className="fld"><label>Parent's phone</label><input required placeholder="Mobile number" /></div>
-        <button type="submit" className="btn btn--green btn--lg" style={{ width: "100%" }}>Submit Enquiry →</button>
-        <p className="band__note band__note--dark" style={{ marginTop: ".7rem" }}>This form links to our official enquiry portal.</p>
+        <input className="hp" type="text" name="company" tabIndex={-1} autoComplete="off" aria-hidden="true" />
+        <div className="fld"><label>Student's name</label><input required name="studentName" placeholder="Full name" disabled={busy} /></div>
+        <div className="fld"><label>Grade applying for</label><input required name="grade" placeholder="e.g. Grade I" disabled={busy} /></div>
+        <div className="fld"><label>Parent's phone</label><input required name="phone" placeholder="Mobile number" disabled={busy} /></div>
+        {status === "success" ? (
+          <p className="form-status form-status--ok">✓ Thank you! Our Admissions Office will get back to you shortly.</p>
+        ) : (
+          <>
+            <button type="submit" className="btn btn--green btn--lg" disabled={status === "sending"} style={{ width: "100%" }}>
+              {status === "sending" ? "Sending…" : "Submit Enquiry →"}
+            </button>
+            {status === "error" && <p className="form-status form-status--err">Something went wrong — please call us at {PHONES[0]} instead.</p>}
+            <p className="band__note band__note--dark" style={{ marginTop: ".7rem" }}>Your details go straight to our Admissions Office.</p>
+          </>
+        )}
       </form>
     </div>
   );

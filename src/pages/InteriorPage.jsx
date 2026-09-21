@@ -6,6 +6,7 @@ import { CONTENT } from "../data/content.js";
 import { TESTIMONIALS } from "../data/home.js";
 import { img, slug, cx } from "../lib/assets.js";
 import { ENQUIRY_URL, PHONES } from "../data/site.js";
+import { useFormSubmit } from "../lib/useFormSubmit.js";
 
 /* ---- individual block renderers ---- */
 
@@ -346,30 +347,51 @@ const Jobs = ({ b }) => (
 );
 
 function CareerForm() {
-  const [form, setForm] = useState({ name: "", email: "", phone: "", position: "", experience: "", linkedin: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", position: "", experience: "", linkedin: "", message: "", company: "" });
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
+  const { status, submit } = useFormSubmit("career");
+  const busy = status === "sending" || status === "success";
   const onSubmit = (e) => {
     e.preventDefault();
-    const subject = encodeURIComponent("Job Application — " + (form.position || "General"));
-    const body = encodeURIComponent(
-      `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nPosition: ${form.position}\nExperience: ${form.experience}\nLinkedIn / portfolio: ${form.linkedin}\n\n${form.message}`
-    );
-    window.location.href = `mailto:career@delhiworldpublicschool.co.in?subject=${subject}&body=${body}`;
+    submit({
+      name: form.name,
+      email: form.email,
+      fields: {
+        "Full name": form.name,
+        "Email address": form.email,
+        "Phone number": form.phone,
+        "Position applying for": form.position,
+        "Years of experience": form.experience,
+        "LinkedIn / portfolio": form.linkedin,
+        "Cover message": form.message,
+      },
+      honeypot: form.company,
+    });
   };
   return (
     <form id="career-form" className="formcard" onSubmit={onSubmit}>
       <h3 style={{ marginTop: 0 }}>Career Application Form</h3>
+      <input className="hp" type="text" tabIndex={-1} autoComplete="off" aria-hidden="true" value={form.company} onChange={set("company")} />
       <div className="grid grid--2" style={{ gap: "1rem" }}>
-        <div className="fld"><label>Full name</label><input required value={form.name} onChange={set("name")} placeholder="Your name" /></div>
-        <div className="fld"><label>Email address</label><input required type="email" value={form.email} onChange={set("email")} placeholder="you@example.com" /></div>
-        <div className="fld"><label>Phone number</label><input required value={form.phone} onChange={set("phone")} placeholder="Mobile number" /></div>
-        <div className="fld"><label>Position applying for</label><input required value={form.position} onChange={set("position")} placeholder="e.g. PRT / TGT / PGT" /></div>
-        <div className="fld"><label>Years of experience</label><input value={form.experience} onChange={set("experience")} placeholder="e.g. 3 years" /></div>
-        <div className="fld"><label>LinkedIn / portfolio link</label><input value={form.linkedin} onChange={set("linkedin")} placeholder="Optional" /></div>
+        <div className="fld"><label>Full name</label><input required value={form.name} onChange={set("name")} placeholder="Your name" disabled={busy} /></div>
+        <div className="fld"><label>Email address</label><input required type="email" value={form.email} onChange={set("email")} placeholder="you@example.com" disabled={busy} /></div>
+        <div className="fld"><label>Phone number</label><input required value={form.phone} onChange={set("phone")} placeholder="Mobile number" disabled={busy} /></div>
+        <div className="fld"><label>Position applying for</label><input required value={form.position} onChange={set("position")} placeholder="e.g. PRT / TGT / PGT" disabled={busy} /></div>
+        <div className="fld"><label>Years of experience</label><input value={form.experience} onChange={set("experience")} placeholder="e.g. 3 years" disabled={busy} /></div>
+        <div className="fld"><label>LinkedIn / portfolio link</label><input value={form.linkedin} onChange={set("linkedin")} placeholder="Optional" disabled={busy} /></div>
       </div>
-      <div className="fld"><label>Cover message</label><textarea value={form.message} onChange={set("message")} placeholder="Tell us why you'd be a good fit" /></div>
-      <button type="submit" className="btn btn--green btn--lg" style={{ width: "100%" }}>Submit Application →</button>
-      <p className="band__note band__note--dark" style={{ marginTop: ".8rem" }}>Submitting opens your email client with these details pre-filled, addressed to career@delhiworldpublicschool.co.in.</p>
+      <div className="fld"><label>Cover message</label><textarea value={form.message} onChange={set("message")} placeholder="Tell us why you'd be a good fit" disabled={busy} /></div>
+      {status === "success" ? (
+        <p className="form-status form-status--ok">✓ Thank you! Your application has been sent to our HR team.</p>
+      ) : (
+        <>
+          <button type="submit" className="btn btn--green btn--lg" disabled={status === "sending"} style={{ width: "100%" }}>
+            {status === "sending" ? "Sending…" : "Submit Application →"}
+          </button>
+          {status === "error" && <p className="form-status form-status--err">Something went wrong — please email career@delhiworldpublicschool.co.in directly instead.</p>}
+          <p className="band__note band__note--dark" style={{ marginTop: ".8rem" }}>Submitting sends these details straight to career@delhiworldpublicschool.co.in.</p>
+        </>
+      )}
     </form>
   );
 }
@@ -404,6 +426,22 @@ function Gallery({ b }) {
 const Note = ({ b }) => <p className="band__note band__note--dark">{b.text}</p>;
 
 function Enquiry() {
+  const { status, submit } = useFormSubmit("admissions-enquiry");
+  const busy = status === "sending" || status === "success";
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const f = new FormData(e.currentTarget);
+    submit({
+      name: f.get("studentName"),
+      fields: {
+        "Student's name": f.get("studentName"),
+        "Grade applying for": f.get("grade"),
+        "Parent's phone": f.get("phone"),
+        "Message": f.get("message"),
+      },
+      honeypot: f.get("company"),
+    });
+  };
   return (
     <div className="grid grid--2" style={{ alignItems: "center" }}>
       <div className="prose">
@@ -411,19 +449,47 @@ function Enquiry() {
         <p>Submit the form and our Admissions Office will get in touch. Prefer to talk? Call {PHONES[0]} or {PHONES[1]}.</p>
         <a href={ENQUIRY_URL} target="_blank" rel="noopener noreferrer" className="btn btn--gold btn--lg">Open Enquiry Form</a>
       </div>
-      <form className="formcard" onSubmit={(e) => { e.preventDefault(); window.open(ENQUIRY_URL, "_blank", "noopener,noreferrer"); }}>
-        <div className="fld"><label>Student's name</label><input required placeholder="Full name" /></div>
-        <div className="fld"><label>Grade applying for</label><input required placeholder="e.g. Grade I" /></div>
-        <div className="fld"><label>Parent's phone</label><input required placeholder="Mobile number" /></div>
-        <div className="fld"><label>Message</label><textarea placeholder="Anything you'd like us to know" /></div>
-        <button type="submit" className="btn btn--green btn--lg" style={{ width: "100%" }}>Submit Enquiry →</button>
-        <p className="band__note band__note--dark" style={{ marginTop: ".8rem" }}>This form links to the official enquiry portal.</p>
+      <form className="formcard" onSubmit={onSubmit}>
+        <input className="hp" type="text" name="company" tabIndex={-1} autoComplete="off" aria-hidden="true" />
+        <div className="fld"><label>Student's name</label><input required name="studentName" placeholder="Full name" disabled={busy} /></div>
+        <div className="fld"><label>Grade applying for</label><input required name="grade" placeholder="e.g. Grade I" disabled={busy} /></div>
+        <div className="fld"><label>Parent's phone</label><input required name="phone" placeholder="Mobile number" disabled={busy} /></div>
+        <div className="fld"><label>Message</label><textarea name="message" placeholder="Anything you'd like us to know" disabled={busy} /></div>
+        {status === "success" ? (
+          <p className="form-status form-status--ok">✓ Thank you! Our Admissions Office will get back to you shortly.</p>
+        ) : (
+          <>
+            <button type="submit" className="btn btn--green btn--lg" disabled={status === "sending"} style={{ width: "100%" }}>
+              {status === "sending" ? "Sending…" : "Submit Enquiry →"}
+            </button>
+            {status === "error" && <p className="form-status form-status--err">Something went wrong — please call us at {PHONES[0]} instead.</p>}
+            <p className="band__note band__note--dark" style={{ marginTop: ".8rem" }}>Your details go straight to our Admissions Office.</p>
+          </>
+        )}
       </form>
     </div>
   );
 }
 
 function Contact() {
+  const { status, submit } = useFormSubmit("contact");
+  const busy = status === "sending" || status === "success";
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const f = new FormData(e.currentTarget);
+    submit({
+      name: f.get("name"),
+      email: f.get("email"),
+      fields: {
+        "Full name": f.get("name"),
+        "Email address": f.get("email"),
+        "Phone number": f.get("phone"),
+        "Subject": f.get("subject"),
+        "Message": f.get("message"),
+      },
+      honeypot: f.get("company"),
+    });
+  };
   return (
     <div className="grid grid--2" style={{ alignItems: "start", gap: "3rem" }}>
       <div>
@@ -441,15 +507,25 @@ function Contact() {
             loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
         </div>
       </div>
-      <form className="formcard" onSubmit={(e) => { e.preventDefault(); window.open(ENQUIRY_URL, "_blank", "noopener,noreferrer"); }}>
+      <form className="formcard" onSubmit={onSubmit}>
         <h3 style={{ marginTop: 0 }}>Send us a message</h3>
-        <div className="fld"><label>Full name</label><input required placeholder="Your name" /></div>
-        <div className="fld"><label>Email address</label><input required type="email" placeholder="you@example.com" /></div>
-        <div className="fld"><label>Phone number</label><input required placeholder="Mobile number" /></div>
-        <div className="fld"><label>Subject</label><input placeholder="What is this regarding?" /></div>
-        <div className="fld"><label>Message</label><textarea placeholder="Tell us how we can help" /></div>
-        <button type="submit" className="btn btn--green btn--lg" style={{ width: "100%" }}>Submit Enquiry →</button>
-        <p className="band__note band__note--dark" style={{ marginTop: ".8rem" }}>This form links to our official enquiry portal.</p>
+        <input className="hp" type="text" name="company" tabIndex={-1} autoComplete="off" aria-hidden="true" />
+        <div className="fld"><label>Full name</label><input required name="name" placeholder="Your name" disabled={busy} /></div>
+        <div className="fld"><label>Email address</label><input required type="email" name="email" placeholder="you@example.com" disabled={busy} /></div>
+        <div className="fld"><label>Phone number</label><input required name="phone" placeholder="Mobile number" disabled={busy} /></div>
+        <div className="fld"><label>Subject</label><input name="subject" placeholder="What is this regarding?" disabled={busy} /></div>
+        <div className="fld"><label>Message</label><textarea name="message" placeholder="Tell us how we can help" disabled={busy} /></div>
+        {status === "success" ? (
+          <p className="form-status form-status--ok">✓ Thank you! We'll get back to you shortly.</p>
+        ) : (
+          <>
+            <button type="submit" className="btn btn--green btn--lg" disabled={status === "sending"} style={{ width: "100%" }}>
+              {status === "sending" ? "Sending…" : "Submit Enquiry →"}
+            </button>
+            {status === "error" && <p className="form-status form-status--err">Something went wrong — please call us at {PHONES[0]} instead.</p>}
+            <p className="band__note band__note--dark" style={{ marginTop: ".8rem" }}>Your message goes straight to our office.</p>
+          </>
+        )}
       </form>
     </div>
   );

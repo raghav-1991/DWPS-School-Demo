@@ -469,6 +469,13 @@ body{margin:0;}
 .formcard label{display:block;font-size:.78rem;font-weight:600;color:var(--ink);margin-bottom:.35rem;}
 .formcard input,.formcard textarea{width:100%;border:1px solid var(--hair);border-radius:9px;padding:.7rem .9rem;font-family:inherit;font-size:.95rem;background:var(--paper);}
 .formcard textarea{min-height:110px;resize:vertical;}
+.formcard button[disabled]{opacity:.65;cursor:not-allowed;}
+/* Spam-trap field: present in the DOM for bots that fill in every input, invisible and unreachable
+   (off-screen, not tab-focusable) for real visitors. */
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
+.form-status{margin-top:.8rem;font-size:.88rem;font-weight:600;display:flex;align-items:center;gap:.5rem;}
+.form-status--ok{color:var(--green);}
+.form-status--err{color:#E5484D;}
 
 /* ---- responsive ---- */
 @media (max-width:1120px){
