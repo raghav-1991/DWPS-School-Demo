@@ -427,7 +427,7 @@ body{margin:0;}
 .acc__a p{margin:0;padding:0 1.3rem 1.2rem;color:var(--slate);line-height:1.6;font-size:.96rem;}
 
 .dltable{border:1px solid var(--hair);border-radius:var(--radius);overflow:hidden;background:#fff;}
-.dlrow{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:1rem;align-items:center;padding:1rem 1.3rem;border-bottom:1px solid var(--hair);font-size:.92rem;}
+.dlrow{display:grid;grid-template-columns:var(--dl-cols, 2fr 1fr 1fr auto);gap:1rem;align-items:center;padding:1rem 1.3rem;border-bottom:1px solid var(--hair);font-size:.92rem;}
 .dlrow:last-child{border-bottom:none;}
 .dlrow--head{background:var(--paper2);font-family:'Inter',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--slate);}
 .dlrow b{font-family:'Inter',sans-serif;color:var(--ink);font-weight:600;}
@@ -474,6 +474,14 @@ body{margin:0;}
 @media (max-width:1120px){
   .hdr__nav{display:none;} .hamb{display:inline-flex;}
   .hdr__social{display:none;}
+  /* .hdr__nav normally supplies the margin-left:auto that pushes the header's right-hand actions to
+     the edge; once it's hidden for the hamburger menu, .hdr__actions has to take over that job itself. */
+  .hdr__actions{margin-left:auto;}
+  /* The hero background is an ultra-wide (~3.3:1) banner video. At 86vh it fills almost the whole
+     screen on a portrait phone/tablet, forcing object-fit:cover to crop away most of its width to
+     cover that tall, narrow box — a small, heavily zoomed-in sliver instead of the actual footage.
+     A shorter, content-driven height keeps far more of the frame visible. */
+  .hero{min-height:clamp(420px,58vh,640px);}
   .logo__full{height:72px;} .logo--compact .logo__full{height:72px;}
   .grid--3,.grid--4{grid-template-columns:repeat(2,1fr);}
   .why__grid,.achrow{grid-template-columns:repeat(2,1fr);}
@@ -496,19 +504,31 @@ body{margin:0;}
 @media (max-width:640px){
   .dwps{--pad-x:20px;--pad-y:18px;--gap:1rem;}
   .xbox{flex-basis:100%;}
-  .hdr__enq{font-size:.72rem;padding:.55rem .8rem;}
+  /* Narrower still than the 1120px step above — phones are the most portrait-heavy case, so the
+     floor drops low enough that the hero's own content (title/sub/CTA) sets the real height rather
+     than the viewport, keeping the crop on that wide banner video as gentle as possible. */
+  .hero{min-height:clamp(380px,54vh,480px);}
+  .hero__inner{padding-left:30px;padding-right:30px;padding-top:40px;}
+  /* The base clamp's floor (2.3rem) stops shrinking once the fluid part drops below it, so on phones
+     the title sits at a fixed 36.8px regardless of how narrow the screen gets — too large for the
+     narrowest devices. This gives it room to keep scaling down through the phone range. */
+  .hero__title{font-size:clamp(1.7rem,8vw,2.4rem);}
+  /* Dropped rather than shrunk: at phone widths it doesn't fit next to the logo + hamburger without
+     crowding, and the same "Enquire" action is already one tap away in the mobile menu and the
+     bottom sticky bar. */
+  .hdr__enq{display:none;}
   .modal{padding:14px;}
   .modal .formcard{padding:1.3rem;}
   .sechead{grid-template-columns:1fr;}
   .sechead__aside{grid-column:1;text-align:left;max-width:none;}
   .sechead .link{grid-column:1;justify-self:start;margin-top:.4rem;}
-  .logo__full{height:48px;} .logo--compact .logo__full{height:48px;}
+  .logo__full{height:42px;} .logo--compact .logo__full{height:42px;}
   .fac__inner{padding:1.8rem 20px;}
   .facilities--campus .fac__inner{padding:1.3rem 20px;}
   .fac__bullets{grid-template-columns:1fr;}
   .mgrid{grid-template-columns:repeat(2,1fr);}
   .dlgrid{grid-template-columns:1fr;}
-  .hdr__inner{padding:.6rem 18px 0;}
+  .hdr__inner{padding:.6rem 18px 0;gap:.6rem;}
   .hero__scroll{display:none;}
   .hdr__adm{font-size:.72rem;padding:.5rem .7rem;}
   .grid--2,.grid--3,.grid--4,.ft__top,.why__grid,.achrow{grid-template-columns:1fr;}
@@ -521,7 +541,14 @@ body{margin:0;}
   .explore-rail{grid-auto-columns:78vw;}
   .explore-arrow{display:none;}
   .phero{padding:72px 20px 32px;}
-  .dlrow{grid-template-columns:1fr auto;gap:.5rem 1rem;}
-  .dlrow .tag,.dlrow--head span:nth-child(2),.dlrow--head span:nth-child(3){display:none;}
+  /* Below 640px a grid of N narrow columns reads poorly, so rows stack as label:value pairs instead
+     (the header row is redundant once every cell carries its own label via data-th) and the .tag chip,
+     when present, drops its own inline label since it already sits directly under a visible one. */
+  .dlrow--head{display:none;}
+  .dltable{border-radius:12px;}
+  .dlrow{grid-template-columns:1fr;gap:.4rem;padding:.9rem 1.1rem;}
+  .dlrow>*{display:flex;justify-content:space-between;align-items:baseline;gap:.8rem;text-align:right;}
+  .dlrow>*::before{content:attr(data-th);flex:none;font-family:'Inter',sans-serif;font-weight:700;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);text-align:left;}
+  .dlrow .tag{display:inline-block;}
   .step{grid-template-columns:1fr;}
 }

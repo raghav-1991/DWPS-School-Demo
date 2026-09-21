@@ -208,14 +208,18 @@ function Faqs({ b }) {
   );
 }
 
+/* Column count set once via a custom property (inherited by every .dlrow, header included) rather than
+   an inline grid-template-columns per row — so the mobile @media override in global.css can still win. */
 const DownloadsLike = ({ b }) => (
   <>
     {b.title && <SectionHead eyebrow="Reference" title={b.title} />}
-    <div className="dltable">
+    <div className="dltable" style={{ "--dl-cols": `repeat(${b.head.length}, 1fr)` }}>
       <div className="dlrow dlrow--head">{b.head.map((h) => <span key={h}>{h}</span>)}</div>
       {b.rows.map((r, i) => (
-        <div key={i} className="dlrow" style={{ gridTemplateColumns: `repeat(${r.length}, 1fr)` }}>
-          {r.map((c, j) => j === 0 ? <b key={j}>{c}</b> : <span key={j}>{c}</span>)}
+        <div key={i} className="dlrow">
+          {r.map((c, j) => j === 0
+            ? <b key={j} data-th={b.head[j]}>{c}</b>
+            : <span key={j} data-th={b.head[j]}>{c}</span>)}
         </div>
       ))}
     </div>
