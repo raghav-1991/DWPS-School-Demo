@@ -1,20 +1,15 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import { Band, SectionHead, Eyebrow, Arrow, Media, CTASection, Testimonials, Lightbox, useLightbox } from "../components/ui.jsx";
 import { img, slug } from "../lib/assets.js";
 import {
-  HERO_SLIDES, WHY_CHOOSE, EXPLORE,
+  WHY_CHOOSE, EXPLORE,
   GALLERY, TESTIMONIALS,
 } from "../data/home.js";
 
+// Video-only hero: no title/kicker/CTA text overlay, so there's nothing left to slide between —
+// just the looping background clip.
 function Hero() {
-  const [i, setI] = useState(0);
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const t = setInterval(() => setI((p) => (p + 1) % HERO_SLIDES.length), 6000);
-    return () => clearInterval(t);
-  }, []);
-  const s = HERO_SLIDES[i];
   return (
     <section className="hero" aria-label="Welcome to Delhi World Public School">
       <div className="hero__bg is-active">
@@ -33,21 +28,6 @@ function Hero() {
         <div className="hero__grid-overlay" />
       </div>
       <div className="hero__scrim" />
-      <div className="hero__inner">
-        <p className="hero__kicker">Delhi World Public School</p>
-        <h1 className="hero__title">{s.title.split("\n").map((l, k) => <span key={k}>{l}<br/></span>)}</h1>
-        <p className="hero__sub">An environment where academic excellence meets creativity, confidence, character and future-ready learning.</p>
-        <div className="hero__cta">
-          <a href="#explore" className="btn btn--gold btn--lg">Explore DWPS</a>
-          <Link to="/admissions" className="btn btn--outline btn--lg">Admissions Open 2027–28</Link>
-        </div>
-        <div className="hero__dots">
-          {HERO_SLIDES.map((sl, idx) => (
-            <button key={idx} className={"hero__dot" + (idx === i ? " is-on" : "")} aria-label={"Slide: " + sl.theme} onClick={() => setI(idx)}><span>{sl.theme}</span></button>
-          ))}
-        </div>
-      </div>
-      <div className="hero__scroll"><span /> Scroll</div>
     </section>
   );
 }
