@@ -473,6 +473,13 @@ body{margin:0;}
 .formcard input,.formcard textarea{width:100%;border:1px solid var(--hair);border-radius:9px;padding:.7rem .9rem;font-family:inherit;font-size:.95rem;background:var(--paper);}
 .formcard textarea{min-height:110px;resize:vertical;}
 .formcard button[disabled]{opacity:.65;cursor:not-allowed;}
+.formcard input[type="file"]{padding:.55rem .6rem;font-size:.86rem;cursor:pointer;}
+.formcard input[type="file"]::file-selector-button{border:none;border-radius:6px;background:var(--green);color:#fff;font-family:inherit;font-weight:700;font-size:.82rem;padding:.5rem .8rem;margin-right:.7rem;cursor:pointer;}
+.formcard input[type="file"]::file-selector-button:hover{background:var(--green-700);}
+.fld__file-picked{display:flex;align-items:center;justify-content:space-between;gap:.7rem;border:1px solid var(--hair);border-radius:9px;padding:.6rem .9rem;background:var(--paper);font-size:.9rem;}
+.fld__file-picked span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.fld__file-clear{flex:none;border:none;background:none;color:var(--slate);font-size:1rem;line-height:1;cursor:pointer;padding:.2rem;}
+.fld__file-clear:hover{color:#E5484D;}
 /* Spam-trap field: present in the DOM for bots that fill in every input, invisible and unreachable
    (off-screen, not tab-focusable) for real visitors. */
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}

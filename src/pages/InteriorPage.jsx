@@ -6,7 +6,7 @@ import { CONTENT } from "../data/content.js";
 import { TESTIMONIALS } from "../data/home.js";
 import { img, slug, cx } from "../lib/assets.js";
 import { ENQUIRY_URL, PHONES } from "../data/site.js";
-import { useFormSubmit } from "../lib/useFormSubmit.js";
+import { useFormSubmit, fileToAttachment, ATTACHMENT_ACCEPT } from "../lib/useFormSubmit.js";
 
 /* ---- individual block renderers ---- */
 
@@ -351,6 +351,26 @@ function CareerForm() {
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
   const { status, submit } = useFormSubmit("career");
   const busy = status === "sending" || status === "success";
+
+  const [resume, setResume] = useState(null); // { filename, contentBase64 } once read, else null
+  const [resumeError, setResumeError] = useState("");
+  const [resumeBusy, setResumeBusy] = useState(false);
+  const onResumeChange = async (e) => {
+    const file = e.target.files?.[0];
+    e.target.value = ""; // let the same file be re-picked after an error, without needing a different name
+    if (!file) return;
+    setResumeError("");
+    setResumeBusy(true);
+    try {
+      setResume(await fileToAttachment(file));
+    } catch (err) {
+      setResume(null);
+      setResumeError(err.message);
+    } finally {
+      setResumeBusy(false);
+    }
+  };
+
   const onSubmit = (e) => {
     e.preventDefault();
     submit({
@@ -366,6 +386,7 @@ function CareerForm() {
         "Cover message": form.message,
       },
       honeypot: form.company,
+      attachment: resume || undefined,
     });
   };
   return (
@@ -381,6 +402,19 @@ function CareerForm() {
         <div className="fld"><label>LinkedIn / portfolio link</label><input value={form.linkedin} onChange={set("linkedin")} placeholder="Optional" disabled={busy} /></div>
       </div>
       <div className="fld"><label>Cover message</label><textarea value={form.message} onChange={set("message")} placeholder="Tell us why you'd be a good fit" disabled={busy} /></div>
+      <div className="fld">
+        <label>Resume / CV <span style={{ fontWeight: 400, color: "var(--slate)" }}>(optional, 4MB max)</span></label>
+        {resume ? (
+          <div className="fld__file-picked">
+            <span>📎 {resume.filename}</span>
+            <button type="button" className="fld__file-clear" onClick={() => { setResume(null); setResumeError(""); }} disabled={busy} aria-label="Remove selected file">✕</button>
+          </div>
+        ) : (
+          <input type="file" accept={ATTACHMENT_ACCEPT} onChange={onResumeChange} disabled={busy || resumeBusy} />
+        )}
+        {resumeBusy && <p className="form-status">Reading file…</p>}
+        {resumeError && <p className="form-status form-status--err">{resumeError}</p>}
+      </div>
       {status === "success" ? (
         <p className="form-status form-status--ok">✓ Thank you! Your application has been sent to our HR team.</p>
       ) : (
@@ -388,8 +422,8 @@ function CareerForm() {
           <button type="submit" className="btn btn--green btn--lg" disabled={status === "sending"} style={{ width: "100%" }}>
             {status === "sending" ? "Sending…" : "Submit Application →"}
           </button>
-          {status === "error" && <p className="form-status form-status--err">Something went wrong — please email career@delhiworldpublicschool.co.in directly instead.</p>}
-          <p className="band__note band__note--dark" style={{ marginTop: ".8rem" }}>Submitting sends these details straight to career@delhiworldpublicschool.co.in.</p>
+          {status === "error" && <p className="form-status form-status--err">Something went wrong — please email info@delhiworldpublicschool.in directly instead.</p>}
+          <p className="band__note band__note--dark" style={{ marginTop: ".8rem" }}>Submitting sends these details straight to info@delhiworldpublicschool.in.</p>
         </>
       )}
     </form>
@@ -496,7 +530,7 @@ function Contact() {
         <dl className="contact__list">
           <div><dt>Address</dt><dd>Delhi World Public School, Tippenahalli, Bengaluru, Karnataka 560073</dd></div>
           <div><dt>Phone</dt><dd><a href={"tel:" + PHONES[0]}>{PHONES[0]}</a> · <a href={"tel:" + PHONES[1]}>{PHONES[1]}</a></dd></div>
-          <div><dt>Email</dt><dd>info@delhiworldpublicschool.co.in <em>(also: dpwstumkurroad@gmail.com)</em></dd></div>
+          <div><dt>Email</dt><dd><a href="mailto:info@delhiworldpublicschool.in">info@delhiworldpublicschool.in</a>, <a href="mailto:info@delhiworldpublicschool.co.in">info@delhiworldpublicschool.co.in</a></dd></div>
           <div><dt>Office hours</dt><dd>Mon–Sat, 8:00 – 16:00</dd></div>
         </dl>
         <div className="frame" style={{ aspectRatio: "4 / 3" }}>

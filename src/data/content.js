@@ -1352,7 +1352,7 @@ export const CONTENT = {
     "eyebrow": "Sports Day",
     "title": "Moments from Sports Day",
     "equal": true,
-    "items": ["sports-day-gallery-01.jpg", "sports-day-gallery-02.jpg", "sports-day-gallery-03.jpg", "sports-day-gallery-04.jpg", "sports-day-gallery-05.jpg", "sports-day-gallery-06.jpg", "sports-day-gallery-07.jpg", "sports-day-gallery-08.jpg", "sports-day-gallery-09.jpg", "sports-day-gallery-10.jpg", "sports-day-gallery-11.jpg", "sports-day-gallery-12.jpg", "sports-day-gallery-13.jpg", "sports-day-gallery-14.jpg", "sports-day-gallery-15.jpg", "sports-day-gallery-16.jpg", "sports-day-gallery-17.jpg", "sports-day-gallery-18.jpg", "sports-day-gallery-19.jpg", "sports-day-gallery-20.jpg", "sports-day-gallery-21.jpg", "sports-day-gallery-22.jpg", "sports-day-gallery-23.jpg", "sports-day-gallery-24.jpg", "sports-day-gallery-25.jpg", "sports-day-gallery-26.jpg", "sports-day-gallery-27.jpg", "sports-day-gallery-28.jpg", "sports-day-gallery-29.jpg", "sports-day-gallery-30.jpg", "sports-day-gallery-31.jpg", "sports-day-gallery-32.jpg", "sports-day-gallery-33.jpg", "sports-day-gallery-34.jpg", "sports-day-gallery-35.jpg", "sports-day-gallery-36.jpg", "sports-day-gallery-37.jpg", "sports-day-gallery-38.jpg", "sports-day-gallery-39.jpg", "sports-day-gallery-40.jpg"]
+    "items": ["sports-day-gallery-01.jpg", "sports-day-gallery-02.jpg", "sports-day-gallery-03.jpg", "sports-day-gallery-04.jpg", "sports-day-gallery-05.jpg", "sports-day-gallery-06.jpg", "sports-day-gallery-07.jpg", "sports-day-gallery-08.jpg", "sports-day-gallery-09.jpg", "sports-day-gallery-10.jpg", "sports-day-gallery-11.jpg", "sports-day-gallery-12.jpg", "sports-day-gallery-13.jpg", "sports-day-gallery-14.jpg", "sports-day-gallery-15.jpg", "sports-day-gallery-16.jpg", "sports-day-gallery-17.jpg", "sports-day-gallery-18.jpg", "sports-day-gallery-19.jpg", "sports-day-gallery-20.jpg", "sports-day-gallery-21.jpg", "sports-day-gallery-22.jpg", "sports-day-gallery-23.jpg", "sports-day-gallery-24.jpg", "sports-day-gallery-25.jpg", "sports-day-gallery-26.jpg", "sports-day-gallery-27.jpg", "sports-day-gallery-28.jpg", "sports-day-gallery-29.jpg", "sports-day-gallery-30.jpg", "sports-day-gallery-31.jpg", "sports-day-gallery-32.jpg", "sports-day-gallery-33.jpg", "sports-day-gallery-34.jpg", "sports-day-gallery-35.jpg", "sports-day-gallery-36.jpg", "sports-day-gallery-37.jpg", "sports-day-gallery-38.jpg", "sports-day-gallery-39.jpg", "sports-day-gallery-40.jpg", "sports-day-gallery-41.jpg", "sports-day-gallery-42.jpg", "sports-day-gallery-43.jpg", "sports-day-gallery-44.jpg", "sports-day-gallery-45.jpg", "sports-day-gallery-46.jpg", "sports-day-gallery-47.jpg", "sports-day-gallery-48.jpg", "sports-day-gallery-49.jpg", "sports-day-gallery-50.jpg", "sports-day-gallery-51.jpg", "sports-day-gallery-52.jpg"]
    },
    {
     "type": "cta"
@@ -1545,13 +1545,13 @@ export const CONTENT = {
     "items": [
      {
       "role": "Secondary Teachers",
-      "dept": "Geography, History, Mathematics or Physics · PG, 3+ yrs experience",
+      "dept": "Geography, History, Mathematics, Physics, Chemistry or AI · PG, 3+ yrs experience",
       "loc": "Campus",
       "type": "Full-time"
      },
      {
       "role": "Primary Teachers",
-      "dept": "English, Mathematics or Computer Science · Graduate, 3+ yrs experience",
+      "dept": "English, Mathematics, Computer Science, Kannada, Hindi, Sanskrit or Art · Graduate, 3+ yrs experience",
       "loc": "Campus",
       "type": "Full-time"
      },
@@ -1562,7 +1562,7 @@ export const CONTENT = {
       "type": "Full-time"
      },
      {
-      "role": "Music Teachers",
+      "role": "Music, Dance, Clay Teachers",
       "dept": "Vocal music — English, Hindi and Kannada",
       "loc": "Campus",
       "type": "Part-time"
@@ -1583,7 +1583,7 @@ export const CONTENT = {
    },
    {
     "type": "note",
-    "text": "Interested candidates can email their resume to career@delhiworldpublicschool.co.in or call 9611360631 / 9611457761."
+    "text": "Interested candidates can email their resume to info@delhiworldpublicschool.in or call 9611360631 / 9611457761."
    },
    {
     "type": "career"
