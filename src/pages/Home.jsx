@@ -16,7 +16,7 @@ function Hero() {
         <div className="hero__placeholder" />
         <video
           className="hero__img"
-          src="/videos/DWPS-Video.mp4"
+          src="/videos/Dwps-Home-Page-Video.mp4"
           autoPlay
           muted
           loop
