@@ -1545,13 +1545,13 @@ export const CONTENT = {
     "items": [
      {
       "role": "Secondary Teachers",
-      "dept": "Geography, History, Mathematics, Physics, Chemistry or AI · PG, 3+ yrs experience",
+      "dept": "Geography, History, Mathematics, Physics, Chemistry, AI · PG, 3+ yrs experience",
       "loc": "Campus",
       "type": "Full-time"
      },
      {
       "role": "Primary Teachers",
-      "dept": "English, Mathematics, Computer Science, Kannada, Hindi, Sanskrit or Art · Graduate, 3+ yrs experience",
+      "dept": "English, Mathematics, Computer Science, Kannada, Hindi, Sanskrit , Art · Graduate, 3+ yrs experience",
       "loc": "Campus",
       "type": "Full-time"
      },
