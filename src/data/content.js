@@ -1489,7 +1489,7 @@ export const CONTENT = {
     "eyebrow": "Achievements",
     "title": "Our Student Achievements",
     "equal": true,
-    "items": ["achievements-gallery-01.jpg", "achievements-gallery-02.jpg", "achievements-gallery-03.jpg", "achievements-gallery-04.jpg", "achievements-gallery-05.jpg", "achievements-gallery-06.jpg", "achievements-gallery-07.jpg", "achievements-gallery-08.jpg", "achievements-gallery-09.jpg", "achievements-gallery-10.jpg", "achievements-gallery-11.jpg", "achievements-gallery-12.jpg"],
+    "items": ["achievements-gallery-01.jpg", "achievements-gallery-02.jpg", "achievements-gallery-03.jpg", "achievements-gallery-04.jpg", "achievements-gallery-05.jpg", "achievements-gallery-06.jpg", "achievements-gallery-07.jpg", "achievements-gallery-08.jpg", "achievements-gallery-09.jpg", "achievements-gallery-10.jpg", "achievements-gallery-11.jpg", "achievements-gallery-12.jpg", "achievements-gallery-13.jpg", "achievements-gallery-14.jpg", "achievements-gallery-15.jpg", "achievements-gallery-16.jpg", "achievements-gallery-17.jpg", "achievements-gallery-18.jpg", "achievements-gallery-19.jpg"],
     "focus": {
      "achievements-gallery-04.jpg": "50% 37%",
      "achievements-gallery-10.jpg": "50% 42%"

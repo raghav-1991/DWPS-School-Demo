@@ -31,7 +31,7 @@ const SocialIcon = ({ name }) => (
 
 const Logo = ({ compact }) => (
   <Link to="/" className={cx("logo", compact && "logo--compact")} aria-label="Delhi World Public School — home">
-    <img className="logo__full" src="/dwps-logo.png"
+    <img className="logo__full" src="/dwps-logo.svg"
       alt="Delhi World Public School — under the aegis of Delhi World Foundation, CBSE affiliation no. 831712" />
     <img className="logo__crest" src="/dwps-crest.png" alt="Delhi World Public School crest" />
   </Link>
