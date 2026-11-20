@@ -117,14 +117,16 @@ export const CONTENT = {
     "type": "prose",
     "heading": "Vision",
     "paras": [
-     "At Delhi World Public School, our vision is to provide modern, high-quality education rooted in Indian values and enriched with a global outlook — developing confident young minds who become responsible citizens contributing meaningfully to society."
+     "Delhi World Public Schools are committed to provide state-of-the-art education, incorporating Indian values and world culture aiming to create global citizens as torch bearers of a resurgent India."
     ]
    },
    {
     "type": "prose",
     "heading": "Mission",
     "paras": [
-     "Our mission is to spark curiosity and encourage children to explore, question, and discover. Learning extends beyond classrooms into labs, libraries and activity spaces, fostering independent thinking, strong values and life readiness."
+     "Delhi World Public Schools aim to instill in each child a sense of inquisitiveness and exploration, and an urge for experimentation, observation and synthesis.",
+     "We Endeavour to free the learning process from the confines of the four walls of classrooms and take it further to activity workshops, resources centers, laboratories and library – teaching less for learning more.",
+     "Every child is encouraged to inculcate the values of citizenry; a commitment to good health, high values and sensitivity to the environment. We strive to guide and support each child in their journey from primary to senior school and prepare them for the journey beyond school."
     ]
    },
    {
