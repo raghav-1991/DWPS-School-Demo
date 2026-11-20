@@ -18,7 +18,7 @@ export const CONTENT = {
     "alt": "Delhi World Public School — campus photograph",
     "ratio": "4 / 5",
     "paras": [
-     "Delhi World Public School (DWPS) is part of the prestigious Delhi World Foundation, an initiative led by distinguished alumni of Delhi Public Schools. At DWPS, our vision is to provide modern, high-quality education rooted in Indian values and enriched with a global outlook — developing confident young minds who become responsible citizens contributing meaningfully to society."
+     "Delhi World Public School (DWPS) is part of the prestigious Delhi World Foundation, an initiative led by distinguished alumni of Delhi Public Schools. Delhi World Public Schools are committed to provide state-of-the-art education, incorporating Indian values and world culture aiming to create global citizens as torch bearers of a resurgent India."
     ]
    },
    {
@@ -28,11 +28,11 @@ export const CONTENT = {
     "items": [
      {
       "name": "Vision",
-      "note": "Our vision is to provide modern, high-quality education rooted in Indian values and enriched with a global outlook — developing confident young minds who become responsible citizens contributing meaningfully to society, at every stage from Kindergarten to Secondary."
+      "note": "Delhi World Public Schools are committed to provide state-of-the-art education, incorporating Indian values and world culture aiming to create global citizens as torch bearers of a resurgent India."
      },
      {
       "name": "Mission",
-      "note": "Our mission is to spark curiosity and encourage children to explore, question and discover. Learning extends beyond classrooms into labs, libraries and activity spaces, fostering independent thinking, strong values and genuine readiness for life."
+      "note": "Delhi World Public Schools aim to instill in each child a sense of inquisitiveness and exploration, and an urge for experimentation, observation and synthesis."
      },
      {
       "name": "Core Values",
